@@ -1,10 +1,4 @@
----
-layout: central
-label: About US
-visibility: hidden
----
-
-### Members:
+# Members:
 
 
 
