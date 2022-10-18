@@ -17,5 +17,7 @@ links:
     link: aboutus/aboutus
 footer:
   copyright: "&copy; Copyright . All rights reserved."
+exclude:
+  - "aboutus/"
   
 favicon: logo.png
