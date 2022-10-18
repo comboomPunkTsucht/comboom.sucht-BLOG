@@ -20,5 +20,6 @@ links:
     conAlign: right
 footer:
   copyright: "&copy; Copyright . All rights reserved."
-  
+markdown:
+  lineBreaks: hard 
 
