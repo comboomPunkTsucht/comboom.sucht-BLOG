@@ -1,4 +1,5 @@
 url: https://bit.ly/comboomPunkTsucht-GHP
+favicon: logo.png
 branding:
   colors:
     label:
@@ -15,9 +16,10 @@ links:
     conAlign: right
   - text: About Us
     link: aboutus/aboutus
+    icon: Logo-transparet.PNG
+    conAlign: right
 footer:
   copyright: "&copy; Copyright . All rights reserved."
-exclude:
-  - "aboutus/"
+exclude: { "aboutus/" }
   
-favicon: logo.png
+
