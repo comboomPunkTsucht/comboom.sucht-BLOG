@@ -1,9 +1,3 @@
---
-
-label: Home
-
---
-
-
+# home
 
 # Welcome to comboom.sucht
