@@ -14,7 +14,7 @@ links:
     icon: Logo-transparet.PNG
     conAlign: right
   - text: About Us
-    link: aboutus/aboutus.md
+    link: aboutus/aboutus
 footer:
   copyright: "&copy; Copyright . All rights reserved."
   
