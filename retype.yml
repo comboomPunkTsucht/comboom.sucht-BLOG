@@ -17,10 +17,10 @@ links:
 footer:
   copyright: "&copy; Copyright . All rights reserved."
   link:
-   - text: About Us
-     link: aboutus/aboutus
-     icon: Logo-transparet.PNG
-     conAlign: right
+  - text: About Us
+    link: aboutus/aboutus
+    icon: Logo-transparet.PNG
+    conAlign: right
 markdown:
   lineBreaks: hard 
 
