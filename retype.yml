@@ -15,12 +15,12 @@ links:
     icon: Logo-transparet.PNG
     conAlign: right 
 footer:
-  copyright: "&copy; Copyright . All rights reserved."
   links:
   - text: About Us
     link: aboutus/aboutus
     icon: Logo-transparet.PNG
     conAlign: right
+  copyright: "&copy; Copyright . All rights reserved."
 markdown:
   lineBreaks: hard 
 
