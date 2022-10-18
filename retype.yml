@@ -20,6 +20,5 @@ links:
     conAlign: right
 footer:
   copyright: "&copy; Copyright . All rights reserved."
-exclude: { "aboutus/" }
   
 
