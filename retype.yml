@@ -1,12 +1,19 @@
+input: .
+output: .retype
 url: https://bit.ly/comboomPunkTsucht-GHP
 branding:
   title: comboom.sucht
-  label: the Mgaming Group
+  colors:
+    label: The Mgaming Group
+      text: "#ffffff"
+      background: "#000000"
+    
   logo: Logo-transparet.PNG
   logoDark: Logo-transparet.PNG
 links:
   - text: home
     link: https://bit.ly/comboomPunkTsucht-GHP
+    icon: logo.png
 footer:
   copyright: "&copy; Copyright . All rights reserved."
   
