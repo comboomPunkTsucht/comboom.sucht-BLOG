@@ -1,5 +1,3 @@
-## This is the new official  Homepage of us
-
 ### Members:
 
 |  | Name       | Position |
