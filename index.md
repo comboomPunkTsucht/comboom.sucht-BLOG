@@ -1,6 +1,6 @@
 # Welcome to comboom.sucht
 
-```fish
+```bat
 echo "The Mgaming Group"
 ```
 
