@@ -1,7 +1,7 @@
 # Welcome to comboom.sucht
 
-```
-echo The Mgaming Group
+```fish
+echo "The Mgaming Group"
 ```
 
 
