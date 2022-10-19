@@ -1,8 +1,9 @@
 # Welcome to comboom.sucht
 
-```java
-System.out.print("The Mgaming Group);
+```cpp
+cout <<"The Mgaming Group" << endl;
 ```
+
 
 ---
 
