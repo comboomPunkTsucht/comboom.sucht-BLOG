@@ -1,6 +1,6 @@
 | Platform | comboom.sucht | mcpeaps_HD | BlackDragon |
 | -------- | ------------- | ---------- | ----------- |
-|  Twitter | [!button corners="pill" target="blank" size="l" text="comboom.sucht on Twitter"](https://bit.ly/cbpstwitter) | [!button corners="pill" target="blank" size="l" text="mcpeaps_HD on Twitter"](https://twitter.com/mcpeaps_hd) | [!button corners="pill" target="blank" size="l" text=BlackDragon on Twitter"](https://twitter.com/Adrian37416838) |
+|  Twitter | [!button corners="pill" target="blank" size="l" text="comboom.sucht on Twitter"](https://bit.ly/cbpstwitter) | [!button corners="pill" target="blank" size="l" text="mcpeaps_HD on Twitter"](https://twitter.com/mcpeaps_hd) | [!button corners="pill" target="blank" size="l" text="BlackDragon on Twitter"](https://twitter.com/Adrian37416838) |
 |Instagramm| [!button corners="pill" target="blank" size="l" text="comboom.sucht on Instagramm"](https://bit.ly/cbpsinstagram) | [!button corners="pill" target="blank" size="l" text="mcpeaps_HD on Instagramm"](https://www.instagram.com/mcpeaps_hd/) | [!button corners="pill" target="blank" size="l" text="BlackDragon on Instagramm"](https://www.instagram.com/blackdragon_cbps/) |
 | Guilded | [!button corners="pill" target="blank" size="l" text="comboom.sucht on Guilded"](https://www.guilded.gg/i/keNV5QMp) |        X      |    X       | 
 | Discord  | [!button corners="pill" size="l" target="blank" text="comboom.sucht on Discord"](http://bit.ly/comboompunktsuchtdiscord) |        X      |    X       |
