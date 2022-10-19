@@ -1,7 +1,7 @@
 # Welcome to comboom.sucht
 
 ```cpp
-cout <<"The Mgaming Group" << endl;
+cout << "The Mgaming Group" << endl;
 ```
 
 
