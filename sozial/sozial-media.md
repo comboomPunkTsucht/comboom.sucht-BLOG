@@ -1,8 +1,12 @@
 | Platform | comboom.sucht | mcpeaps_HD | BlackDragon |
 | -------- | ------------- | ---------- | ----------- |
 |  Twitter | [!button corners="pill" target="blank" size="3xl" text="comboom.sucht on Twitter"](https://bit.ly/cbpstwitter) | [!button corners="pill" target="blank" size="3xl" text="mcpeaps_HD on Twitter"](https://twitter.com/mcpeaps_hd) | [!button corners="pill" target="blank" size="3xl" text="BlackDragon on Twitter"](https://twitter.com/Adrian37416838) |
+| -------- | ------------- | ---------- | ----------- |
 |Instagram| [!button corners="pill" target="blank" size="3xl" text="comboom.sucht on Instagram"](https://bit.ly/cbpsinstagram) | [!button corners="pill" target="blank" size="3xl" text="mcpeaps_HD on Instagram"](https://www.instagram.com/mcpeaps_hd/) | [!button corners="pill" target="blank" size="3xl" text="BlackDragon on Instagram"](https://www.instagram.com/blackdragon_cbps/) |
-| Guilded | [!button corners="pill" target="blank" size="3xl" text="comboom.sucht on Guilded"](https://www.guilded.gg/i/keNV5QMp) [!embed](https://www.guilded.gg/canvas_index.html?route=%2Fcanvas%2Fembed%2Fbadge%2FJRXMdZNl) |        :x:      |    :x:       | 
-| Discord  | [!button corners="pill" size="3xl" target="blank" text="comboom.sucht on Discord"](http://bit.ly/comboompunktsuchtdiscord) [!embed](http://canary.discord.com/widget?id=303610228581203978&theme=dark) |        :x:      |    :x:       |
+| -------- | ------------- | ---------- | ----------- |
+| Guilded | [!button corners="pill" target="blank" size="3xl" text="comboom.sucht on Guilded"](https://www.guilded.gg/i/keNV5QMp) | :x: |  :x: | 
+| -------- | ------------- | ---------- | ----------- |
+| Discord  | [!button corners="pill" size="3xl" target="blank" text="comboom.sucht on Discord"](http://bit.ly/comboompunktsuchtdiscord) | :x: | :x: |
+| -------- | ------------- | ---------- | ----------- |
 | Github | [!button corners="pill" target="blank" size="3xl" text="comboom.sucht on Github"](https://bit.ly/cbps_Github) | [!button corners="pill" target="blank" size="3xl" text="mcpeaps_HD on Github"](https://bit.ly/mahd_Github) | [!button corners="pill" target="blank" size="3xl" text="BlackDragon on Github"](https://github.com/orgs/comboomPunkTsucht/people/BlackDragon-Bat) |
-
+| -------- | ------------- | ---------- | ----------- |
