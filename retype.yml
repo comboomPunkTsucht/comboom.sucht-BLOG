@@ -1,6 +1,6 @@
 url: https://bit.ly/comboomPunkTsucht-GHP
-input: .
-favicon: /logo.png
+input: ./
+favicon: ./logo.png
 branding:
   colors:
     label:
