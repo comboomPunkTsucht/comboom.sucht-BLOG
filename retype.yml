@@ -1,6 +1,6 @@
 url: https://bit.ly/comboomPunkTsucht-GHP
-input: ./
-favicon: "https://comboompunktsucht.github.io/comboom.sucht-BLOG/Logo.png"
+input: .
+favicon: /Logo.png
 branding:
   colors:
     label:
