@@ -1,7 +1,7 @@
 # Welcome to
 ![](/Logo-transparet.PNG) 
 
-```bat
+```bat # comboom.sucht
 echo "The Mgaming Group"
 ```
 
