@@ -22,6 +22,9 @@ search:
   mode: full
   noResultsFoundMsg: Error, 404 Not Found!
   placeholder: Search on  comboom.sucht
+snippets:
+  lineNumbers:
+    - *
 footer:
   links:
   - text: About Us
