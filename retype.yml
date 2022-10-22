@@ -13,13 +13,13 @@ branding:
 links:
   - text: home
     link: https://bit.ly/comboomPunkTsucht-GHP
-    icon: Logo-transparet_2.PNG
+    icon:  ":house_with_garden:"
     iconAlign: right 
 footer:
   links:
   - text: About Us
     link: aboutus/
-    icon: Logo-transparet.PNG
+    icon: ":wave:"
     iconAlign: right
   copyright: "&copy; Copyright . All rights reserved."
 markdown:
