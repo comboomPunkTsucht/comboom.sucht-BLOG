@@ -14,6 +14,14 @@ links:
   - text: home
     link: https://bit.ly/comboomPunkTsucht-GHP
     icon:  ":house_with_garden:"
+search:
+  hotkeys:
+    - "s"
+  maxResults: 100
+  minChars: 1
+  mode: full
+  noResultsFoundMsg: Error, 404 Not Found!
+  placeholder: Search on  comboom.sucht
 footer:
   links:
   - text: About Us
