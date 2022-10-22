@@ -14,13 +14,11 @@ links:
   - text: home
     link: https://bit.ly/comboomPunkTsucht-GHP
     icon:  ":house_with_garden:"
-    iconAlign: right 
 footer:
   links:
   - text: About Us
     link: aboutus/
     icon: ":wave:"
-    iconAlign: right
   copyright: "&copy; Copyright . All rights reserved."
 markdown:
   lineBreaks: hard 
