@@ -18,7 +18,7 @@ links:
 footer:
   links:
   - text: About Us
-    link: aboutus
+    link: /aboutus/
     icon: Logo-transparet.PNG
     iconAlign: right
   copyright: "&copy; Copyright . All rights reserved."
