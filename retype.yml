@@ -1,11 +1,3 @@
-meta:
-  title: " | comboom.sucht"
-  footer:
-    copyright: "&copy; Copyright . All rights reserved."
-    links:
-        - text: About us
-          link: aboutus/
-          icon: ":wave:"
 url: https://comboompunktsucht.github.io/comboom.sucht-BLOG/
 input: .
 output: .retype
@@ -44,4 +36,9 @@ integrations:
     enabled: true 
 cache:
   busting: query
-
+footer:
+  copyright: "&copy; Copyright . All rights reserved."
+  links:
+    - text: About us
+      link: aboutus/
+      icon: ":wave:"
