@@ -11,6 +11,13 @@ branding:
   label: The Mgaming Group
   logo: Logo-transparet.PNG
   logoDark: Logo-transparet.PNG
+footer:
+  copyright: "&copy; Copyright . All rights reserved."
+  links:
+    - text: About us
+      link: aboutus/
+      icon: ":wave:"
+
 links:
   - text: home
     link: https://bit.ly/comboomPunkTsucht-GHP
@@ -34,9 +41,3 @@ integrations:
     enabled: true 
 cache:
   busting: query
-footer:
-  copyright: "&copy; Copyright . All rights reserved."
-  links:
-    - text: About us
-      link: aboutus/
-      icon: ":wave:"
