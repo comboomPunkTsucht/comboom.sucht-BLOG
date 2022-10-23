@@ -28,8 +28,8 @@ snippets:
 footer:
   links:
     - text: About us
-    link: aboutus/
-    icon: ":wave:"
+      link: aboutus/
+      icon: ":wave:"
   copyright: "&copy; Copyright . All rights reserved."
 markdown:
   lineBreaks: hard 
