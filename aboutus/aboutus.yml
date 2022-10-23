@@ -2,3 +2,9 @@ layout: central
 label: About US
 visibility: hidden
 route: /aboutus/
+title: About US
+authors:
+  - name: mcpeaps_HD
+    email: mcpeaps_HD@outlook.com
+    link: https://linktr.ee/mcpeaps_hd
+    avatar: /Logo-mahd.JPG
