@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bit.ly/comboomPunkTsucht-GHP/sitemap.xml.gz
+Sitemap: https://comboompunktsucht.github.io/comboom.sucht-BLOG/sitemap.xml.gz
