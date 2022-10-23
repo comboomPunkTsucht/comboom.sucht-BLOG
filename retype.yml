@@ -1,5 +1,11 @@
 meta:
   title: " | comboom.sucht"
+  footer:
+    copyright: "&copy; Copyright . All rights reserved."
+    links:
+        - text: About us
+          link: aboutus/
+          icon: ":wave:"
 url: https://comboompunktsucht.github.io/comboom.sucht-BLOG/
 input: .
 output: .retype
@@ -17,9 +23,6 @@ links:
   - text: home
     link: https://bit.ly/comboomPunkTsucht-GHP
     icon:  ":house_with_garden:"
-  - text: About us
-    link: aboutus/
-    icon: ":wave:"
 search:
   hotkeys:
     - "s"
@@ -31,8 +34,6 @@ search:
 snippets:
   lineNumbers:
     - *
-footer:
-  copyright: "&copy; Copyright . All rights reserved."
 markdown:
   lineBreaks: hard 
 integrations:
