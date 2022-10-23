@@ -29,8 +29,6 @@ snippets:
 markdown:
   lineBreaks: hard 
 integrations:
-  googleTagManager:
-    id: GTM-NKB3JXX
   gravatar:
     default: retro
     enabled: true 
