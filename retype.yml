@@ -1,5 +1,8 @@
+meta:
+  title: " | comboom.sucht"
 url: https://bit.ly/comboomPunkTsucht-GHP
 input: .
+output: .retype
 favicon: /Logo-transparet_2.PNG
 branding:
   colors:
@@ -41,5 +44,4 @@ integrations:
     enabled: true 
 cache:
   busting: query
-meta:
-  title: " | comboom.sucht"
+
