@@ -14,7 +14,7 @@ links:
   - text: home
     link: https://bit.ly/comboomPunkTsucht-GHP
     icon:  ":house_with_garden:"
-  - link: aboutus/
+  - link: /aboutus/
     icon: ":wave:"
 search:
   hotkeys:
