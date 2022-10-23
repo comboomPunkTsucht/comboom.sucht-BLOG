@@ -17,6 +17,9 @@ links:
   - text: home
     link: https://bit.ly/comboomPunkTsucht-GHP
     icon:  ":house_with_garden:"
+  - text: About us
+    link: aboutus/
+    icon: ":wave:"
 search:
   hotkeys:
     - "s"
@@ -29,10 +32,6 @@ snippets:
   lineNumbers:
     - *
 footer:
-  links:
-    - text: About us
-      link: aboutus/
-      icon: ":wave:"
   copyright: "&copy; Copyright . All rights reserved."
 markdown:
   lineBreaks: hard 
