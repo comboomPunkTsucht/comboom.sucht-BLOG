@@ -41,3 +41,5 @@ integrations:
     enabled: true 
 cache:
   busting: query
+meta:
+  title: " | comboom.sucht"
