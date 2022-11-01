@@ -1,5 +1,5 @@
 layout: central
 label: About US
 visibility: hidden
-route: /aboutus/
+route: ./aboutus/
 title: About US
