@@ -15,7 +15,7 @@ footer:
   copyright: "&copy; Copyright . All rights reserved."
   links:
     - text: About us
-      link: /aboutus/
+      link: ./comboom.sucht-BLOG/aboutus/
       icon: ":wave:"
 
 links:
