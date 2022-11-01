@@ -5,5 +5,5 @@
 
 |                     | Name        | Position |
 | ------------------- | ----------- | -------- |
-| ![](/Logo-mahd.JPG) | mcpeaps_HD  | CEO      |
-| ![](/Logo-BD.PNG)   | BlackDragon | CCEO     |
+| ![](/img/Logo-mahd.JPG) | mcpeaps_HD  | CEO      |
+| ![](/img/Logo-BD.PNG)   | BlackDragon | CCEO     |

@@ -1,7 +1,7 @@
 url: https://comboompunktsucht.github.io/comboom.sucht-BLOG/
 input: .
 output: .retype
-favicon: /Logo-transparet_2.PNG
+favicon: /img/Logo-transparet_2.PNG
 branding:
   colors:
     label:
@@ -9,8 +9,8 @@ branding:
       background: "#000000"
   title: comboom.sucht
   label: The Mgaming Group
-  logo: Logo-transparet.PNG
-  logoDark: Logo-transparet.PNG
+  logo: img/Logo-transparet.PNG
+  logoDark: img/Logo-transparet.PNG
 footer:
   copyright: "&copy; Copyright . All rights reserved."
   links:
