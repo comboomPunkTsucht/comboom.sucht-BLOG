@@ -24,7 +24,7 @@ links:
     icon:  ":house_with_garden:"
   - text: Our Font
     link: https://github.com/comboomPunkTsucht/cascadia-code-ger/releases/tag/1.0.0
-    icon: :writing_hand:
+    icon: ":writing_hand:"
     target: blank
 search:
   hotkeys:
