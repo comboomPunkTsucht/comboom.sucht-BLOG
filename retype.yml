@@ -26,6 +26,9 @@ links:
     link: https://github.com/comboomPunkTsucht/cascadia-code-ger/releases/tag/1.0.0
     icon: ":writing_hand:"
     target: blank
+  - text: Categories
+    link: https://comboompunktsucht.github.io/comboom.sucht-BLOG/categories/
+    icon: ":bookmark_tabs:"
 search:
   hotkeys:
     - "s"
