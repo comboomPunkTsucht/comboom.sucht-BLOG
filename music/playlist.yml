@@ -1,7 +1,7 @@
 label: The Music Playlist
 route: /playlist/
 title: The Musicplaylist
-icon: ":play:"
+icon: ":black_right_pointing_triangle_with_double_vertical_bar:"
 category: Music
 authors:
   - name: comboom.sucht
