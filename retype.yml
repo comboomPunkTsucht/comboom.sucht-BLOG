@@ -1,4 +1,4 @@
-url: https://comboompunktsucht.github.io/comboom.sucht-BLOG/
+url: https://comboompunktsucht.ddns.net/
 input: .
 output: .retype
 favicon: /img/Logo-transparet_2.PNG
@@ -15,10 +15,10 @@ footer:
   copyright: "&copy; Copyright . All rights reserved."
   links:
     - text: About us
-      link: https://comboompunktsucht.github.io/comboom.sucht-BLOG/aboutus/
+      link: https://comboompunktsucht.ddns.net/aboutus/
       icon: ":wave:"
     - text: Categories
-      link: https://comboompunktsucht.github.io/comboom.sucht-BLOG/categories/
+      link: https://comboompunktsucht.ddns.net/categories/
       icon: ":bookmark_tabs:"
 
 links:
