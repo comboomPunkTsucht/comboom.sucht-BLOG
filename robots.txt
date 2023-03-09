@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://comboompunktsucht.ddns.net/sitemap.xml.gz
+Sitemap: https://comboompunktsucht.serveblog.net/sitemap.xml.gz
