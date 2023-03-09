@@ -1,4 +1,4 @@
-url: https://comboompunktsucht.ddns.net/
+url: https://comboompunktsucht.serveblog.net/
 input: .
 output: .retype
 favicon: /img/Logo-transparet_2.PNG
@@ -15,10 +15,10 @@ footer:
   copyright: "&copy; Copyright . All rights reserved."
   links:
     - text: About us
-      link: https://comboompunktsucht.ddns.net/aboutus/
+      link: https://comboompunktsucht.serveblog.net/aboutus/
       icon: ":wave:"
     - text: Categories
-      link: https://comboompunktsucht.ddns.net/categories/
+      link: https://comboompunktsucht.serveblog.net/categories/
       icon: ":bookmark_tabs:"
 
 links:
