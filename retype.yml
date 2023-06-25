@@ -45,3 +45,6 @@ integrations:
     enabled: true 
 cache:
   busting: query
+serve:
+  watch:
+    mode: disk
