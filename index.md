@@ -1,19 +1,23 @@
  <style>
-    .amazon {
-        text-align: center;
-        color: #ffffff;
-        border-radius: 10px;
-        background-color: #232E3F;
-        border: 1px solid #232E3F;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-left: 20px;
-    }
+    @font-face {
+  font-family: 'MeineSchriftart';
+  src: url('http://comboompunktsucht.serveblog.net/_includes/CascadiaCode.ttf') format('ttf'),
+       url('http://comboompunktsucht.serveblog.net/_includes/CascadiaCodeItalic.ttf') format('ttf'),
+       url('http://comboompunktsucht.serveblog.net/_includes/CascadiaCodePL.ttf') format('ttf'),
+       url('http://comboompunktsucht.serveblog.net/_includes/CascadiaCodePLItalic.ttf') format('ttf'),
+       url('http://comboompunktsucht.serveblog.net/_includes/CascadiaCode.ttf') format('ttf'),
+       url('http://comboompunktsucht.serveblog.net/_includes/CascadiaCode.ttf') format('ttf'),
+       url('http://comboompunktsucht.serveblog.net/_includes/CascadiaCode.ttf') format('ttf'),
+       url('http://comboompunktsucht.serveblog.net/_includes/CascadiaMonoPLItalic.ttf') format('ttff');
+  /* Weitere Optionen wie font-weight und font-style können angegeben werden */
+}
+
+body {
+  font-family: 'MeineSchriftart', sans-serif; /* Verwendung der eigenen Schriftart für den Text auf der Webseite */
+}
+
 </style>
 
-:::amazon
-<iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=3&p=13&l=ur1&category=amazongeneric&banner=0HKWS4G1V016X4K0S2R2&f=ifr&linkID={{link_id}}&t=comboompunkts-21&tracking_id=comboompunkts-21" width="468" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
-:::
 
 
 ![](/img/Logo-transparet.PNG)
