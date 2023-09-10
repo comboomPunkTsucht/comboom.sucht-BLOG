@@ -23,7 +23,7 @@ footer:
 
 links:
   - text: Our Font
-    link: https://github.com/comboomPunkTsucht/cascadia-code-ger/releases/tag/1.0.0
+    link: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip
     icon: ":writing_hand:"
     target: blank
 search:
