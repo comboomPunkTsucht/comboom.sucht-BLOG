@@ -1,4 +1,4 @@
-url: https://comboompunktsucht.serveblog.net/
+url: https://comboompunktsucht.netlify.app/
 input: .
 output: .retype
 favicon: /img/Logo-transparet_2.PNG
@@ -15,10 +15,10 @@ footer:
   copyright: "&copy; Copyright . All rights reserved."
   links:
     - text: About us
-      link: https://comboompunktsucht.serveblog.net/aboutus/
+      link: https://comboompunktsucht.netlify.app/aboutus/
       icon: ":wave:"
     - text: Categories
-      link: https://comboompunktsucht.serveblog.net/categories/
+      link: https://comboompunktsucht.netlify.app/categories/
       icon: ":bookmark_tabs:"
 
 links:
