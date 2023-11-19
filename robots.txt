@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://comboompunktsucht.serveblog.net/sitemap.xml.gz
+Sitemap: https://comboompunktsucht.netlify.app/sitemap.xml.gz
