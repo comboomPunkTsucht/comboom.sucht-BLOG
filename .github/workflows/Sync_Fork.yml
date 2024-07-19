@@ -13,12 +13,12 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v3
         with:
-          persist-credentials: false # otherwise, the token used will be the GITHUB_TOKEN, instead of your personal token
-          fetch-depth: 0 # fetch all history for all branches and tags
+          persist-credentials: true # Ensure credentials are persisted for Git operations
+          fetch-depth: 0 # Fetch all history for all branches and tags
 
       - name: Set up Git
         run: |
-          git config user.name 'mcpeapsUnterstrichHD'
+          git config user.name 'mcpeaps_HD'
           git config user.email 'mcpeaps_HD@outlook.com'
           
       - name: Add upstream repository
@@ -30,10 +30,10 @@ jobs:
       - name: Rebase and merge upstream changes
         run: |
           git rebase upstream/main || git rebase --abort
-          git merge -X theirs upstream/main # prefer upstream changes
+          git merge -X theirs upstream/main
           
       - name: Push changes
         run: |
           git push origin main --force
         env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Default GitHub Actions token
