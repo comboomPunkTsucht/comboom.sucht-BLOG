@@ -311,3 +311,7 @@
     display: none !important;
   }
 }
+
+.editable {
+  content: editable;
+}

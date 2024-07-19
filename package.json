@@ -43,6 +43,7 @@
     "next-themes": "^0.2.1",
     "react": "^19.0.0-rc-d3ce0d3ea9-20240520",
     "react-dom": "^19.0.0-rc-d3ce0d3ea9-20240520",
+    "react-markdown": "^9.0.1",
     "styled-components": "^6.1.8",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7"

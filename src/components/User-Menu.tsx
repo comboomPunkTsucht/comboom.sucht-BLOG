@@ -29,7 +29,7 @@ export default function UserMenu() {
     name = user.name!;
     githubUserName = user.nickname!;
     logedin = true;
-    admin = AdminUser.includes(githubUserName);
+    admin = user.org_id! === 'org_wvyPNK9y4HUrFBzV'; //AdminUser.includes(githubUserName);
     image = {
       src: user.picture!,
       alt: name,
