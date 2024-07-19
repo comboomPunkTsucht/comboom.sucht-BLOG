@@ -18,7 +18,7 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config user.name 'mcpeaps_HD'
+          git config user.name 'mcpeapsUnterstrichHD'
           git config user.email 'mcpeaps_HD@outlook.com'
           
       - name: Add upstream repository
