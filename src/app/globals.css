@@ -1,0 +1,313 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142.1 76.2% 36.3%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.4 71.8% 29.2%;
+  }
+}
+
+
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-Regular.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-Bold.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-BoldItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: italic;
+  font-weight: 700;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-Italic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiBold.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiBoldItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: italic;
+  font-weight: 600;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiLight.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiLightItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: italic;
+  font-weight: 200;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-ExtraLight.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-ExtraLightItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: italic;
+  font-weight: 100;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-Light.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-LightItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontPropo";
+  font-style: italic;
+  font-weight: 300;
+}
+
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-Bold.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-BoldItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: italic;
+  font-weight: 700;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-Italic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-SemiBold.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-SemiBoldItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: italic;
+  font-weight: 600;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-SemiLight.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-SemiLightItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: italic;
+  font-weight: 200;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-ExtraLight.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-ExtraLightItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: italic;
+  font-weight: 100;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-Light.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-LightItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFontMono";
+  font-style: italic;
+  font-weight: 300;
+}
+
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-Regular.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-Bold.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-BoldItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: italic;
+  font-weight: 700;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-Italic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-SemiBold.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-SemiBoldItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: italic;
+  font-weight: 600;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-SemiLight.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-SemiLightItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: italic;
+  font-weight: 200;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-ExtraLight.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-ExtraLightItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: italic;
+  font-weight: 100;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-Light.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  src: url(/fonts/CaskaydiaCoveNerdFont-LightItalic.ttf) format(truetype);
+  font-family: "CaskaydiaCoveNerdFont";
+  font-style: italic;
+  font-weight: 300;
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+    scroll-behavior: smooth;
+    @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground;
+    @apply overflow-x-hidden;
+    @apply overscroll-contain;
+    height: 100vh;
+    width: 100vw;
+    height: 100dvh;
+    width: 100dvw;
+  }
+}
+
+.nametag {
+  @apply visible;
+}
+
+@media (width < 444px) {
+  .nametag {
+    @apply hidden;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+@media --webkit-print {
+  .no-print {
+    display: none !important;
+  }
+}
