@@ -1,6 +1,6 @@
 {
-  "/page": "app/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
+  "/api/auth/[auth0]/route": "app/api/auth/[auth0]/route.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
-  "/api/auth/[auth0]/route": "app/api/auth/[auth0]/route.js"
+  "/page": "app/page.js",
+  "/_not-found/page": "app/_not-found/page.js"
 }
