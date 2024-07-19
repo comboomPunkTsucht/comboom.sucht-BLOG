@@ -60,3 +60,4 @@ dist-ssr
 *.sln
 *.sw?
 .ENV
+/.next
