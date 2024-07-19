@@ -26,7 +26,11 @@ jobs:
           git remote add upstream 'https://github.com/comboomPunkTsucht/comboom.sucht-BLOG.git'
           git fetch upstream
           git checkout main
-          git rebase upstream/main
+          
+      - name: Rebase and merge upstream changes
+        run: |
+          git rebase upstream/main || git rebase --abort
+          git merge -X theirs upstream/main # prefer upstream changes
           
       - name: Push changes
         run: |
