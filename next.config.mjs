@@ -27,7 +27,7 @@ const nextConfig = {
   reactStrictMode: false,
   experimental: {
     typedRoutes: false,
-    ppr:false,
+    ppr:true,
   },
   images: {
     unoptimized: true,
