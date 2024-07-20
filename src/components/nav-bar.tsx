@@ -17,13 +17,22 @@ import {
 
 import { ThemeToggle } from "@/components/theme-toggle"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import UserAvatar, {ImageProps} from "@/components/userAvatar"
 
 import { Separator } from "@/components/ui/separator"
 import UserMenu from "@/components/User-Menu"
 
 
 export function NavBar() {
+
+  const name = "comboom.sucht";
+  const githubUserName = "comboomPunkTsucht";
+  const image: ImageProps = {
+    src: "https://github.com/comboomPunkTsucht.png",
+    alt: "comboom.sucht Logo",
+  };
+  const imageFallback = "CBPS";
+
   return (
     <div className="flex flex-row justify-between items-center ">
       <NavigationMenu className="mt-2 mr-2 ml-2 mb-2 flex flex-row justify-between items-center no-print">
@@ -35,13 +44,10 @@ export function NavBar() {
                   <NavigationMenuLink>
                     <div className="flex flex-row justify-between items-center">
                       <div className="flex flex-row justify-between items-center">
-                        <Avatar>
-                          <AvatarImage src="/pictures/Logo-transparet.png" alt="comboom.sucht Logo" />
-                          <AvatarFallback>CBPS</AvatarFallback>
-                        </Avatar>
+                        <UserAvatar name={name} githubUserName={githubUserName} image={image} imageFallback={imageFallback} />
                       </div>
                       <div className={navigationMenuTriggerStyle() + "ml-2 mr-2 nametag text-sm font-regular flex flex-row justify-between items-center backdrop-blur-sm  bg-transparent rounded-full"}>
-                        comboom.sucht
+                        {name}
                       </div>
                     </div>
                   </NavigationMenuLink>
@@ -62,16 +68,13 @@ export function NavBar() {
                       <NavigationMenuLink className="backdrop-blur-sm  bg-transparent rounded-full" asChild>
                         <a className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                           href="/">
-                          <Avatar>
-                            <AvatarImage src="/pictures/logo.PNG" />
-                            <AvatarFallback>MAHD</AvatarFallback>
-                          </Avatar>
+                          <UserAvatar name={name} githubUserName={githubUserName} image={image} imageFallback={imageFallback} />
 
                           <p className="mb-2 mt-4 text-lg font-medium">
-                            Fabian Aps
+                            {name}
                           </p>
                           <p className="text-sm leading-tight text-muted-foreground">
-                            ITler/DJ/Producer aus Leidenschaft
+                            {"@" + githubUserName}
                           </p>
                         </a>
                       </NavigationMenuLink>
