@@ -1,0 +1,39 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Runs every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true # Ensure credentials are persisted for Git operations
+          fetch-depth: 0 # Fetch all history for all branches and tags
+
+      - name: Set up Git
+        run: |
+          git config user.name 'mcpeaps_HD'
+          git config user.email 'mcpeaps_HD@outlook.com'
+          
+      - name: Add upstream repository
+        run: |
+          git remote add upstream 'https://github.com/comboomPunkTsucht/comboom.sucht-BLOG.git'
+          git fetch upstream
+          git checkout main
+          
+      - name: Rebase and merge upstream changes
+        run: |
+          git rebase upstream/main || git rebase --abort
+          git merge -X theirs upstream/main
+          
+      - name: Push changes
+        run: |
+          git push origin main --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Default GitHub Actions token
