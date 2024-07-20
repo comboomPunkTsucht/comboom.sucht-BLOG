@@ -1,67 +1,13 @@
-import type { Metadata } from "next";
-import "./globals.css";
+"use client";
 
+import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Particles from '@/components/particles';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
-
-import { encrypt } from '@vercel/flags';
 import { FlagValues } from '@vercel/flags/react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 
-export const metadata: Metadata = {
-  title: "Fabian Aps Portfolio/Impressum",
-  description: "my own portfolio/impressum website",
-  keywords: "portfolio, website, impressum, github, linkedin, aps, fabian",
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Fabian Aps Portfolio/Impressum',
-    description: 'my own portfolio/impressum website',
-    siteId: '723191637950775296',
-    creator: '@mcpeaps_HD',
-    creatorId: '723191637950775296',
-    images: [{
-      url: 'https://mahd.comboompunksucht.app/pictures/logo.PNG',
-      alt: 'Logo of mcpeaps_HD', // Alt attribute for Twitter image
-      width: 3000,
-      height: 3000
-    }], // Must be an absolute URL
-  },
-  openGraph: {
-    type: 'website',
-    title: 'Fabian Aps Portfolio/Impressum',
-    description: 'my own portfolio/impressum website',
-    url: 'https://mahd.comboompunksucht.app',
-    images: [{
-      url: 'https://mahd.comboompunksucht.app/pictures/logo.PNG',
-      alt: 'Logo of mcpeaps_HD', // Alt attribute for Twitter image
-      width: 3000,
-      height: 3000
-    }],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    noarchive: false,
-    noimageindex: false,
-    "max-snippet": -1,
-    "max-image-preview": "large",
-    "max-video-preview": -1,
-    googleBot: {
-      index: true,
-      follow: true,
-      nocache: false,
-      noarchive: false,
-      noimageindex: false,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-};
-//<link rel="manifest" href="/manifest.webmanifest" />
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -88,27 +34,24 @@ export default function RootLayout({
       </head>
       <body>
         <UserProvider>
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-
-          <div className="bg-gradient-to-tl from-primary-background via-primary-foreground to-primary-background">
-          <Particles
-            quantity={400}
-            refresh={true}
-          />
-            <div className="z-1">{children}
-            <FlagValues values={values} />
-            </div>
-          </div>
-          </ThemeProvider>
-          <SpeedInsights />
-          <Analytics />
-          </UserProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <div className="bg-gradient-to-tl from-primary-background via-primary-foreground to-primary-background min-h-screen flex flex-col">
+                <Particles quantity={400} refresh={true} />
+                <div className="flex-1 flex flex-col z-1">
+                  {children}
+                  <FlagValues values={values} />
+                </div>
+              </div>
+            </ThemeProvider>
+            <SpeedInsights />
+            <Analytics />
+        </UserProvider>
       </body>
-      </html>
+    </html>
   );
 }

@@ -280,6 +280,7 @@
     @apply font-sans;
   }
   body {
+    /*@apply min-h-screen;*/
     @apply bg-background text-foreground;
     @apply overflow-x-hidden;
     @apply overscroll-contain;
