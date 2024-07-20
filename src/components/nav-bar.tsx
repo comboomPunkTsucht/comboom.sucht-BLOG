@@ -53,15 +53,8 @@ export function NavBar() {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              <NavigationMenuItem className="backdrop-blur-sm  bg-transparent rounded-full">
-                <Link href="https://linktr.ee/mcpeaps_hd" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle() + "sm:text-xs md:text-sm lg:text-sm xl:text-sm 2xl:text-sm backdrop-blur-sm  bg-transparent rounded-full"}>
-                    Linksammlung
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
               <NavigationMenuItem className="backdrop-blur-sm  bg-transparent rounded-full rounded-full">
-                <NavigationMenuTrigger className="sm:text-xs md:text-sm lg:text-sm xl:text-sm 2xl:text-sm backdrop-blur-sm  bg-transparent rounded-full">Über mich</NavigationMenuTrigger>
+                <NavigationMenuTrigger className="sm:text-xs md:text-sm lg:text-sm xl:text-sm 2xl:text-sm backdrop-blur-sm  bg-transparent rounded-full">Menu</NavigationMenuTrigger>
                 <NavigationMenuContent className="backdrop-blur-sm  bg-transparent rounded-full">
                   <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                     <li className="row-span-4">
@@ -79,14 +72,11 @@ export function NavBar() {
                         </a>
                       </NavigationMenuLink>
                     </li>
-                    <ListItem href="/aboutme" title="Über mich">
-                      Wissenswertes über Mich
+                    <ListItem href="/blog" title="Blog">
+                      Alle Blog seiten
                     </ListItem>
-                    <ListItem href="/projekte" title="Projekte">
-                      Meine Projekte
-                    </ListItem>
-                    <ListItem href="/lebenslauf" title="Lebenslauf">
-                      Mein aktueller Lebenslauf
+                    <ListItem href="/rss" title="RSS">
+                      How to setup RSS feed
                     </ListItem>
                     <ListItem href="/impressum" title="Impressum" />
                   </ul>

@@ -34,6 +34,17 @@ const nextConfig = {
     domains: ['cdn.idx.dev'],
   },
   assetPrefix: isProd ? null : `http://${internalHost}:3000`,
+  exportPathMap: async function() {
+    return {
+      '/': { page: '/' },
+      '/blog': { page: '/blog' },
+      "/rss": { page: "/rss" },
+      "/impressum": { page: "/impressum" },
+      '/rss.xml': { page: '/api/rss' },
+    };
+  }
 };
+
+
 
 export default nextConfig;
