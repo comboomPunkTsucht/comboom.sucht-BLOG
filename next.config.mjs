@@ -34,7 +34,7 @@ const nextConfig = {
     domains: ['cdn.idx.dev'],
   },
   assetPrefix: isProd ? null : `http://${internalHost}:3000`,
-  exportPathMap: async function() {
+  generateStaticParams: function() {
     return {
       '/': { page: '/' },
       '/blog': { page: '/blog' },
