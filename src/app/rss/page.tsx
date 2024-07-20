@@ -20,12 +20,11 @@ const RSSInfo = () => {
           <li className="mb-2">Wählen Sie einen RSS-Reader. Beliebte Optionen sind Feedly, Inoreader und The Old Reader.</li>
           <li className="mb-2">Erstellen Sie ein Konto auf der Website des RSS-Readers oder laden Sie die App herunter.</li>
           <li className="mb-2">Suchen Sie nach einer Option zum Hinzufügen eines neuen Feeds. Dies ist normalerweise ein Plus-Symbol oder eine Schaltfläche "Add Feed".</li>
-          <li className="mb-2">Geben Sie die URL des RSS-Feeds ein, den Sie abonnieren möchten. Für unseren Blog lautet die URL: <Link href="/rss.xml" className="text-blue-500 hover:underline">/rss.xml</Link></li>
+          <li className="mb-2">Geben Sie die URL des RSS-Feeds ein, den Sie abonnieren möchten. Für unseren Blog lautet die URL: <Link href={`${process.env.HOST_URL || 'http://localhost:3000'}/api/rss`} className="text-blue-500 hover:underline">{`${process.env.HOST_URL || 'http://localhost:3000'}/api/rss`}</Link></li>
           <li className="mb-2">Bestätigen Sie die Eingabe. Der RSS-Reader beginnt nun, die neuesten Blog-Posts und Inhalte aus unserem Feed anzuzeigen.</li>
         </ol>
         <p className="mb-4">Mit einem RSS-Reader können Sie bequem auf dem Laufenden bleiben und unsere neuesten Blog-Posts an einem Ort lesen.</p>
-        <Link href="/blog" className="text-blue-500 hover:underline">Zurück zu den Blog-Posts</Link>
-              </div>
+        </div>
               </div>
       <Footer />
     </div>

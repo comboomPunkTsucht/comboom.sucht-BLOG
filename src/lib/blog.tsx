@@ -8,7 +8,15 @@ import remarkGfm from 'remark-gfm';
 
 const postsDirectory = path.join(process.cwd(), 'public/blog');
 
-export function getSortedPostsData() {
+export interface PostData {
+  id: string;
+  title?: string;
+  date?: string;
+  description?: string;
+  contentHtml?: string;
+}
+
+export function getSortedPostsData(): PostData[] {
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
@@ -18,14 +26,16 @@ export function getSortedPostsData() {
 
     return {
       id,
-      ...matterResult.data,
+      title: matterResult.data.title,
+      date: matterResult.data.date,
+      description: matterResult.data.description,
     };
   });
 
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return allPostsData.sort((a, b) => (a.date && b.date && a.date < b.date ? 1 : -1));
 }
 
-export function getAllPostIds() {
+export function getAllPostIds(): PostData[] {
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames.map((fileName) => {
     return {
@@ -34,10 +44,9 @@ export function getAllPostIds() {
   });
 }
 
-export async function getPostData(id: string) {
+export async function getPostData(id: string): Promise<PostData> {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-
   const matterResult = matter(fileContents);
 
   const processedContent = await remark().use(remarkGfm).use(html).process(matterResult.content);
@@ -46,6 +55,8 @@ export async function getPostData(id: string) {
   return {
     id,
     contentHtml,
-    ...matterResult.data,
+    title: matterResult.data.title,
+    date: matterResult.data.date,
+    description: matterResult.data.description,
   };
 }
