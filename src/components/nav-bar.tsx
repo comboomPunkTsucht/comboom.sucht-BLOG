@@ -75,7 +75,7 @@ export function NavBar() {
                     <ListItem href="/blog" title="Blog">
                       Alle Blog seiten
                     </ListItem>
-                    <ListItem href="/rss" title="Projekte">
+                    <ListItem href="/rss" title="RSS">
                       How to setup RSS feed
                     </ListItem>
                     <ListItem href="/impressum" title="Impressum" />

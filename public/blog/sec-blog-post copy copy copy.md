@@ -1,7 +1,7 @@
 ---
-title: "My First Post"
+title: "My Second Post"
 date: "2024-07-20"
-description: "My First Post"
+description: "My Second Post"
 ---
 This is the content of my first post written in Markdown.
 
@@ -11,15 +11,11 @@ This is the content of my first post written in Markdown.
 * [ ] mmmmm
 * [X] mmmmmm
 
-
-
 1. kkkk
-
 
 ## mmm
 
 * jjjjj
-
 
 | 1 | 2 | 3 |
 | - | - | - |

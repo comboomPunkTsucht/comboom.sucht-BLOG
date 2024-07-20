@@ -290,6 +290,34 @@
     width: 100dvw;
   }
 }
+.BlogPostCard {
+  @apply backdrop-blur-sm;
+  @apply bg-transparent;
+  @apply grid;
+  @apply grid-cols-subgrid;
+  grid-column: span 3;
+  width: 20vw;
+  width: 20dvw
+}
+.my-Blog-grid-4{
+  @apply grid;
+  @apply grid-cols-4;
+  @apply gap-4;
+  @apply mb-4;
+  @apply mx-14;
+  @apply justify-stretch;
+  @apply items-stretch;
+}
+
+@media (width < 1280px) {
+  .my-Blog-grid-4 {
+    @apply grid;
+    @apply grid-cols-1;
+    @apply gap-4;
+    @apply justify-stretch;
+    @apply items-stretch;
+  }
+}
 
 .nametag {
   @apply visible;
