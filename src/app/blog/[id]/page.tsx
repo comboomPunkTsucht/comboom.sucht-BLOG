@@ -1,5 +1,5 @@
 // app/blog/[id]/page.tsx
-import { getAllPostIds, getPostData } from '@/lib/blog';
+import { getAllPostIds, getPostData, PostData } from '@/lib/blog';
 import { notFound } from 'next/navigation';
 import { NavBar } from '@/components/nav-bar';
 import Footer from '@/components/footer';
@@ -11,7 +11,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const Post = async ({ params }: { params: { id: string } }) => {
+const Post = async ({ params }: { params: PostData }) => {
   const postData = await getPostData(params.id);
 
   if (!postData) {
