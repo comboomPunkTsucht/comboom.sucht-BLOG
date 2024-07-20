@@ -21,6 +21,14 @@ export function getSortedPostsData(): PostData[] {
   const allPostsData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
     const fullPath = path.join(postsDirectory, fileName);
+
+    // Überprüfen, ob der Pfad eine Datei ist
+    const stat = fs.statSync(fullPath);
+    if (stat.isDirectory()) {
+      console.error(`Skipping directory: ${fullPath}`);
+      return null;
+    }
+
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
@@ -30,7 +38,7 @@ export function getSortedPostsData(): PostData[] {
       date: matterResult.data.date,
       description: matterResult.data.description,
     };
-  });
+  }).filter(Boolean) as PostData[]; // Filter out null values
 
   return allPostsData.sort((a, b) => (a.date && b.date && a.date < b.date ? 1 : -1));
 }

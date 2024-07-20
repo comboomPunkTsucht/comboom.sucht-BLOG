@@ -6,8 +6,8 @@ async function generateRSSFeed() {
   const posts: PostData[] = await getSortedPostsData();
 
   const feed = new Feed({
-    title: "My Blog",
-    description: "This is my personal blog",
+    title: "comboom.sucht Blog",
+    description: "comboom.sucht Blog",
     id: `${process.env.HOST_URL || 'http://localhost:3000'}/`,
     link: `${process.env.HOST_URL || 'http://localhost:3000'}/`,
     language: "en",
@@ -18,11 +18,12 @@ async function generateRSSFeed() {
 
   posts.forEach((post) => {
     feed.addItem({
-      title: post.title,
+      title: post.title!,
       id: `${process.env.HOST_URL || 'http://localhost:3000'}/posts/${post.id}`,
       link: `${process.env.HOST_URL || 'http://localhost:3000'}/posts/${post.id}`,
       date: new Date(post.date!),
-      description: post.contentHtml,
+      description: post.description!,
+      content: post.contentHtml!,
     });
   });
 

@@ -27,22 +27,14 @@ const nextConfig = {
   reactStrictMode: false,
   experimental: {
     typedRoutes: false,
-    ppr:true,
+    ppr: true,
+    reactCompiler: true,
   },
   images: {
     unoptimized: true,
     domains: ['cdn.idx.dev'],
   },
-  assetPrefix: isProd ? null : `http://${internalHost}:3000`,
-  generateStaticParams: function() {
-    return {
-      '/': { page: '/' },
-      '/blog': { page: '/blog' },
-      "/rss": { page: "/rss" },
-      "/impressum": { page: "/impressum" },
-      '/rss.xml': { page: '/api/rss' },
-    };
-  }
+  assetPrefix: isProd ? null : `http://${internalHost}:3000`
 };
 
 

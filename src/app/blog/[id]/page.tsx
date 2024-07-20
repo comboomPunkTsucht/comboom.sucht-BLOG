@@ -12,29 +12,26 @@ export async function generateStaticParams() {
 }
 
 const Post = async ({ params }: { params: PostData }) => {
-  const postData = await getPostData(params.id);
+  const postData: PostData | null = await getPostData(params.id);
 
   if (!postData) {
     notFound();
   }
 
   return (
-<div>
-                <nav className="z-10 sticky top-0 top">
-                    <NavBar />
-                </nav>
-                <div className="items-center justify-between flex flex-col flex-wrap">
-
-    <article className="prose mx-auto">
-      <h1 className="text-3xl font-bold">{postData.title}</h1>
-      <div className="text-gray-500">{postData.date}</div>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+    <div>
+      <nav className="z-10 sticky top-0 top">
+        <NavBar />
+      </nav>
+      <div className="items-center justify-between flex flex-col flex-wrap">
+        <article className="prose mx-auto">
+          <h1 className="text-3xl font-bold">{postData!.title}</h1>
+          <div className="text-gray-500">{postData!.date}</div>
+          <div dangerouslySetInnerHTML={{ __html: postData!.contentHtml || '' }} />
         </article>
-</div>
-
-                <Footer />
-            </div>
-
+      </div>
+      <Footer />
+    </div>
   );
 };
 
