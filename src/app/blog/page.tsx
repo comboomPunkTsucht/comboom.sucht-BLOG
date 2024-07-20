@@ -6,7 +6,7 @@ import Footer from '@/components/footer';
 import BlogPostCard from '@/components/BlogPostsCard';
 
 const Home = async () => {
-  const allPostsData: Array<PostData> = await getSortedPostsData(); // Ensure async data fetching
+  const allPostsData: Array<PostData> = getSortedPostsData(); // Ensure async data fetching
 
   return (
     <div>
@@ -16,12 +16,18 @@ const Home = async () => {
       <div className="container items-center justify-between flex flex-col flex-wrap mx-auto p-4">
         <h1 className="text-4xl font-bold mb-6">Blog</h1>
         <div className="my-Blog-grid-4"> {/* Flex container with wrap and gap */}
-          {allPostsData.map(({ id, date, title, description }) => (
-            <div key={id} className="flex-1"> {/* Ensure minimum width */}
-              <Link href={`/blog/${id}`} className="text-blue-500 hover:underline block">
-                <BlogPostCard title={title} date={date} description={description} />
-              </Link>
-            </div>
+          {allPostsData
+            .filter(({ title, date, description }) => title && date && description) // Filter posts
+            .map(({ id, date, title, description }) => (
+              <div key={id} className="flex-1"> {/* Ensure minimum width */}
+                <Link href={`/blog/${id}`} className="text-blue-500 hover:underline block">
+                  <BlogPostCard
+                    title={title!}
+                    date={date!}
+                    description={description!}
+                  />
+                </Link>
+              </div>
           ))}
         </div>
       </div>
