@@ -62,3 +62,5 @@ dist-ssr
 .ENV
 /.next
 .DS_Store
+src/code_context.txt
+src/get_code_context.sh
