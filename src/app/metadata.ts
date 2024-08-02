@@ -1,7 +1,7 @@
 "use server"
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+export const metadatal: Metadata = {
   title: "comboom.sucht | The Mgaming Group",
   description: "web page of comboom.sucht",
   keywords: "comboom, sucht, comboom.sucht, comboompunktsucht, mcpeaps_HD, mahd, blackdragon",

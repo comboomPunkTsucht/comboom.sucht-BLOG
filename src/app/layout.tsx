@@ -7,7 +7,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import { FlagValues } from '@vercel/flags/react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
-import { metadata } from './metadata';
+import { metadatal } from './metadata';
+
+
+export const metadata = metadatal;
 
 export default function RootLayout({
   children,
