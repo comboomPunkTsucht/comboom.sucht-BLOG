@@ -66,8 +66,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const values = { exampleFlag: true };
-    console.log("metadata:", metadata);
+  const values = { exampleFlag: true, log_metadata: false };
+  if (values.log_metadata) {
+    console.log("metadata: " + metadata)
+  }
   return (
     <html lang="de" suppressHydrationWarning>
       <head>
