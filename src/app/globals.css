@@ -332,6 +332,8 @@
 
   img {
     border-radius: 0.5rem;
+    width: 50vw;
+    width: 50dvw;
   }
 
   hr {
