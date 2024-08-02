@@ -1,7 +1,6 @@
-"use server"
 import type { Metadata } from "next";
 
-export const metadatal: Metadata = {
+export const metadata: Metadata = {
   title: "comboom.sucht | The Mgaming Group",
   description: "web page of comboom.sucht",
   keywords: "comboom, sucht, comboom.sucht, comboompunktsucht, mcpeaps_HD, mahd, blackdragon",
@@ -52,3 +51,24 @@ export const metadatal: Metadata = {
     },
   },
 };
+
+export default function Head() {
+  return (
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="theme-color" content="#010101" />
+      <meta name="start_url" content="https://comboompunksucht.app/" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="#010101" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-title" content="comboom.sucht | The Mgaming Group" />
+      <meta name="application-name" content="comboom.sucht" />
+      <meta name="msapplication-TileColor" content="#010101" />
+      <meta charSet="UTF-8" />
+      <link rel="manifest" href="/manifest.webmanifest" />
+      <link rel="sitemap" href="/sitemap" />
+      <meta name="keywords" content="comboom, sucht, comboom.sucht, comboompunktsucht, mcpeaps_HD, mahd, blackdragon" />
+      <meta name="format-detection" content="telephone=yes, date=no, email=yes, address=yes" />
+    </head>
+  );
+}
