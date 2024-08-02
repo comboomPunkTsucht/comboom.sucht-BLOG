@@ -23,7 +23,7 @@ export default function manifest(): MyManifest {
     id: '/',
     display: 'standalone',
     orientation: 'natural',
-    display_override: ["standalone", "window-controls-overlay"],
+    display_override: ["standalone", "fullscreen", "browser", "minimal-ui", "window-controls-overlay"],
     background_color: '#000000',
     theme_color: '#010101',
     lang: 'de-DE',
