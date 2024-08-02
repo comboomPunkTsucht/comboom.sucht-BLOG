@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     creator: '@ComboomS',
     creatorId: '1349452878545629186',
     images: [{
-      url: 'https://www.comboompunksucht.app/pictures/1024.png',
+      url: 'https://comboompunksucht.app/pictures/1024.png',
       alt: 'Logo of comboom.sucht',
       width: 1024,
       height: 1024,
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     type: 'website',
     title: 'comboom.sucht | The Mgaming Group',
     description: 'web page of comboom.sucht',
-    url: 'https://www.comboompunksucht.app',
+    url: 'https://comboompunksucht.app',
     images: [{
-      url: 'https://www.comboompunksucht.app/pictures/1024.png',
+      url: 'https://comboompunksucht.app/pictures/1024.png',
       alt: 'Logo of comboom.sucht',
       width: 1024,
       height: 1024,
