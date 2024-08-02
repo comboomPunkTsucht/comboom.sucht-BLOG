@@ -1,12 +1,28 @@
 import { MetadataRoute } from 'next'
 
-export default function manifest(): MetadataRoute.Manifest {
+type Screenshot = {
+  src: string;
+  type?: string;
+  sizes?: string;
+};
+
+interface CustomScreenshot extends Screenshot {
+  form_factor?: string; // Optional form factor property
+  label?: string; // Optional label property
+}
+interface MyManifest extends MetadataRoute.Manifest {
+  screenshots: CustomScreenshot[];
+}
+
+export default function manifest(): MyManifest {
   return {
-    name: 'Fabian Aps',
-    short_name: 'Fabian Aps',
-    description: 'my own portfolio/impressum website',
+    name: 'comboom.sucht | The Mgaming Group',
+    short_name: 'comboom.sucht',
+    description: 'web page of comboom.sucht',
     start_url: '/',
+    id: '/',
     display: 'standalone',
+    orientation: 'natural',
     display_override: ["standalone", "window-controls-overlay"],
     background_color: '#000000',
     theme_color: '#010101',
@@ -20,121 +36,142 @@ export default function manifest(): MetadataRoute.Manifest {
       },
       {
         src: '/pictures/1024.png',
-        sizes: '1024',
+        sizes: '1024x1024',
         type: 'image/png',
         purpose: "maskable",
       },
       {
         src: '/pictures/1024.png',
-        sizes: '1024',
+        sizes: '1024x1024',
         type: 'image/png',
         purpose: "any",
       },
       {
         src: '/pictures/1024.png',
-        sizes: '1024',
+        sizes: '1024x1024',
         type: 'image/png',
       },{
         src: '/pictures/512.png',
-        sizes: '512',
+        sizes: '512x512',
         type: 'image/png',
         purpose: "maskable",
       },
       {
         src: '/pictures/512.png',
-        sizes: '1024',
+        sizes: '512x512',
         type: 'image/png',
         purpose: "any",
       },
       {
         src: '/pictures/512.png',
-        sizes: '1024',
+        sizes: '512x512',
         type: 'image/png',
       },
       {
         src: '/pictures/256.png',
-        sizes: '256',
+        sizes: '256x256',
         type: 'image/png',
         purpose: "maskable",
       },
       {
         src: '/pictures/256.png',
-        sizes: '256',
+        sizes: '256x256',
         type: 'image/png',
         purpose: "any",
       },
       {
         src: '/pictures/256.png',
-        sizes: '256',
+        sizes: '256x256',
         type: 'image/png',
       },
       {
         src: '/pictures/128.png',
-        sizes: '128',
+        sizes: '128x128',
         type: 'image/png',
         purpose: "maskable",
       },
       {
         src: '/pictures/128.png',
-        sizes: '128',
+        sizes: '128x128',
         type: 'image/png',
         purpose: "any",
       },
       {
         src: '/pictures/128.png',
-        sizes: '128',
+        sizes: '128x128',
         type: 'image/png',
       },
       {
         src: '/pictures/64.png',
-        sizes: '64',
+        sizes: '64x64',
         type: 'image/png',
         purpose: "maskable",
       },
       {
         src: '/pictures/64.png',
-        sizes: '64',
+        sizes: '64x64',
         type: 'image/png',
         purpose: "any",
       },
       {
         src: '/pictures/64.png',
-        sizes: '64',
+        sizes: '64x64',
         type: 'image/png',
       },
       {
         src: '/pictures/32.png',
-        sizes: '32',
+        sizes: '32x32',
         type: 'image/png',
         purpose: "maskable",
       },
       {
         src: '/pictures/32.png',
-        sizes: '32',
+        sizes: '32x32',
         type: 'image/png',
         purpose: "any",
       },
       {
         src: '/pictures/32.png',
-        sizes: '32',
+        sizes: '32x32',
         type: 'image/png',
       },
       {
         src: '/pictures/16.png',
-        sizes: '16',
+        sizes: '16x16',
         type: 'image/png',
         purpose: "maskable",
       },
       {
         src: '/pictures/16.png',
-        sizes: '16',
+        sizes: '16x16',
         type: 'image/png',
         purpose: "any",
       },
       {
         src: '/pictures/16.png',
-        sizes: '16',
+        sizes: '16x16',
         type: 'image/png',
+      },
+      {
+        src: '/pictures/Logo-transparet.png',
+        sizes: '431x224',
+        type: 'image/png',
+      },
+    ],
+    screenshots: [
+      {
+        src: '/pictures/Logo-transparet-4x.png',
+        sizes: '1724x896',
+        type: 'image/png',
+        form_factor: 'wide',
+        label: 'Logo of comboom.sucht'
+      },
+      {
+        src: '/pictures/Logo-transparet-4x.png',
+        sizes: '1724x896',
+        type: 'image/png',
+        form_factor: 'narrow',
+        label: 'Logo of comboom.sucht'
       },
     ],
   }
