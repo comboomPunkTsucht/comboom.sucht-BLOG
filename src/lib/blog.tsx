@@ -5,6 +5,11 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypePrettyCode from 'rehype-pretty-code';
+import remarkParse from 'remark-parse'
+import rehypeStringify from 'rehype-stringify'
+import { transformerCopyButton } from '@rehype-pretty/transformers'
 
 const postsDirectory = path.join(process.cwd(), 'public/blog');
 
@@ -81,7 +86,22 @@ export async function getPostData(id: string): Promise<PostData> {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark().use(remarkGfm).use(html).process(matterResult.content);
+  const processedContent = await remark()
+    .use(remarkGfm)
+    .use(html) // Verwende `remark-html`, wenn du reines HTML benötigst
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypePrettyCode, {
+      transformers: [
+        transformerCopyButton({
+          visibility: 'always',
+          feedbackDuration: 3_000,
+        }),
+      ],
+    })
+    .use(rehypeStringify)
+    .process(matterResult.content);
+
   const contentHtml = processedContent.toString();
 
   return {
