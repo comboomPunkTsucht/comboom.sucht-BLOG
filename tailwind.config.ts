@@ -18,7 +18,7 @@ const config = {
       },
     },
     extend: {
-      fontFamily: {
+            fontFamily: {
         sans: ["CaskaydiaCoveNerdFontPropo", "sans-serif"],
         mono: ["CaskaydiaCoveNerdFontMono", "monospace"],
         serif: ["CaskaydiaCoveNerdFont", "serif"],
