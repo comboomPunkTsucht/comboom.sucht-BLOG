@@ -32,10 +32,10 @@ export default function CreatePostPage() {
     const year = dateObj.getFullYear().toString();
 
     useEffect(() => {
-        const templateUrl = new URLSearchParams(window.location.search).get('template') +'.md';
+        const templateUrl = new URLSearchParams(window.location.search).get('template');
 
         if (templateUrl) {
-            fetch(templateUrl)
+            fetch(templateUrl+'.md')
                 .then(response => response.text())
                 .then(markdown => {
                     const frontMatterRegex = /^---\n([\s\S]*?)\n---/;
