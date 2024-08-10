@@ -19,6 +19,7 @@ export interface PostData {
   date?: string;
   description?: string;
   contentHtml?: string;
+  author?: string;
 }
 
 // Function to check if a directory should be ignored
@@ -62,6 +63,7 @@ export function getSortedPostsData(): PostData[] {
       title: matterResult.data.title,
       date: matterResult.data.date,
       description: matterResult.data.description,
+      author: matterResult.data.author
     };
   }).filter(Boolean) as PostData[]; // Filter out null values
 
@@ -110,5 +112,6 @@ export async function getPostData(id: string): Promise<PostData> {
     title: matterResult.data.title,
     date: matterResult.data.date,
     description: matterResult.data.description,
+    author: matterResult.data.author
   };
 }
