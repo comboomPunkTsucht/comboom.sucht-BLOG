@@ -26,7 +26,7 @@ test
 
 ---
 
-```java
+```java title="HelloWorld.java" caption="Hello World"
 public class HelloWorld {
 	public void sayHello(String a) {
 		System.out.println("Hello World!?");
