@@ -322,7 +322,28 @@
     @apply p-[0.4em];
     border-radius: 0.5rem;
     @apply font-mono;
+    counter-reset: line;
   }
+
+  code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  /* Other styling */
+  display: inline-block;
+  width: 1rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: gray;
+}
+
+code[data-line-numbers-max-digits="2"] > [data-line]::before {
+  width: 2rem;
+}
+
+code[data-line-numbers-max-digits="3"] > [data-line]::before {
+  width: 3rem;
+}
 
   pre {
     @apply p-[1em];
@@ -373,34 +394,7 @@
   }
 
   /* Optional: Responsive Table */
-  @media (max-width: 768px) {
-    table {
-      @apply block;
-      @apply overflow-x-auto;
-    }
 
-    th, td {
-      @apply block;
-      @apply text-sm;
-    }
-
-    th {
-      @apply text-left;
-      @apply border-b;
-    }
-
-    td {
-      @apply border-t;
-      @apply border-b;
-      @apply text-right;
-    }
-
-    td::before {
-      content: attr(data-label);
-      @apply block;
-      @apply font-bold;
-    }
-  }
 
   /* List Styles */
   ul {
@@ -441,6 +435,18 @@
   width: 20dvw;
 }
 
+@media (max-width: 1280px) {
+  .BlogPostCard {
+    @apply backdrop-blur-sm;
+    @apply bg-transparent;
+    @apply grid;
+    @apply grid-cols-subgrid;
+    grid-column: span 3;
+    width: 60vw;
+    width: 60dvw;
+  }
+}
+
 .my-Blog-grid-4 {
   @apply grid;
   @apply grid-cols-4;
@@ -456,6 +462,7 @@
     @apply grid;
     @apply grid-cols-1;
     @apply gap-4;
+    @apply mb-4;
     @apply justify-stretch;
     @apply items-stretch;
   }
@@ -481,8 +488,4 @@
   .no-print {
     display: none !important;
   }
-}
-
-.editable {
-  content: editable;
 }

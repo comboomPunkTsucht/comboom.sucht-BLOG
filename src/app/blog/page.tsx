@@ -13,7 +13,7 @@ const Home = async () => {
       <nav className="z-10 sticky top-0">
         <NavBar />
       </nav>
-      <div className="container items-center justify-between flex flex-col flex-wrap mx-auto p-4">
+      <div className="container items-center justify-between flex flex-col flex-wrap  p-4">
         <h1 className="text-4xl font-bold mb-6">Blog</h1>
         <div className="my-Blog-grid-4"> {/* Flex container with wrap and gap */}
           {allPostsData
