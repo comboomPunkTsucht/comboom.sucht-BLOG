@@ -13,7 +13,7 @@ export default {
         inline: "plaintext",
       },
       keepBackground: false,
-      showLineNumbers: true,
+      //showLineNumbers: true,
     }),
   ],
 };
