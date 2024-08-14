@@ -21,7 +21,7 @@ const AuthorBadge: React.FC<AuthorBadgeProps> = ({
     }
 
     return (
-        <Link href={href}>
+        <Link href={href} legacyBehavior passHref>
             <Badge variant="default" className="inline-flex items-center gap-2">
                 <UserAvatar
                     name={name}

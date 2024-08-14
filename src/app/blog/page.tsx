@@ -20,7 +20,7 @@ const Home = async () => {
             .filter(({ title, date, description }) => title && date && description) // Filter posts
             .map(({ id, date, title, description }) => (
               <div key={id} className="flex-1"> {/* Ensure minimum width */}
-                <Link href={`/blog/${id}`} className="text-blue-500 hover:underline block">
+                <Link href={`/blog/${id}`} className="text-blue-500 hover:underline block" legacyBehavior passHref>
                   <BlogPostCard
                     title={title!}
                     date={date!}

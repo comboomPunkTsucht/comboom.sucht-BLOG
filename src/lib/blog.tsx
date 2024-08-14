@@ -9,6 +9,7 @@ import remarkRehype from 'remark-rehype';
 import rehypePrettyCode from 'rehype-pretty-code';
 import remarkParse from 'remark-parse'
 import rehypeStringify from 'rehype-stringify'
+import { transformerNotationDiff } from '@shikijs/transformers';
 import { transformerCopyButton } from '@rehype-pretty/transformers'
 
 const postsDirectory = path.join(process.cwd(), 'public/blog');
@@ -89,19 +90,19 @@ export async function getPostData(id: string): Promise<PostData> {
   const matterResult = matter(fileContents);
 
   const processedContent = await remark()
-    .use(remarkGfm)
-    .use(html) // Verwende `remark-html`, wenn du reines HTML benötigst
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(rehypePrettyCode, {
-      transformers: [
-        transformerCopyButton({
-          visibility: 'always',
-          feedbackDuration: 3_000,
-        }),
-      ],
-    })
-    .use(rehypeStringify)
+            .use(remarkParse) // Erst das Markdown parsen
+            .use(remarkGfm) // GitHub-Flavored Markdown unterstützen
+            .use(remarkRehype, { allowDangerousHtml: true }) // In Rehype umwandeln und gefährliches HTML erlauben
+            .use(rehypePrettyCode, {
+                transformers: [
+                    transformerNotationDiff(),
+                    transformerCopyButton({
+                        visibility: 'always',
+                        feedbackDuration: 3_000,
+                    }),
+                ]
+            })
+            .use(rehypeStringify, { allowDangerousHtml: true }) // HTML wieder in String umwandeln, gefährliches HTML erlauben
     .process(matterResult.content);
 
   const contentHtml = processedContent.toString();
