@@ -27,7 +27,7 @@ export default function CreatePostPage() {
     const [content, setContent] = useState('');
     const [contentHtml, setContentHtml] = useState('');
 
-    const textareaRef = useRef(null);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     const currentDate = new Date().toISOString().split('T')[0];
     const dateObj = new Date(currentDate);
