@@ -37,7 +37,7 @@ export function NavBar() {
               <div className={navigationMenuTriggerStyle() + "backdrop-blur-sm  bg-transparent rounded-full"}>
                 <UserAvatar name={name} githubUserName={githubUserName} image={image} imageFallback={imageFallback} />
               </div>
-              <div className={navigationMenuTriggerStyle() + "nametag text-sm font-regular backdrop-blur-sm  bg-transparent rounded-full"}>
+              <div className={"nametag"+ /*navigationMenuTriggerStyle() + */" text-sm font-regular backdrop-blur-sm  bg-transparent rounded-full"}>
                 {name}
               </div>
             </div>
