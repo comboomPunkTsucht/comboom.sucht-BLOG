@@ -22,7 +22,7 @@ const RSSInfo = () => {
             <li className="mb-2">Suchen Sie nach einer Option zum Hinzufügen eines neuen Feeds. Dies ist normalerweise ein Plus-Symbol oder eine Schaltfläche &quot;Add Feed&quot;.</li>
             <li className="mb-2">
               Geben Sie die URL des RSS-Feeds ein, den Sie abonnieren möchten. Für unseren Blog lautet die URL:{" "}
-              <Link href={`${process.env.HOST_URL || 'http://localhost:3000'}/api/rss`} className="text-blue-500 hover:underline">
+              <Link href={`${process.env.HOST_URL || 'http://localhost:3000'}/api/rss`} className="text-blue-500 hover:underline" legacyBehavior passHref>
                 {`${process.env.HOST_URL || 'http://localhost:3000'}/api/rss`}
               </Link>
             </li>

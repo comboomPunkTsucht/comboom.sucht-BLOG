@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import AuthorBadge from "@/components/authorbadge";
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
@@ -15,6 +15,8 @@ import remarkRehype from 'remark-rehype';
 import rehypePrettyCode from 'rehype-pretty-code';
 import remarkParse from 'remark-parse';
 import rehypeStringify from 'rehype-stringify';
+import { transformerNotationDiff } from '@shikijs/transformers';
+import { transformerCopyButton } from '@rehype-pretty/transformers'
 
 export default function CreatePostPage() {
     const { user } = useUser();
@@ -24,6 +26,8 @@ export default function CreatePostPage() {
     const [description, setDescription] = useState('');
     const [content, setContent] = useState('');
     const [contentHtml, setContentHtml] = useState('');
+
+    const textareaRef = useRef(null);
 
     const currentDate = new Date().toISOString().split('T')[0];
     const dateObj = new Date(currentDate);
@@ -35,7 +39,7 @@ export default function CreatePostPage() {
         const templateUrl = new URLSearchParams(window.location.search).get('template');
 
         if (templateUrl) {
-            fetch(templateUrl+'.md')
+            fetch(templateUrl + '.md')
                 .then(response => response.text())
                 .then(markdown => {
                     const frontMatterRegex = /^---\n([\s\S]*?)\n---/;
@@ -46,7 +50,6 @@ export default function CreatePostPage() {
                         const frontMatter = frontMatterMatch[1];
                         contentWithoutFrontMatter = markdown.replace(frontMatterRegex, '').trim();
 
-                        // Extrahiere Titel und Beschreibung, aber ignoriere Datum und Autor
                         const titleMatch = frontMatter.match(/title:\s*"(.+?)"/);
                         const descriptionMatch = frontMatter.match(/description:\s*"(.+?)"/);
                         setTitle(titleMatch ? titleMatch[1] : '');
@@ -54,6 +57,11 @@ export default function CreatePostPage() {
                     }
 
                     setContent(contentWithoutFrontMatter);
+
+                    // Verwende setTimeout für das Resizing nach dem Rendering
+                    setTimeout(() => {
+                        autoResizeTextarea();
+                    }, 10);
                 });
         }
     }, []);
@@ -64,22 +72,34 @@ export default function CreatePostPage() {
         }
     }, [user, router]);
 
-    useEffect(() => {
-        const processContent = async () => {
-            const processedContent = await remark()
-                .use(remarkGfm)
-                .use(html)
-                .use(remarkParse)
-                .use(remarkRehype)
-                .use(rehypePrettyCode)
-                .use(rehypeStringify)
-                .process(content);
+useEffect(() => {
+    const processContent = async () => {
+        const processedContent = await remark()
+            .use(remarkParse) // Erst das Markdown parsen
+            .use(remarkGfm) // GitHub-Flavored Markdown unterstützen
+            .use(remarkRehype, { allowDangerousHtml: true }) // In Rehype umwandeln und gefährliches HTML erlauben
+            .use(rehypePrettyCode, {
+                transformers: [
+                    transformerNotationDiff(),
+                    transformerCopyButton({
+                        visibility: 'always',
+                        feedbackDuration: 3_000,
+                    }),
+                ]
+            })
+            .use(rehypeStringify, { allowDangerousHtml: true }) // HTML wieder in String umwandeln, gefährliches HTML erlauben
+            .process(content);
 
-            setContentHtml(processedContent.toString());
-        };
+        setContentHtml(processedContent.toString());
+        console.log(processedContent.toString());
+    };
 
-        processContent();
-    }, [content]);
+    processContent();
+
+    setTimeout(() => {
+        autoResizeTextarea(); // Sicherstellen, dass das Resizing nach dem Update von content durchgeführt wird
+    }, 10);
+}, [content]);
 
     const handleDownload = () => {
         const markdownContent = `---
@@ -98,6 +118,13 @@ ${content}`;
         link.download = `${title.replace(/\s+/g, '_')}.md`;
         link.click();
         URL.revokeObjectURL(url);
+    };
+
+    const autoResizeTextarea = () => {
+        if (textareaRef.current) {
+            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+        }
     };
 
     if (user && user.org_id && user.org_id === 'org_wvyPNK9y4HUrFBzV') {
@@ -119,6 +146,7 @@ ${content}`;
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 className="border p-2"
+                                inputMode="text"
                             />
                             <input
                                 type="text"
@@ -126,16 +154,48 @@ ${content}`;
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                                 className="border p-2"
+                                inputMode="text"
                             />
                             <textarea
+                                ref={textareaRef}  // Textarea mit Ref verbinden
                                 placeholder="Content"
                                 value={content}
-                                onChange={(e) => setContent(e.target.value)}
-                                className="border p-2 h-40 w-[80vw] w-[80dvw]"
+                                onChange={(e) => {
+                                    setContent(e.target.value);
+                                    autoResizeTextarea();
+                                }}
+                                className="border p-2 w-[80vw] w-[80dvw] h-auto"
+                                style={{
+                                    overflow: 'hidden',
+                                    height: 'auto',
+                                  }}
+                                onInput={(e) => { autoResizeTextarea }} // Auch beim Tippen anpassen
+                                onLoad={(e) => { autoResizeTextarea }}
+                                onClick={(e) => { autoResizeTextarea }}
+                                onResize={(e) => { autoResizeTextarea }}
+                                inputMode="text"
+                                onResizeCapture={(e) => { autoResizeTextarea }}
+                                onLoadCapture={(e) => { autoResizeTextarea }}
+                                onInputCapture={(e) => { autoResizeTextarea }}
+                                onClickCapture={(e) => { autoResizeTextarea }}
+                                onContextMenu={(e) => { autoResizeTextarea }}
+                                onContextMenuCapture={(e) => { autoResizeTextarea }}
+                                onFocus={(e) => { autoResizeTextarea }}
+                                onFocusCapture={(e) => { autoResizeTextarea }}
+                                onTouchStart={(e) => { autoResizeTextarea }}
+                                onTouchStartCapture={(e) => { autoResizeTextarea }}
+                                onTouchEnd={(e) => { autoResizeTextarea }}
+                                onTouchEndCapture={(e) => { autoResizeTextarea }}
+                                onTouchCancel={(e) => { autoResizeTextarea }}
+                                onTouchCancelCapture={(e) => { autoResizeTextarea }}
+                                onTouchMove={(e) => { autoResizeTextarea }}
+                                onTouchMoveCapture={(e) => { autoResizeTextarea }}
+                                onSelect={(e) => { autoResizeTextarea }}
+                                onSelectCapture={(e) => { autoResizeTextarea }}
+                                onScroll={(e) => { autoResizeTextarea }}
+                                onScrollCapture={(e) => { autoResizeTextarea }}
                             />
-                            <Button
-                                onClick={handleDownload}
-                            >
+                            <Button onClick={handleDownload}>
                                 Download Markdown File
                             </Button>
                         </div>
@@ -145,7 +205,7 @@ ${content}`;
 
                     <main className="preview flex-col items-start justify-start p-4">
                         <article className="prose mx-auto">
-                            <h1 className="text-4xl font-bold text-start">{title === '' ? 'Title': title }</h1>
+                            <h1 className="text-4xl font-bold text-start">{title === '' ? 'Title' : title}</h1>
                             <div className="text-base text-gray-500 text-start">
                                 {day + "/" + month + "/" + year}
                             </div>
@@ -162,7 +222,7 @@ ${content}`;
                                 />
                             </div>
                             <div
-                                dangerouslySetInnerHTML={{ __html: contentHtml === '' ? 'Content': contentHtml}}
+                                dangerouslySetInnerHTML={{ __html: contentHtml === '' ? 'Content' : contentHtml }}
                                 className="flex-grow flex flex-col p-4 items-start justify-start"
                             />
                         </article>
