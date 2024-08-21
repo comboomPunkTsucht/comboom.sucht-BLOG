@@ -171,7 +171,7 @@ ${content}`;
                                 style={{
                                     overflow: 'hidden',
                                     height: 'auto',
-                                  }}
+                                }}
                                 onInput={(e) => { autoResizeTextarea }} // Auch beim Tippen anpassen
                                 onLoad={(e) => { autoResizeTextarea }}
                                 onClick={(e) => { autoResizeTextarea }}
