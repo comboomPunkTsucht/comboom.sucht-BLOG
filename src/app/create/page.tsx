@@ -74,34 +74,35 @@ export default function CreatePostPage() {
         }
     }, [user, router]);
 
-useEffect(() => {
-    const processContent = async () => {
-        const processedContent = await remark()
-            .use(remarkParse) // Erst das Markdown parsen
-            .use(remarkGfm) // GitHub-Flavored Markdown unterstützen
-            .use(remarkRehype, { allowDangerousHtml: true }) // In Rehype umwandeln und gefährliches HTML erlauben
-            .use(rehypePrettyCode, {
-                transformers: [
-                    transformerNotationDiff(),
-                    transformerCopyButton({
-                        visibility: 'always',
-                        feedbackDuration: 3_000,
-                    }),
-                ]
-            })
-            .use(rehypeStringify, { allowDangerousHtml: true }) // HTML wieder in String umwandeln, gefährliches HTML erlauben
-            .process(content);
+    useEffect(() => {
+        const processContent = async () => {
+            const processedContent = await remark()
+                .use(remarkParse) // Erst das Markdown parsen
+                .use(remarkGfm) // GitHub-Flavored Markdown unterstützen
+                .use(remarkRehype, { allowDangerousHtml: true }) // In Rehype umwandeln und gefährliches HTML erlauben
+                .use(rehypePrettyCode, {
+                    transformers: [
+                        transformerNotationDiff(),
+                        transformerCopyButton({
+                            visibility: 'always',
+                            feedbackDuration: 3_000,
+                        }),
+                    ]
+                })
+                .use(html, { allowDangerousHtml: true })
+                .use(rehypeStringify, { allowDangerousHtml: true }) // HTML wieder in String umwandeln, gefährliches HTML erlauben
+                .process(content);
 
-        setContentHtml(processedContent.toString());
-        console.log(processedContent.toString());
-    };
+            setContentHtml(processedContent.toString());
+            console.log(processedContent.toString());
+        };
 
-    processContent();
+        processContent();
 
-    setTimeout(() => {
-        autoResizeTextarea(); // Sicherstellen, dass das Resizing nach dem Update von content durchgeführt wird
-    }, 10);
-}, [content]);
+        setTimeout(() => {
+            autoResizeTextarea(); // Sicherstellen, dass das Resizing nach dem Update von content durchgeführt wird
+        }, 10);
+    }, [content]);
 
     const handleDownload = () => {
         const markdownContent = `---
@@ -129,6 +130,12 @@ ${content}`;
         }
     };
 
+    const [previewMode, setPreviewMode] = useState(false)
+    const [fullscreenMode, setFullscreenMode] = useState(false)
+    const togglePreviewMode = () => {
+        setPreviewMode((prevMode) => !prevMode)
+    }
+
     if (user && user.org_id && user.org_id === 'org_wvyPNK9y4HUrFBzV') {
         return (
             <div>
@@ -141,96 +148,277 @@ ${content}`;
                             Create a New Post
                         </h1>
                         <p className="text-xs mb-4">(Only text based Post)</p>
-                        <div className="flex flex-col space-y-4">
-                            <Input
-                                type="text"
-                                placeholder="Title"
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                                className="border p-2 backdrop-blur-sm  bg-transparent"
-                                inputMode="text"
-                            />
-                            <Input
-                                type="text"
-                                placeholder="Description"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                                className="border p-2 backdrop-blur-sm  bg-transparent"
-                                inputMode="text"
-                            />
 
-                            <Textarea
-                                ref={textareaRef}  // Textarea mit Ref verbinden
-                                placeholder="Content"
-                                value={content}
-                                onChange={(e) => {
-                                    setContent(e.target.value);
-                                    autoResizeTextarea();
-                                }}
-                                className="border p-2 w-[80vw] w-[80dvw] h-auto backdrop-blur-sm  bg-transparent"
-                                style={{
-                                    overflow: 'hidden',
-                                    height: 'auto',
-                                }}
-                                onInput={(e) => { autoResizeTextarea }} // Auch beim Tippen anpassen
-                                onLoad={(e) => { autoResizeTextarea }}
-                                onClick={(e) => { autoResizeTextarea }}
-                                onResize={(e) => { autoResizeTextarea }}
-                                inputMode="text"
-                                onResizeCapture={(e) => { autoResizeTextarea }}
-                                onLoadCapture={(e) => { autoResizeTextarea }}
-                                onInputCapture={(e) => { autoResizeTextarea }}
-                                onClickCapture={(e) => { autoResizeTextarea }}
-                                onContextMenu={(e) => { autoResizeTextarea }}
-                                onContextMenuCapture={(e) => { autoResizeTextarea }}
-                                onFocus={(e) => { autoResizeTextarea }}
-                                onFocusCapture={(e) => { autoResizeTextarea }}
-                                onTouchStart={(e) => { autoResizeTextarea }}
-                                onTouchStartCapture={(e) => { autoResizeTextarea }}
-                                onTouchEnd={(e) => { autoResizeTextarea }}
-                                onTouchEndCapture={(e) => { autoResizeTextarea }}
-                                onTouchCancel={(e) => { autoResizeTextarea }}
-                                onTouchCancelCapture={(e) => { autoResizeTextarea }}
-                                onTouchMove={(e) => { autoResizeTextarea }}
-                                onTouchMoveCapture={(e) => { autoResizeTextarea }}
-                                onSelect={(e) => { autoResizeTextarea }}
-                                onSelectCapture={(e) => { autoResizeTextarea }}
-                                onScroll={(e) => { autoResizeTextarea }}
-                                onScrollCapture={(e) => { autoResizeTextarea }}
-                            />
-                            <Button onClick={handleDownload}>
-                                Download Markdown File
-                            </Button>
-                        </div>
-                    </div>
+                        <div
+                            className={`flex flex-col h-screen w-full bg-transparent text-foreground transition-all duration-300 ${fullscreenMode ? "fixed top-0 left-0 z-50 m-0" : ""
+                                }`}
+                        >
+                            <div
+                                className={`flex items-center justify-between bg-transparent  px-4 py-2 border-b border-border ${fullscreenMode ? "sticky top-0 z-40" : ""
+                                    }`}
+                            >
+                                <div className="flex items-center gap-2">
 
-                    <Separator className="my-8" />
-
-                    <main className="preview flex-col items-start justify-start p-4">
-                        <article className="prose mx-auto">
-                            <h1 className="text-4xl font-bold text-start">{title === '' ? 'Title' : title}</h1>
-                            <div className="text-base text-gray-500 text-start">
-                                {day + "/" + month + "/" + year}
-                            </div>
-                            <div className='flex items-start justify-start'>
-                                <AuthorBadge
-                                    name={user.name!}
-                                    githubUserName={user.nickname!}
-                                    email={user.email!}
-                                    href={'https://github.com/' + user.nickname!}
-                                    image={{
-                                        src: user.picture!,
-                                        alt: user.name!
-                                    }}
-                                />
+                                    <Button variant="ghost" size="icon" onClick={() => {
+                                        const temp = content
+                                        togglePreviewMode();
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                    }}>
+                                        {previewMode ? <EyeOffIcon className="h-5 w-5" /> : <EyeIcon className="h-5 w-5" />}
+                                    </Button>
+                                </div>
                             </div>
                             <div
-                                dangerouslySetInnerHTML={{ __html: contentHtml === '' ? 'Content' : contentHtml }}
-                                className="flex-grow flex flex-col p-4 items-start justify-start"
-                            />
-                        </article>
-                    </main>
+                                className={`flex-1 overflow-auto p-4 transition-all duration-300 ${previewMode ? "prose prose-invert max-w-none" : "prose max-w-none dark:prose-invert"
+                                    }`}
+                            >
+                                {previewMode ? (
+                                    <div>
+                                        <main className="preview flex-col items-start justify-start p-4">
+                                            <article className="prose mx-auto">
+                                                <h1 className="text-4xl font-bold text-start">{title === '' ? 'Title' : title}</h1>
+                                                <div className="text-base text-gray-500 text-start">
+                                                    {day + "/" + month + "/" + year}
+                                                </div>
+                                                <div className='flex items-start justify-start'>
+                                                    <AuthorBadge
+                                                        name={user.name!}
+                                                        githubUserName={user.nickname!}
+                                                        email={user.email!}
+                                                        href={'https://github.com/' + user.nickname!}
+                                                        image={{
+                                                            src: user.picture!,
+                                                            alt: user.name!
+                                                        }}
+                                                    />
+                                                </div>
+                                                <div
+                                                    dangerouslySetInnerHTML={{ __html: contentHtml === '' ? 'Content' : contentHtml }}
+                                                    className="flex-grow flex flex-col p-4 items-start justify-start"
+                                                />
+                                            </article>
+                                        </main>
+                                    </div>
+                                ) : (
+                                    <div className="flex flex-col space-y-4 h-auto">
+                                        <Input
+                                            type="text"
+                                            placeholder="Title"
+                                            value={title}
+                                            onChange={(e) => setTitle(content)}
+                                            className="border p-2 backdrop-blur-sm  bg-transparent"
+                                            inputMode="text"
+                                        />
+                                        <Input
+                                            type="text"
+                                            placeholder="Description"
+                                            value={description}
+                                            onChange={(e) => setDescription(content)}
+                                            className="border p-2 backdrop-blur-sm  bg-transparent"
+                                            inputMode="text"
+                                        />
+
+                                        <Textarea
+                                            ref={textareaRef}  // Textarea mit Ref verbinden
+                                            placeholder="Content"
+                                            value={content}
+                                            onChange={(e) => {
+                                                const temp = e.target.value;
+
+                                        setContent(e.target.value);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            className="border p-2 h-auto backdrop-blur-sm  bg-transparent"
+                                            style={{
+                                                overflow: 'hidden',
+                                                height: 'auto',
+                                            }}
+                                            onInput={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }} // Auch beim Tippen anpassen
+                                            onLoad={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onClick={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onResize={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            inputMode="text"
+                                            onResizeCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onLoadCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onInputCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onClickCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onContextMenu={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onContextMenuCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onFocus={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onFocusCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onTouchStart={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onTouchStartCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onTouchEnd={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onTouchEndCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onTouchCancel={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onTouchCancelCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onTouchMove={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onTouchMoveCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onSelect={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onSelectCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onScroll={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                            onScrollCapture={(e) => {
+                                                const temp = content;
+
+                                        setContent(content);
+                                        autoResizeTextarea();
+                                        setContent(temp);
+                                            }}
+                                        />
+                                        <Button onClick={handleDownload}>
+                                            Download Markdown File
+                                        </Button>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
+
+
                 <Footer />
             </div>
         );
@@ -249,4 +437,92 @@ ${content}`;
             </div>
         );
     }
+}
+
+function EyeIcon(props: any) {
+    return (
+        <svg
+            {...props}
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+            <circle cx="12" cy="12" r="3" />
+        </svg>
+    )
+}
+
+
+function EyeOffIcon(props: any) {
+    return (
+        <svg
+            {...props}
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" />
+            <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" />
+            <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" />
+            <line x1="2" x2="22" y1="2" y2="22" />
+        </svg>
+    )
+}
+
+function MaximizeIcon(props: any) {
+    return (
+        <svg
+            {...props}
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+            <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
+            <path d="M3 16v3a2 2 0 0 0 2 2h3" />
+            <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+        </svg>
+    )
+}
+
+
+function MinimizeIcon(props: any) {
+    return (
+        <svg
+            {...props}
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        >
+            <path d="M8 3v3a2 2 0 0 1-2 2H3" />
+            <path d="M21 8h-3a2 2 0 0 1-2-2V3" />
+            <path d="M3 16h3a2 2 0 0 1 2 2v3" />
+            <path d="M16 21v-3a2 2 0 0 1 2-2h3" />
+        </svg>
+    )
 }
