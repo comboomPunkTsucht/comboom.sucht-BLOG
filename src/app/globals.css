@@ -1,491 +1,76 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
+ 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 0 0% 3.9%;
+
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 0 0% 3.9%;
+ 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 142.1 76.2% 36.3%;
-    --primary-foreground: 355.7 100% 97.3%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --popover-foreground: 0 0% 3.9%;
+ 
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+ 
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+ 
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+ 
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+ 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 142.1 76.2% 36.3%;
-    --radius: 1rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-  }
 
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
   .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 0 0% 95%;
-    --card: 24 9.8% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 142.1 70.6% 45.3%;
-    --primary-foreground: 144.9 80.4% 10%;
-    --secondary: 240 3.7% 15.9%;
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+ 
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+ 
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+ 
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+ 
+    --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 12 6.5% 15.1%;
+ 
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+ 
+    --accent: 0 0% 14.9%;
     --accent-foreground: 0 0% 98%;
+ 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 85.7% 97.3%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 142.4 71.8% 29.2%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+ 
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
   }
 }
-
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-Regular.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-Bold.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: normal;
-  font-weight: 700;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-BoldItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: italic;
-  font-weight: 700;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-Italic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: italic;
-  font-weight: 400;
-}
-
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiBold.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: normal;
-  font-weight: 600;
-}
-
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiBoldItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: italic;
-  font-weight: 600;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiLight.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: normal;
-  font-weight: 200;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiLightItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: italic;
-  font-weight: 200;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-ExtraLight.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: normal;
-  font-weight: 100;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-ExtraLightItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: italic;
-  font-weight: 100;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-Light.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: normal;
-  font-weight: 300;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-LightItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontPropo";
-  font-style: italic;
-  font-weight: 300;
-}
-
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-Bold.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: normal;
-  font-weight: 700;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-BoldItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: italic;
-  font-weight: 700;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-Italic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: italic;
-  font-weight: 400;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-SemiBold.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: normal;
-  font-weight: 600;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-SemiBoldItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: italic;
-  font-weight: 600;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-SemiLight.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: normal;
-  font-weight: 200;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-SemiLightItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: italic;
-  font-weight: 200;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-ExtraLight.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: normal;
-  font-weight: 100;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-ExtraLightItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: italic;
-  font-weight: 100;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-Light.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: normal;
-  font-weight: 300;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-LightItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFontMono";
-  font-style: italic;
-  font-weight: 300;
-}
-
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-Regular.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-Bold.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: normal;
-  font-weight: 700;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-BoldItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: italic;
-  font-weight: 700;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-Italic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: italic;
-  font-weight: 400;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-SemiBold.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: normal;
-  font-weight: 600;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-SemiBoldItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: italic;
-  font-weight: 600;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-SemiLight.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: normal;
-  font-weight: 200;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-SemiLightItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: italic;
-  font-weight: 200;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-ExtraLight.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: normal;
-  font-weight: 100;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-ExtraLightItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: italic;
-  font-weight: 100;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-Light.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: normal;
-  font-weight: 300;
-}
-@font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFont-LightItalic.ttf) format(truetype);
-  font-family: "CaskaydiaCoveNerdFont";
-  font-style: italic;
-  font-weight: 300;
-}
-
+ 
 @layer base {
   * {
     @apply border-border;
-    scroll-behavior: smooth;
   }
-
   body {
     @apply bg-background text-foreground;
-    @apply overflow-x-hidden;
-    @apply overscroll-contain;
-    height: 100vh;
-    width: 100vw;
-    height: 100dvh;
-    width: 100dvw;
-    @apply font-sans;
-    @apply text-base;
-  }
-
-  h1, h2, h3, h4, h5, h6, a, p {
-    @apply font-sans;
-    @apply text-foreground;
-  }
-
-  h1 { @apply text-4xl; }
-  h2 { @apply text-3xl; }
-  h3 { @apply text-2xl; }
-  h4 { @apply text-xl; }
-  h5 { @apply text-base; }
-  h6 { @apply text-sm; }
-  a { @apply text-base; }
-  p { @apply text-base; }
-
-  blockquote {
-    @apply text-muted-foreground;
-    @apply text-xl;
-  }
-
-  code {
-    @apply p-[0.4em];
-    border-radius: 0.5rem;
-    @apply font-mono;
-    counter-reset: line;
-  }
-
-  code > [data-line]::before {
-  counter-increment: line;
-  content: counter(line);
-
-  /* Other styling */
-  display: inline-block;
-  width: 1rem;
-  margin-right: 2rem;
-  text-align: right;
-  color: gray;
-}
-
-code[data-line-numbers-max-digits="2"] > [data-line]::before {
-  width: 2rem;
-}
-
-code[data-line-numbers-max-digits="3"] > [data-line]::before {
-  width: 3rem;
-}
-
-  pre {
-    @apply p-[1em];
-    border-radius: 0.25rem;
-    @apply font-mono;
-  }
-
-  img {
-    border-radius: 0.5rem;
-    width: 50vw;
-    width: 50dvw;
-  }
-
-  hr {
-    @apply border;
-    @apply mt-[2em];
-    @apply mb-[2em];
-    width: 92vw;
-    width: 92dvw;
-  }
-
-  /* Table Styles */
-  table {
-    @apply w-full border-collapse border border-border;
-  }
-
-  th, td {
-    @apply border border-border;
-    @apply px-4 py-2;
-  }
-
-  th {
-    @apply bg-primary text-primary-foreground;
-    @apply text-left;
-  }
-
-  tr:nth-child(even) {
-    @apply bg-muted;
-  }
-
-  tr:nth-child(odd) {
-    @apply bg-background;
-  }
-
-  caption {
-    @apply text-muted-foreground;
-    @apply mb-2;
-  }
-
-  /* Optional: Responsive Table */
-
-
-  /* List Styles */
-  ul {
-    @apply list-disc pl-5;
-  }
-
-  ol {
-    @apply list-decimal pl-5;
-  }
-
-  ul li, ol li {
-    @apply mb-2; /* Spacing between list items */
-    @apply text-base;
-  }
-
-  /* Task List Item Styles */
-  .task-list-item {
-    @apply flex items-center list-none;
-  }
-
-  .task-list-item input[type='checkbox'] {
-    @apply mr-2;
-  }
-
-  .task-list-item.completed {
-    @apply text-primary;
-    @apply line-through;
-  }
-}
-
-.BlogPostCard {
-  @apply backdrop-blur-sm;
-  @apply bg-transparent;
-  @apply grid;
-  @apply grid-cols-subgrid;
-  grid-column: span 3;
-  width: 20vw;
-  width: 20dvw;
-}
-
-@media (max-width: 1280px) {
-  .BlogPostCard {
-    @apply backdrop-blur-sm;
-    @apply bg-transparent;
-    @apply grid;
-    @apply grid-cols-subgrid;
-    grid-column: span 3;
-    width: 60vw;
-    width: 60dvw;
-  }
-}
-
-.my-Blog-grid-4 {
-  @apply grid;
-  @apply grid-cols-4;
-  @apply gap-4;
-  @apply mb-4;
-  @apply mx-14;
-  @apply justify-stretch;
-  @apply items-stretch;
-}
-
-@media (max-width: 1280px) {
-  .my-Blog-grid-4 {
-    @apply grid;
-    @apply grid-cols-1;
-    @apply gap-4;
-    @apply mb-4;
-    @apply justify-stretch;
-    @apply items-stretch;
-  }
-}
-
-.nametag {
-  @apply visible;
-}
-
-@media (max-width: 600px) {
-  .nametag {
-    @apply hidden;
-  }
-}
-
-@media print {
-  .no-print {
-    display: none !important;
-  }
-}
-
-@media --webkit-print {
-  .no-print {
-    display: none !important;
   }
 }
