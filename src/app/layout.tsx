@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { FlagValues } from '@vercel/flags/react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { Metadata } from "next";
+import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
   title: "comboom.sucht | The Mgaming Group",
@@ -88,7 +89,7 @@ export default function RootLayout({
       <meta name="keywords" content="comboom, sucht, comboom.sucht, comboompunktsucht, mcpeaps_HD, mahd, blackdragon" />
       <meta name="format-detection" content="telephone=yes, date=no, email=yes, address=yes" />
     </head>
-      <body>
+      <body className={cn("")}>
         <UserProvider>
           <ThemeProvider
             attribute="class"
@@ -102,7 +103,8 @@ export default function RootLayout({
                 {children}
                 <FlagValues values={values} />
               </div>
-            </div>
+              </div>
+
           </ThemeProvider>
           <SpeedInsights />
           <Analytics />

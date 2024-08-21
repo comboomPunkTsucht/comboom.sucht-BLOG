@@ -17,6 +17,8 @@ import remarkParse from 'remark-parse';
 import rehypeStringify from 'rehype-stringify';
 import { transformerNotationDiff } from '@shikijs/transformers';
 import { transformerCopyButton } from '@rehype-pretty/transformers'
+import { Textarea } from "@/components/ui/textarea"
+import { Input } from "@/components/ui/input"
 
 export default function CreatePostPage() {
     const { user } = useUser();
@@ -140,23 +142,24 @@ ${content}`;
                         </h1>
                         <p className="text-xs mb-4">(Only text based Post)</p>
                         <div className="flex flex-col space-y-4">
-                            <input
+                            <Input
                                 type="text"
                                 placeholder="Title"
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
-                                className="border p-2"
+                                className="border p-2 backdrop-blur-sm  bg-transparent"
                                 inputMode="text"
                             />
-                            <input
+                            <Input
                                 type="text"
                                 placeholder="Description"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                                className="border p-2"
+                                className="border p-2 backdrop-blur-sm  bg-transparent"
                                 inputMode="text"
                             />
-                            <textarea
+
+                            <Textarea
                                 ref={textareaRef}  // Textarea mit Ref verbinden
                                 placeholder="Content"
                                 value={content}
@@ -164,11 +167,11 @@ ${content}`;
                                     setContent(e.target.value);
                                     autoResizeTextarea();
                                 }}
-                                className="border p-2 w-[80vw] w-[80dvw] h-auto"
+                                className="border p-2 w-[80vw] w-[80dvw] h-auto backdrop-blur-sm  bg-transparent"
                                 style={{
                                     overflow: 'hidden',
                                     height: 'auto',
-                                  }}
+                                }}
                                 onInput={(e) => { autoResizeTextarea }} // Auch beim Tippen anpassen
                                 onLoad={(e) => { autoResizeTextarea }}
                                 onClick={(e) => { autoResizeTextarea }}

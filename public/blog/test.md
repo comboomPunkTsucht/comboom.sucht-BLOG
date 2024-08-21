@@ -22,7 +22,7 @@ test
 
 test
 
-![Logo of comboom.sucht](/blog/pictures/Logo-transparet-4x.png)
+![Logo of comboom.sucht](./pictures/Logo-transparet-4x.png)
 
 ---
 
@@ -42,7 +42,7 @@ public class HelloWorld {
 
 > hello
 
-* [X] mmm
+* [x] mmm
 * [ ] nnn
 
 1. mmm
@@ -65,3 +65,7 @@ public class HelloWorld {
 </br>
 
 <iframe width="100%" height="150" src="https://odesli.co/embed/?url=https%3A%2F%2Fsong.link%2Ffestival_dream&theme=dark" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation allow-popups allow-popups-to-escape-sandbox" allow="clipboard-read; clipboard-write"></iframe>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE3OTAyNzM1ODIsLTU2NzUxNjY1LC0xNz
+kwMjczNTgyXX0=
+-->
