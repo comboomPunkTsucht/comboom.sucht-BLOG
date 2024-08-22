@@ -32,9 +32,9 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-    domains: ['cdn.idx.dev'],
+    domains: ['cdn.idx.dev', 'dev.comboompunksucht.app',(isProd ? 'comboompunksucht.app' : `http://${internalHost}:3000`)],
   },
-  assetPrefix: isProd ? null : `http://${internalHost}:3000`
+  assetPrefix: isProd ? 'comboompunksucht.app' : `http://${internalHost}:3000`
 };
 
 

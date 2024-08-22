@@ -11,7 +11,7 @@ async function generateRSSFeed() {
     id: `${process.env.HOST_URL || 'http://localhost:3000'}/`,
     link: `${process.env.HOST_URL || 'http://localhost:3000'}/`,
     language: "en",
-    image: `${process.env.HOST_URL || 'http://localhost:3000'}/logo.png`,
+    image: `${process.env.HOST_URL || 'http://localhost:3000'}/pictures/1024.png`,
     favicon: `${process.env.HOST_URL || 'http://localhost:3000'}/favicon.ico`,
     copyright: "All rights reserved 2024, My Blog",
   });
@@ -19,8 +19,8 @@ async function generateRSSFeed() {
   posts.forEach((post) => {
     feed.addItem({
       title: post.title!,
-      id: `${process.env.HOST_URL || 'http://localhost:3000'}/posts/${post.id}`,
-      link: `${process.env.HOST_URL || 'http://localhost:3000'}/posts/${post.id}`,
+      id: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/${post.id}`,
+      link: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/${post.id}`,
       date: new Date(post.date!),
       description: post.description!,
       content: post.contentHtml!,
