@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
-const isVercel = process.env.NODE_Vercel === 'true';
-const isProd = process.env.NODE_ENV === 'PROD';
+const isProd = process.env.NODE_ENV === 'production';
 
 let internalHost = null;
 
-if (!isVercel && !isProd) {
+if (!isProd) {
   const { internalIpV4 } = await import('internal-ip');
   internalHost = await internalIpV4();
 }
@@ -33,9 +32,9 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-    domains: ['cdn.idx.dev','/'],
+    domains: ['cdn.idx.dev','/', 'https://dev.comboompunksucht.app', 'https://comboompunksucht.app',`http://${internalHost}:3000`],
   },
-  assetPrefix: isVercel ? (!isProd ? 'https://dev.comboompunksucht.app': 'https://comboompunksucht.app') : `http://${internalHost}:3000`
+  assetPrefix: isProd ? null : `http://${internalHost}:3000`
 };
 
 
