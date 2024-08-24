@@ -1,35 +1,35 @@
 {
-  "productName": "comboom.sucht",
-  "version": "0.0.1",
-  "identifier": "com.comboom.sucht",
-  "build": {
-    "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "/bin/rm -fr ./out && mkdir ./out && echo \"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Redirect</title><meta http-equiv='refresh' content='0; url=https://comboompunksucht.app/'><script>window.location.href='https://comboompunksucht.app/';</script></head><body></body></html>\" > ./out/index.html",
-    "devUrl": "http://localhost:3000",
-    "frontendDist": "../out"
-  },
-  "app": {
-    "withGlobalTauri": true,
-    "windows": [
-      {
-        "title": "comboom.sucht",
-        "width": 1280,
-        "height": 720
-      }
-    ],
-    "security": {
-      "csp": null
-    }
-  },
-  "bundle": {
-    "active": true,
-    "targets": "all",
-    "icon": [
-      "icons/32.png",
-      "icons/128.png",
-      "icons/256.png",
-      "icons/icon.icns",
-      "icons/icon.ico"
-    ]
-  }
+	"productName": "comboom.sucht",
+	"version": "0.0.1",
+	"identifier": "com.comboom.sucht",
+	"build": {
+		"beforeDevCommand": "npm run dev",
+		"beforeBuildCommand": "/bin/rm -fr ./out && mkdir ./out && echo \"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Redirect</title><meta http-equiv='refresh' content='0; url=https://comboompunksucht.app/'><script>window.location.href='https://comboompunksucht.app/';</script></head><body></body></html>\" > ./out/index.html",
+		"devUrl": "http://localhost:3000",
+		"frontendDist": "../out"
+	},
+	"app": {
+		"withGlobalTauri": true,
+		"windows": [
+			{
+				"title": "comboom.sucht",
+				"width": 1280,
+				"height": 720
+			}
+		],
+		"security": {
+			"csp": "default-src 'self' https://github.com https://api.github.com; connect-src 'self' https://github.com https://api.github.com; script-src 'self'; img-src 'self' data:; frame-src 'self'"
+		}
+	},
+	"bundle": {
+		"active": true,
+		"targets": "all",
+		"icon": [
+			"icons/32.png",
+			"icons/128.png",
+			"icons/256.png",
+			"icons/icon.icns",
+			"icons/icon.ico"
+		]
+	}
 }
