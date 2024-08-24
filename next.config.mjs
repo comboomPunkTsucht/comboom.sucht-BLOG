@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'PROD';
-const isDev = process.env.NODE_ENV === 'DEV';
+const isDev = process.env.NODE_ENV !== 'DEV';
+
 
 let internalHost = null;
 
-if (!isProd && !isDev) {
+if (isDev) {
   const { internalIpV4 } = await import('internal-ip');
   internalHost = await internalIpV4();
 }
@@ -39,9 +39,10 @@ const nextConfig = {
       'comboompunksucht.app',
     ],
   },
-  assetPrefix: isProd ? 'https://comboompunksucht.app' : (isDev ? 'https://dev.comboompunksucht.app' : `http://${internalHost}:3000`),
+  assetPrefix: !isDev ? null : `http://${internalHost}:3000`,
 };
 
-
+console.log("assetPrefix:", nextConfig.assetPrefix);
+console.log("Next config:", nextConfig)
 
 export default nextConfig;
