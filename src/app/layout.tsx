@@ -7,6 +7,7 @@ import { FlagValues } from '@vercel/flags/react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { Metadata } from "next";
 import { cn } from "@/lib/utils"
+export const runtime = "edge";
 
 export const metadata: Metadata = {
   title: "comboom.sucht | The Mgaming Group",
