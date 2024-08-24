@@ -34,7 +34,7 @@ const nextConfig = {
     unoptimized: true,
     domains: ['cdn.idx.dev','/', 'https://dev.comboompunksucht.app', 'https://comboompunksucht.app',`http://${internalHost}:3000`],
   },
-  assetPrefix: isProd ? null : `http://${internalHost}:3000`
+  assetPrefix: isProd ? '/' : `http://${internalHost}:3000`
 };
 
 
