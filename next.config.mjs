@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'PROD';
+const isDev = process.env.NODE_ENV === 'DEV';
 
 let internalHost = null;
 
-if (!isProd) {
+if (!isProd && !isDev) {
   const { internalIpV4 } = await import('internal-ip');
   internalHost = await internalIpV4();
 }
@@ -32,9 +33,13 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-    domains: ['cdn.idx.dev','/', 'https://dev.comboompunksucht.app', 'https://comboompunksucht.app',`http://${internalHost}:3000`],
+    domains: [
+      'cdn.idx.dev',
+      'dev.comboompunksucht.app',
+      'comboompunksucht.app',
+    ],
   },
-  assetPrefix: isProd ? '/' : `http://${internalHost}:3000`
+  assetPrefix: isProd ? 'https://comboompunksucht.app' : (isDev ? 'https://dev.comboompunksucht.app' : `http://${internalHost}:3000`),
 };
 
 
