@@ -10,7 +10,7 @@ async function generateRSSFeed() {
     description: "comboom.sucht Blog",
     id: `${process.env.HOST_URL || 'http://localhost:3000'}/`,
     link: `${process.env.HOST_URL || 'http://localhost:3000'}/`,
-    language: "en",
+    language: "de",
     image: `${process.env.HOST_URL || 'http://localhost:3000'}/pictures/1024.png`,
     favicon: `${process.env.HOST_URL || 'http://localhost:3000'}/favicon.ico`,
     copyright: "All rights reserved 2024, My Blog",
