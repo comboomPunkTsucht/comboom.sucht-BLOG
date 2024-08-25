@@ -21,19 +21,19 @@ test
 
 ---
 
-test ![Logo of comboom.sucht](./pictures/Logo-transparet-4x.png)
+test ![Logo of comboom.sucht](/pictures/Logo-transparet-4x.png)
 
---- 
+---
 
-```java 
+```java
 
-public class HelloWorld { 
+public class HelloWorld {
 
-   public void sayHello(String a) { 
+   public void sayHello(String a) {
 
-      System.out.println("Hello World!?"); 
+      System.out.println("Hello World!?");
 
-      System.out.println("Hello " + a + "!?"); 
+      System.out.println("Hello " + a + "!?");
 
    }
 
@@ -41,9 +41,9 @@ public class HelloWorld {
 
      sayHello("test");
 
-   } 
+   }
 
-} 
+}
 
 ```
 
@@ -51,17 +51,17 @@ test
 
 > hello
 
-* [x] mmm 
+* [x] mmm
 
-* [ ] nnn 
+* [ ] nnn
 
 1. mmm
 
-2. nnn 
+2. nnn
 
-* mmm 
+* mmm
 
-* nn 
+* nn
 
 | mmm | nn | b |
 
@@ -75,7 +75,6 @@ test
 
 | nnn | bb | m |
 
-| mmm | bb | n | 
+| mmm | bb | n |
 
 ……..
-

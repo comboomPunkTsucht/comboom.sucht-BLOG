@@ -3,9 +3,9 @@
 	"version": "0.0.1",
 	"identifier": "com.comboom.sucht",
 	"build": {
-		"beforeDevCommand": "npm run dev",
+		"beforeDevCommand": "yarn dev",
 		"beforeBuildCommand": "/bin/rm -fr ./out && mkdir ./out && echo \"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Redirect</title><meta http-equiv='refresh' content='0; url=https://comboompunksucht.app/'><script>window.location.href='https://comboompunksucht.app/';</script></head><body></body></html>\" > ./out/index.html",
-		"devUrl": "http://localhost:3000",
+		"devUrl": "localhost:3000",
 		"frontendDist": "../out"
 	},
 	"app": {

@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
 
-
 let internalHost = null;
 
 if (!isProd) {
-  const { internalIpV4 } = await import('internal-ip');
+  const internalIp = require('internal-ip');
   internalHost = await internalIpV4();
 }
 
@@ -37,9 +36,34 @@ const nextConfig = {
       'cdn.idx.dev',
       'dev.comboompunksucht.app',
       'comboompunksucht.app',
+      'assets.tina.io',
     ],
   },
-  assetPrefix: isProd ? null : `http://${internalHost}:3000`,
+  assetPrefix: isProd ? process.env.HOST_URL : `http://${internalHost}:3000`,
+  env: {
+    AUTH0_ISSUER_BASE_URL: process.env.AUTH0_ISSUER_BASE_URL,
+    AUTH0_MGMT_API_ACCESS_TOKEN: process.env.AUTH0_MGMT_API_ACCESS_TOKEN,
+    AUTH0_SECRET: process.env.AUTH0_SECRET,
+    AUTH0_BASE_URL: process.env.AUTH0_BASE_URL,
+    AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
+    AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
+
+    NEXT_PUBLIC_TINA_CLIENT_ID: process.env.NEXT_PUBLIC_TINA_CLIENT,
+    TINA_TOKEN: process.env.TINA_TOKEN,
+    TINA_SEARCH_TOKEN: process.env.TINA_SEARCH_TOKEN,
+  },
+  async rewrites() {
+    const destination = isProd
+      ? process.env.HOST_URL
+      : `http://${internalHost}:3000`;
+
+    return [
+      {
+        source: '/fonts/:path*',
+        destination: `${destination}/fonts/:path*` // Proxy to the font server
+      },
+    ];
+  },
 };
 
 console.log("assetPrefix:", nextConfig.assetPrefix);
