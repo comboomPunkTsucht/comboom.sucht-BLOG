@@ -37,6 +37,7 @@ const nextConfig = {
       'cdn.idx.dev',
       'dev.comboompunksucht.app',
       'comboompunksucht.app',
+      'assets.tina.io',
     ],
   },
   assetPrefix: isProd ? null : `http://${internalHost}:3000`,

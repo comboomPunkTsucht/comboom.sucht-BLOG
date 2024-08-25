@@ -24,7 +24,9 @@ export default defineConfig({
     tina: {
       mediaRoot: "pictures",
       publicFolder: "public",
+      static: false
     },
+    accept: ['image/*', 'video/*'],
   },
   schema: {
     collections: [
