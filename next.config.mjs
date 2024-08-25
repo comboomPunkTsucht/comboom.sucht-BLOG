@@ -52,18 +52,6 @@ const nextConfig = {
     TINA_TOKEN: process.env.TINA_TOKEN,
     TINA_SEARCH_TOKEN: process.env.TINA_SEARCH_TOKEN,
   },
-  async rewrites() {
-    const destination = isProd
-      ? process.env.HOST_URL
-      : `http://${internalHost}:3000`;
-
-    return [
-      {
-        source: '/fonts/:path*',
-        destination: `${destination}/fonts/:path*` // Proxy to the font server
-      },
-    ];
-  },
 };
 
 console.log("assetPrefix:", nextConfig.assetPrefix);
