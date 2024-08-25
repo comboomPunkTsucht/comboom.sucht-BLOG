@@ -1,3 +1,4 @@
+//app/layout.tsx
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Particles from '@/components/particles';
@@ -6,8 +7,10 @@ import { Analytics } from "@vercel/analytics/react";
 import { FlagValues } from '@vercel/flags/react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { Metadata } from "next";
-import { cn } from "@/lib/utils"
-import localFont from 'next/font/local'
+import { cn } from "@/lib/utils";
+import localFont from 'next/font/local';
+
+
 
 export const metadata: Metadata = {
   title: "comboom.sucht | The Mgaming Group",
@@ -305,7 +308,7 @@ export default function RootLayout({
 
           </ThemeProvider>
           <SpeedInsights />
-          <Analytics />
+            <Analytics />
         </UserProvider>
       </body>
     </html>

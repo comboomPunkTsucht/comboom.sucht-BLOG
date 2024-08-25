@@ -1,9 +1,10 @@
 ---
-title: "test"
-date: "2024-07-20"
-description: "test"
-author: "mcpeapsUnterstrichHD"
+title: test
+date: '2024-07-20'
+description: test
+author: mcpeapsUnterstrichHD
 ---
+
 # test
 
 ## test
@@ -18,13 +19,13 @@ author: "mcpeapsUnterstrichHD"
 
 test
 
----
+***
 
 test
 
-![Logo of comboom.sucht](./pictures/Logo-transparet-4x.png)
+![Logo of comboom.sucht](/pictures/Logo-transparet-4x.png)
 
----
+***
 
 ```java
 public class HelloWorld {
@@ -42,8 +43,8 @@ public class HelloWorld {
 
 > hello
 
-* [x] mmm
-* [ ] nnn
+* mmm
+* nnn
 
 1. mmm
 2. nnn
@@ -58,7 +59,6 @@ public class HelloWorld {
 | bbb | mm | n |
 | nnn | bb | m |
 | mmm | bb | n |
-
 
 <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/de/playlist/favorite/pl.u-aZb0kXDFP7zBoV2"></iframe>
 
