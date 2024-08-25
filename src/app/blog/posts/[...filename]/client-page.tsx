@@ -17,7 +17,6 @@ import remarkParse from 'remark-parse';
 import rehypeStringify from 'rehype-stringify';
 import { transformerNotationDiff } from '@shikijs/transformers';
 import { transformerCopyButton } from '@rehype-pretty/transformers';
-import { Console } from "console";
 
 interface ClientPageProps {
   query: string;
@@ -36,6 +35,10 @@ interface JSONNode {
   alt?: string;
   caption?: string;
   lang?: string;
+  props?: {
+    tableRows?: { tableCells: { value: JSONNode }[] }[];
+    align?: string[];
+  };
 }
 
 function jsonToMarkdown(json: JSONNode): string {
@@ -46,24 +49,72 @@ function jsonToMarkdown(json: JSONNode): string {
   const children = (json.children || []).map(jsonToMarkdown).join("");
   switch (json.type) {
     case "h1":
-      return `# ${children}\n`;
+      return `# ${children}\n\n`;
     case "h2":
-      return `## ${children}\n`;
+      return `## ${children}\n\n`;
     case "h3":
-      return `### ${children}\n`;
+      return `### ${children}\n\n`;
+    case "h4":
+      return `#### ${children}\n\n`;
+    case "h5":
+      return `##### ${children}\n\n`;
+    case "h6":
+      return `###### ${children}\n\n`;
     case "p":
       return `${children}\n\n`;
     case "ul":
-      return `${children}\n`;
+      return `${children}`;
     case "li":
       return `- ${children}\n`;
+    case "ol":
+      return `${children}`;
     case "blockquote":
-      return `> ${children}\n`;
+      return `> ${children}\n\n`;
     case "code_block":
-      return `\`\`\`${json.lang || ""}\n${children}\n\`\`\`\n`;
+      return `\`\`\`${json.lang || ""}\n${json.value || ""}\n\`\`\`\n\n`;
+    case "img":
+      return `![${json.alt || ""}](${json.url || ""})\n\n`;
+    case "hr":
+      return `---\n\n`;
+    case "table":
+      return renderTable(json);
+    case "html":
+      return `${json.value || ""}\n\n`; // Allows for custom HTML to pass through
     default:
       return children;
   }
+}
+
+function renderTable(json: JSONNode): string {
+  if (!json.props || !json.props.tableRows) {
+    return "";
+  }
+
+  const headers = json.props.tableRows[0].tableCells.map((cell: { value: JSONNode }) =>
+    jsonToMarkdown(cell.value).trim()
+  );
+
+  const align = json.props.align || [];
+  const alignmentRow = headers.map((_: string, index: number) => {
+    switch (align[index]) {
+      case "center":
+        return ":---:";
+      case "right":
+        return "---:";
+      default:
+        return "---";
+    }
+  });
+
+  const rows = json.props.tableRows.slice(1).map((row: { tableCells: { value: JSONNode }[] }) =>
+    row.tableCells.map((cell: { value: JSONNode }) => jsonToMarkdown(cell.value).trim()).join(" | ")
+  );
+
+  return `
+| ${headers.join(" | ")} |
+| ${alignmentRow.join(" | ")} |
+| ${rows.join(" |\n| ")} |
+\n\n`;
 }
 
 const renderMarkdownToHTML = async (markdown: string): Promise<string> => {
@@ -108,10 +159,6 @@ export default function Post(props: ClientPageProps) {
         const yourDomain = process.env.AUTH0_ISSUER_BASE_URL;
         const yourMgmtApiAccessToken = process.env.AUTH0_MGMT_API_ACCESS_TOKEN;
 
-        console.log("Author username: " + authorUsername);
-        console.log("Domain", yourDomain);
-        console.log("Management API Access Token",yourMgmtApiAccessToken);
-
         if (!authorUsername || !yourDomain || !yourMgmtApiAccessToken) {
           console.error("Missing required environment variables or author data");
           notFound();
@@ -132,10 +179,6 @@ export default function Post(props: ClientPageProps) {
           email: author_response_data.email || "",
           picture: author_response_data.picture || "",
         });
-        console.log("Author");
-        console.log("Author Name", author_response_data.name);
-        console.log("Author Email", author_response_data.email);
-        console.log("Author Picture", author_response_data.picture);
       } catch (error) {
         console.error("Error fetching author data:", error);
         notFound();
