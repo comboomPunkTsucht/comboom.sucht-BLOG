@@ -17,6 +17,7 @@ import remarkParse from 'remark-parse';
 import rehypeStringify from 'rehype-stringify';
 import { transformerNotationDiff } from '@shikijs/transformers';
 import { transformerCopyButton } from '@rehype-pretty/transformers';
+import { Console } from "console";
 
 interface ClientPageProps {
   query: string;
@@ -107,6 +108,10 @@ export default function Post(props: ClientPageProps) {
         const yourDomain = process.env.AUTH0_ISSUER_BASE_URL;
         const yourMgmtApiAccessToken = process.env.AUTH0_MGMT_API_ACCESS_TOKEN;
 
+        console.log("Author username: " + authorUsername);
+        console.log("Domain", yourDomain);
+        console.log("Management API Access Token",yourMgmtApiAccessToken);
+
         if (!authorUsername || !yourDomain || !yourMgmtApiAccessToken) {
           console.error("Missing required environment variables or author data");
           notFound();
@@ -127,6 +132,10 @@ export default function Post(props: ClientPageProps) {
           email: author_response_data.email || "",
           picture: author_response_data.picture || "",
         });
+        console.log("Author");
+        console.log("Author Name", author_response_data.name);
+        console.log("Author Email", author_response_data.email);
+        console.log("Author Picture", author_response_data.picture);
       } catch (error) {
         console.error("Error fetching author data:", error);
         notFound();
