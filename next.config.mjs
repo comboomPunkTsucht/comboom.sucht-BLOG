@@ -1,13 +1,6 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
 
-let internalHost = null;
-
-if (!isProd) {
-  const internalIp = require('internal-ip');
-  internalHost = await internalIpV4();
-}
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: false,
@@ -39,7 +32,7 @@ const nextConfig = {
       'assets.tina.io',
     ],
   },
-  assetPrefix: isProd ? process.env.HOST_URL : `http://${internalHost}:3000`,
+  assetPrefix: isProd ? process.env.HOST_URL : `http://0.0.0.0:3000`,
   env: {
     AUTH0_ISSUER_BASE_URL: process.env.AUTH0_ISSUER_BASE_URL,
     AUTH0_MGMT_API_ACCESS_TOKEN: process.env.AUTH0_MGMT_API_ACCESS_TOKEN,

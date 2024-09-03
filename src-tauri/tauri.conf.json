@@ -1,25 +1,8 @@
 {
-	"productName": "comboom.sucht",
-	"version": "0.0.1",
-	"identifier": "com.comboom.sucht",
 	"build": {
+		"devUrl": "http://localhost:3000",
 		"beforeDevCommand": "yarn dev",
-		"beforeBuildCommand": "/bin/rm -fr ./out && mkdir ./out && echo \"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Redirect</title><meta http-equiv='refresh' content='0; url=https://comboompunksucht.app/'><script>window.location.href='https://comboompunksucht.app/';</script></head><body></body></html>\" > ./out/index.html",
-		"devUrl": "localhost:3000",
-		"frontendDist": "../out"
-	},
-	"app": {
-		"withGlobalTauri": true,
-		"windows": [
-			{
-				"title": "comboom.sucht",
-				"width": 1280,
-				"height": 720
-			}
-		],
-		"security": {
-			"csp": "default-src 'self' https://github.com https://api.github.com; connect-src 'self' https://github.com https://api.github.com; script-src 'self'; img-src 'self' data:; frame-src 'self'"
-		}
+		"frontendDist": "https://comboompunksucht.app/"
 	},
 	"bundle": {
 		"active": true,
@@ -30,6 +13,74 @@
 			"icons/256.png",
 			"icons/icon.icns",
 			"icons/icon.ico"
-		]
+		],
+		"android": {
+			"minSdkVersion": 24
+		},
+		"createUpdaterArtifacts": false,
+		"linux": {
+			"appimage": {
+				"bundleMediaFramework": true
+			},
+			"deb": {
+			},
+			"rpm": {
+				"epoch": 0,
+				"release": "1"
+			}
+		},
+		"macOS": {
+			"dmg": {
+				"appPosition": {
+					"x": 180,
+					"y": 170
+				},
+				"applicationFolderPosition": {
+					"x": 480,
+					"y": 170
+				},
+				"windowSize": {
+					"height": 720,
+					"width": 1280
+				}
+			},
+			"hardenedRuntime": true,
+			"minimumSystemVersion": "10.13"
+		},
+		"windows": {
+			"allowDowngrades": true,
+			"certificateThumbprint": null,
+			"digestAlgorithm": null,
+			"nsis": null,
+			"signCommand": null,
+			"timestampUrl": null,
+			"tsp": false,
+			"webviewInstallMode": {
+				"silent": true,
+				"type": "downloadBootstrapper"
+			},
+			"wix": null
+		}
+	},
+	"app": {
+		"macOSPrivateApi": true,
+		"security": {
+			"capabilities": [],
+			"dangerousDisableAssetCspModification": false,
+			"freezePrototype": false,
+			"pattern": {
+				"use": "brownfield"
+			},
+			"csp": "default-src 'self' https://github.com https://api.github.com; connect-src 'self' https://github.com https://api.github.com; script-src 'self'; img-src 'self' data:; frame-src 'self'"
+		},
+		"windows": [
+			{
+				"title": "comboom.sucht",
+				"width": 1280,
+				"height": 720
+			}
+
+		],
+		"withGlobalTauri": false
 	}
 }
