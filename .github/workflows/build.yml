@@ -30,6 +30,19 @@ jobs:
         toolchain: stable
         components: cargo
 
+    # Install dependencies for Linux
+    - name: Install Linux dependencies
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgtk-3-dev
+
+    # Install dependencies for macOS (if required)
+    - name: Install macOS dependencies
+      if: matrix.os == 'macos-latest'
+      run: |
+        brew install gtk+3
+
     - name: Build Tauri app
       run: yarn tauri build
       env:
