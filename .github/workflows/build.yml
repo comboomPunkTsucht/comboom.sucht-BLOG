@@ -31,7 +31,7 @@ jobs:
         components: cargo
 
     - name: Build Tauri app
-      run: yarn tauri build --release
+      run: yarn tauri build
       env:
         CI: true
 
