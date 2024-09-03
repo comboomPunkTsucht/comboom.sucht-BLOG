@@ -19,7 +19,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18' # Adjust this to match your Node.js version
+        node-version: '18'
 
     - name: Install dependencies
       run: yarn install
@@ -40,8 +40,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: tauri-build-${{ matrix.os }}
-        path: |
-          src-tauri/target/release/bundle/*
+        path: src-tauri/target/release/bundle/*
 
   release:
     needs: build
@@ -52,16 +51,8 @@ jobs:
 
     - name: Create Release
       id: create_release
-      uses: gh-action-create-release@v1
+      uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload release assets
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: src-tauri/target/release/bundle/*
-        asset_name: tauri_build_${{ github.ref }}
-        asset_content_type: application/zip
+        files: src-tauri/target/release/bundle/*
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
