@@ -32,7 +32,7 @@ const nextConfig = {
       'assets.tina.io',
     ],
   },
-  assetPrefix: isProd ? process.env.HOST_URL : `http://0.0.0.0:3000`,
+  assetPrefix: isProd ? process.env.HOST_URL : `http://localhost:3000`,
   env: {
     AUTH0_ISSUER_BASE_URL: process.env.AUTH0_ISSUER_BASE_URL,
     AUTH0_MGMT_API_ACCESS_TOKEN: process.env.AUTH0_MGMT_API_ACCESS_TOKEN,
