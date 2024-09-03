@@ -1,6 +1,5 @@
 {
   "name": "comboom.sucht",
-  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev --turbo\"",
