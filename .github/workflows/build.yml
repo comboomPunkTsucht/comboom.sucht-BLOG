@@ -15,18 +15,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          toolchain: stable
-          components: rustfmt, clippy
+          node-version: '18'
+
+      - name: Install dependencies
+        run: yarn install
 
       - name: Install Tauri CLI
-        run: cargo install tauri-cli
+        run: yarn global add @tauri-apps/cli
 
       - name: Build for Linux
         run: |
-          cargo tauri build --target x86_64-unknown-linux-gnu
+          yarn tauri build --target x86_64-unknown-linux-gnu
           cp src-tauri/target/release/bundle/deb/comboom_punkt_sucht_app_*.deb comboom_punkt_sucht_app-linux.deb
 
       - name: Push Linux binaries to temp branch
@@ -47,19 +49,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          toolchain: stable
-          components: rustfmt, clippy
+          node-version: '18'
+
+      - name: Install dependencies
+        run: yarn install
 
       - name: Install Tauri CLI
-        run: cargo install tauri-cli
+        run: yarn global add @tauri-apps/cli
 
       - name: Build for macOS
         run: |
-          cargo tauri build --target aarch64-apple-darwin
-          cargo tauri build --target x86_64-apple-darwin
+          yarn tauri build --target aarch64-apple-darwin
+          yarn tauri build --target x86_64-apple-darwin
           lipo -create -output comboom_punkt_sucht_app-macos-universal target/aarch64-apple-darwin/release/comboom_punkt_sucht_app target/x86_64-apple-darwin/release/comboom_punkt_sucht_app
 
       - name: Push macOS binaries to temp branch
@@ -80,18 +84,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          toolchain: stable
-          components: rustfmt, clippy
+          node-version: '18'
+
+      - name: Install dependencies
+        run: yarn install
 
       - name: Install Tauri CLI
-        run: cargo install tauri-cli
+        run: yarn global add @tauri-apps/cli
 
       - name: Build for Windows
         run: |
-          cargo tauri build --target x86_64-pc-windows-msvc
+          yarn tauri build --target x86_64-pc-windows-msvc
           cp src-tauri/target/release/bundle/msi/comboom_punkt_sucht_app.msi comboom_punkt_sucht_app-windows.msi
 
       - name: Push Windows binaries to temp branch
@@ -112,14 +118,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          toolchain: stable
-          components: rustfmt, clippy
+          node-version: '18'
+
+      - name: Install dependencies
+        run: yarn install
 
       - name: Install Tauri CLI
-        run: cargo install tauri-cli
+        run: yarn global add @tauri-apps/cli
 
       - name: Install Android SDK and NDK
         run: |
@@ -130,7 +138,7 @@ jobs:
 
       - name: Build for Android
         run: |
-          cargo tauri build --target aarch64-linux-android
+          yarn tauri build --target aarch64-linux-android
           cp src-tauri/target/aarch64-linux-android/release/bundle/apk/comboom_punkt_sucht_app.apk comboom_punkt_sucht_app-android.apk
 
       - name: Push Android binaries to temp branch
@@ -155,12 +163,12 @@ jobs:
       - name: Extract version from Cargo.toml
         id: extract_version
         run: |
-          VERSION=$(grep '^version = ' Cargo.toml | sed 's/version = "\(.*\)"/\1/')
+          VERSION=$(grep '^version = ' src-tauri/Cargo.toml | sed 's/version = "\(.*\)"/\1/')
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
 
       - name: Download binaries
         run: |
-          mkdir -p linux macos windows android ios
+          mkdir -p linux macos windows android
           wget https://github.com/comboomPunkTsucht/comboom.sucht-BLOG/raw/temp-binaries-linux/linux/comboom_punkt_sucht_app-linux.deb -O linux/comboom_punkt_sucht_app-linux.deb || echo "Failed to download Linux binary"
           wget https://github.com/comboomPunkTsucht/comboom.sucht-BLOG/raw/temp-binaries-macos/macos/comboom_punkt_sucht_app-macos-universal -O macos/comboom_punkt_sucht_app-macos-universal || echo "Failed to download macOS binary"
           wget https://github.com/comboomPunkTsucht/comboom.sucht-BLOG/raw/temp-binaries-windows/windows/comboom_punkt_sucht_app-windows.msi -O windows/comboom_punkt_sucht_app-windows.msi || echo "Failed to download Windows binary"
@@ -170,11 +178,11 @@ jobs:
         id: check_release
         run: |
           if gh release view "${VERSION}" > /dev/null 2>&1; then
-          echo "Release ${VERSION} exists"
-          echo "RELEASE_EXISTS=true" >> $GITHUB_ENV
+            echo "Release ${VERSION} exists"
+            echo "RELEASE_EXISTS=true" >> $GITHUB_ENV
           else
-              echo "Release ${VERSION} does not exist"
-              echo "RELEASE_EXISTS=false" >> $GITHUB_ENV
+            echo "Release ${VERSION} does not exist"
+            echo "RELEASE_EXISTS=false" >> $GITHUB_ENV
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -182,17 +190,16 @@ jobs:
       - name: Create or Update Release
         if: env.RELEASE_EXISTS == 'false'
         run: |
-            echo "Creating new release ${VERSION}"
-            gh release create "${VERSION}" \
-              linux/comboom_punkt_sucht_app-linux.deb \
-              macos/comboom_punkt_sucht_app-macos-universal \
-              windows/comboom_punkt_sucht_app-windows.msi \
-              android/comboom_punkt_sucht_app-android.apk \
-              ios/comboom_punkt_sucht_app-ios.ipa \
-              --title "Release ${VERSION}" \
-              --notes "Release version ${VERSION} created on $(date +'%Y-%m-%d')"
+          echo "Creating new release ${VERSION}"
+          gh release create "${VERSION}" \
+            linux/comboom_punkt_sucht_app-linux.deb \
+            macos/comboom_punkt_sucht_app-macos-universal \
+            windows/comboom_punkt_sucht_app-windows.msi \
+            android/comboom_punkt_sucht_app-android.apk \
+            --title "Release ${VERSION}" \
+            --notes "Release version ${VERSION} created on $(date +'%Y-%m-%d')"
         env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update Release
         if: env.RELEASE_EXISTS == 'true'
@@ -203,7 +210,6 @@ jobs:
             macos/comboom_punkt_sucht_app-macos-universal \
             windows/comboom_punkt_sucht_app-windows.msi \
             android/comboom_punkt_sucht_app-android.apk \
-            ios/comboom_punkt_sucht_app-ios.ipa \
             --clobber
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
