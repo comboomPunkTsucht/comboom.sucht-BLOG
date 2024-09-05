@@ -1,6 +1,7 @@
 import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
+
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
+//const isProd = process.env.NODE_ENV === 'production';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,7 +11,7 @@ const nextConfig = {
   },
   onDemandEntries: {
     // period (in ms) where the server will keep pages in the buffer
-    maxInactiveAge: 24 * 60 * 60 * 1000,
+    maxInactiveAge: 24 * 60 * 60 * 1000, // 24 hours
     // number of pages that should be kept simultaneously without being disposed
     pagesBufferLength: 16,
   },
@@ -18,11 +19,10 @@ const nextConfig = {
     buildActivityPosition: 'bottom-right',
     buildActivity: true,
   },
-  //reactStrictMode: false,
+  // reactStrictMode: false, // Optional depending on your needs
   experimental: {
-    typedRoutes: false,
-    //ppr: true,
-    reactCompiler: true,
+    typedRoutes: false, // Not supported yet, so left as false
+    // reactCompiler: true, // Removed due to invalid config
   },
   images: {
     unoptimized: true,
@@ -48,10 +48,13 @@ const nextConfig = {
   },
 };
 
+// Setup development platform only in development mode
 if (process.env.NODE_ENV === 'development') {
-   await setupDevPlatform();
- }
+  (async () => {
+    await setupDevPlatform();
+  })();
+}
 
-console.log("assetPrefix:", nextConfig.assetPrefix);
+//console.log("assetPrefix:", nextConfig.assetPrefix);
 
 export default nextConfig;
