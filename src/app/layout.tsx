@@ -10,7 +10,7 @@ import { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import localFont from 'next/font/local';
 
-
+export const runtime = 'edge'
 
 export const metadata: Metadata = {
   title: "comboom.sucht | The Mgaming Group",

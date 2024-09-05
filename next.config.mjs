@@ -1,3 +1,4 @@
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -17,10 +18,10 @@ const nextConfig = {
     buildActivityPosition: 'bottom-right',
     buildActivity: true,
   },
-  reactStrictMode: false,
+  //reactStrictMode: false,
   experimental: {
     typedRoutes: false,
-    ppr: true,
+    //ppr: true,
     reactCompiler: true,
   },
   images: {
@@ -32,7 +33,7 @@ const nextConfig = {
       'assets.tina.io',
     ],
   },
-  assetPrefix: isProd ? process.env.HOST_URL : `http://localhost:3000`,
+  //assetPrefix: isProd ? process.env.HOST_URL : `http://localhost:3000`,
   env: {
     AUTH0_ISSUER_BASE_URL: process.env.AUTH0_ISSUER_BASE_URL,
     AUTH0_MGMT_API_ACCESS_TOKEN: process.env.AUTH0_MGMT_API_ACCESS_TOKEN,
@@ -46,6 +47,10 @@ const nextConfig = {
     TINA_SEARCH_TOKEN: process.env.TINA_SEARCH_TOKEN,
   },
 };
+
+if (process.env.NODE_ENV === 'development') {
+   await setupDevPlatform();
+ }
 
 console.log("assetPrefix:", nextConfig.assetPrefix);
 
