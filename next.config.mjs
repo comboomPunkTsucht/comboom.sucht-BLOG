@@ -1,7 +1,4 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
-
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: false,
   httpAgentOptions: {
@@ -47,10 +44,7 @@ const nextConfig = {
 
     HOST_URL: process.env.HOST_URL,
   },
-
-  assetPrefix: isProd ? process.env.HOST_URL : `http://localhost:3000`,
 };
 
-console.log("assetPrefix:", nextConfig.assetPrefix);
 
 export default nextConfig;
