@@ -6,7 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  sync:
+  # Sync for dev branch
+  sync_dev:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +27,6 @@ jobs:
           git remote add upstream 'https://github.com/comboomPunkTsucht/comboom.sucht-BLOG.git'
           git fetch upstream
 
-      # Sync for dev branch
       - name: Sync dev branch
         run: |
           git fetch upstream dev # Fetch the latest upstream dev branch
@@ -37,7 +37,28 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Sync for main branch
+  # Sync for main branch, depends on dev sync success
+  sync_main:
+    runs-on: ubuntu-latest
+    needs: sync_dev # This makes main sync depend on dev sync success
+
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true # Git-Credentials bleiben erhalten
+          fetch-depth: 0 # Hol alle Branches und Tags
+
+      - name: Set up Git
+        run: |
+          git config user.name 'mcpeaps_HD'
+          git config user.email 'mcpeaps_HD@outlook.com'
+
+      - name: Add upstream repository
+        run: |
+          git remote add upstream 'https://github.com/comboomPunkTsucht/comboom.sucht-BLOG.git'
+          git fetch upstream
+
       - name: Sync main branch
         run: |
           git fetch upstream main # Fetch the latest upstream main branch
