@@ -1,5 +1,0 @@
-User-Agent: *
-Allow: *
-
-
-Sitemap: https://comboompunksucht.app/sitemap
