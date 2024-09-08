@@ -12,7 +12,7 @@ import rehypeStringify from 'rehype-stringify'
 import { transformerNotationDiff } from '@shikijs/transformers';
 import { transformerCopyButton } from '@rehype-pretty/transformers'
 
-const postsDirectory = path.join(process.cwd(), 'public/blog');
+const postsDirectory = path.join(process.cwd(), 'public/blog/posts');
 
 export interface PostData {
   id: string;
