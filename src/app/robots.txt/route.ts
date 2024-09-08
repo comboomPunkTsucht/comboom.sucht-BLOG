@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '*',
     },
-    sitemap: "https://comboompunksucht.app/sitemap",
+    sitemap: `https://${process.env.HOST_URL || 'http://localhost:3000'}/sitemap`,
   }
 }
