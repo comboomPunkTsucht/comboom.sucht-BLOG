@@ -29,7 +29,8 @@ jobs:
       # Sync for dev branch
       - name: Sync dev branch
         run: |
-          git checkout -B dev upstream/dev # Explicitly track the upstream dev branch
+          git fetch upstream dev # Fetch the latest upstream dev branch
+          git checkout -B dev upstream/dev # Check out upstream dev explicitly
           git rebase upstream/dev || git rebase --abort
           git merge -X theirs upstream/dev
           git push origin dev --force
@@ -39,7 +40,8 @@ jobs:
       # Sync for main branch
       - name: Sync main branch
         run: |
-          git checkout -B main upstream/main # Explicitly track the upstream main branch
+          git fetch upstream main # Fetch the latest upstream main branch
+          git checkout -B main upstream/main # Check out upstream main explicitly
           git rebase upstream/main || git rebase --abort
           git merge -X theirs upstream/main
           git push origin main --force
