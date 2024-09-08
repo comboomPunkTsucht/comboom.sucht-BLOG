@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     creator: '@ComboomS',
     creatorId: '1349452878545629186',
     images: [{
-      url: `https://${process.env.HOST_URL || 'http://localhost:3000'}/pictures/1024.png`,
+      url: `${process.env.HOST_URL || 'http://localhost:3000'}/pictures/1024.png`,
       alt: 'Logo of comboom.sucht',
       width: 1024,
       height: 1024,
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
     type: 'website',
     title: 'comboom.sucht | The Mgaming Group',
     description: 'web page of comboom.sucht',
-    url: `https://${process.env.HOST_URL || 'http://localhost:3000'}`,
+    url: `${process.env.HOST_URL || 'http://localhost:3000'}`,
     images: [{
-      url: `https://${process.env.HOST_URL || 'http://localhost:3000'}/pictures/1024.png`,
+      url: `${process.env.HOST_URL || 'http://localhost:3000'}/pictures/1024.png`,
       alt: 'Logo of comboom.sucht',
       width: 1024,
       height: 1024,
@@ -69,62 +69,62 @@ export const metadata: Metadata = {
 const CaskaydiaCoveNerdFontPropo = localFont({
   src: [
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf`,
       weight: '400',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-Bold.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-Bold.ttf`,
       weight: '700',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-BoldItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-BoldItalic.ttf`,
       weight: '700',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-Italic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-Italic.ttf`,
       weight: '400',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-SemiBold.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-SemiBold.ttf`,
       weight: '600',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-SemiBoldItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-SemiBoldItalic.ttf`,
       weight: '600',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-SemiLight.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-SemiLight.ttf`,
       weight: '200',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-SemiLightItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-SemiLightItalic.ttf`,
       weight: '200',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-ExtraLight.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-ExtraLight.ttf`,
       weight: '100',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-ExtraLightItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-ExtraLightItalic.ttf`,
       weight: '100',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-Light.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-Light.ttf`,
       weight: '300',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontPropo-LightItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontPropo-LightItalic.ttf`,
       weight: '300',
       style: 'italic',
     },
@@ -134,62 +134,62 @@ const CaskaydiaCoveNerdFontPropo = localFont({
 const CaskaydiaCoveNerdFontMono = localFont({
   src: [
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf`,
       weight: '400',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-Bold.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-Bold.ttf`,
       weight: '700',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-BoldItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-BoldItalic.ttf`,
       weight: '700',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-Italic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-Italic.ttf`,
       weight: '400',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-SemiBold.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-SemiBold.ttf`,
       weight: '600',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-SemiBoldItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-SemiBoldItalic.ttf`,
       weight: '600',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-SemiLight.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-SemiLight.ttf`,
       weight: '200',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-SemiLightItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-SemiLightItalic.ttf`,
       weight: '200',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-ExtraLight.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-ExtraLight.ttf`,
       weight: '100',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-ExtraLightItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-ExtraLightItalic.ttf`,
       weight: '100',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-Light.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-Light.ttf`,
       weight: '300',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFontMono-LightItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFontMono-LightItalic.ttf`,
       weight: '300',
       style: 'italic',
     },
@@ -199,62 +199,62 @@ const CaskaydiaCoveNerdFontMono = localFont({
 const CaskaydiaCoveNerdFont = localFont({
   src: [
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-Regular.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-Regular.ttf`,
       weight: '400',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-Bold.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-Bold.ttf`,
       weight: '700',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-BoldItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-BoldItalic.ttf`,
       weight: '700',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-Italic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-Italic.ttf`,
       weight: '400',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-SemiBold.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-SemiBold.ttf`,
       weight: '600',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-SemiBoldItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-SemiBoldItalic.ttf`,
       weight: '600',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-SemiLight.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-SemiLight.ttf`,
       weight: '200',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-SemiLightItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-SemiLightItalic.ttf`,
       weight: '200',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-ExtraLight.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-ExtraLight.ttf`,
       weight: '100',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-ExtraLightItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-ExtraLightItalic.ttf`,
       weight: '100',
       style: 'italic',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-Light.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-Light.ttf`,
       weight: '300',
       style: 'normal',
     },
     {
-      path: `https://${process.env.HOST_URL || 'http://localhost:3000'}/fonts/CaskaydiaCoveNerdFont-LightItalic.ttf`,
+      path: `/fonts/CaskaydiaCoveNerdFont-LightItalic.ttf`,
       weight: '300',
       style: 'italic',
     },
@@ -277,7 +277,7 @@ export default function RootLayout({
       <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#010101" />
-        <meta name="start_url" content={`https://${process.env.HOST_URL || 'http://localhost:3000'}`} />
+        <meta name="start_url" content={`${process.env.HOST_URL || 'http://localhost:3000'}`} />
       <meta name="apple-mobile-web-app-status-bar-style" content="#010101" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="mobile-web-app-capable" content="yes" />
