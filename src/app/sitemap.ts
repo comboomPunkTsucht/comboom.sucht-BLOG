@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const postIds = getAllPostIds();
   const postUrls = await Promise.all(
     postIds.flatMap(async (postId) => {
-      const filePath = path.join(process.cwd(), 'public', 'blog', `${postId.id}.md`);
+      const filePath = path.join(process.cwd(), 'public', 'blog', 'posts', `${postId.id}.md`);
       const urls = [];
 
       if (fs.existsSync(filePath)) {
