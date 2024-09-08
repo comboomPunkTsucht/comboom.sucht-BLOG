@@ -8,7 +8,7 @@ export async function GET() {
     Sitemap: ${process.env.HOST_URL || 'http://localhost:3000'}/sitemap
   `.trim();
 
-  return NextResponse.json(robotsTxt, {
+  return new NextResponse(robotsTxt, {
     headers: {
       'Content-Type': 'text/plain',
     },
