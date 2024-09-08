@@ -46,7 +46,6 @@ const nextConfig = {
     TINA_SEARCH_TOKEN: process.env.TINA_SEARCH_TOKEN,
 
     HOST_URL: process.env.HOST_URL,
-    NODE_ENV: process.env.NODE_ENV,
   },
 
   assetPrefix: isProd ? process.env.HOST_URL : `http://localhost:3000`,
