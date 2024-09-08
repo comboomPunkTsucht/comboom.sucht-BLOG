@@ -2,45 +2,48 @@ name: Sync Fork
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # Runs every 5 minutes
+    - cron: '*/5 * * * *' # Läuft alle 5 Minuten
   workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v3
         with:
-          persist-credentials: true # Ensure credentials are persisted for Git operations
-          fetch-depth: 0 # Fetch all history for all branches and tags
+          persist-credentials: true # Git-Credentials bleiben erhalten
+          fetch-depth: 0 # Hol alle Branches und Tags
 
       - name: Set up Git
         run: |
           git config user.name 'mcpeaps_HD'
           git config user.email 'mcpeaps_HD@outlook.com'
-          
+
       - name: Add upstream repository
         run: |
           git remote add upstream 'https://github.com/comboomPunkTsucht/comboom.sucht-BLOG.git'
           git fetch upstream
 
-      - name: Determine current branch
-        id: get_branch
-        run: echo "BRANCH_NAME=$(echo '${{ github.ref }}' | sed 's/refs\/heads\///')" >> $GITHUB_ENV
-
-      - name: Checkout current branch
-        run: git checkout ${{ env.BRANCH_NAME }}
-
-      - name: Rebase and merge upstream changes
+      # Sync for main branch
+      - name: Sync main branch
         run: |
+          git checkout main
           git fetch upstream
-          git rebase upstream/${{ env.BRANCH_NAME }} || git rebase --abort
-          git merge -X theirs upstream/${{ env.BRANCH_NAME }}
-
-      - name: Push changes
-        run: |
-          git push origin ${{ env.BRANCH_NAME }} --force
+          git rebase upstream/main || git rebase --abort
+          git merge -X theirs upstream/main
+          git push origin main --force
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Default GitHub Actions token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Sync for dev branch
+      - name: Sync dev branch
+        run: |
+          git checkout dev
+          git fetch upstream
+          git rebase upstream/dev || git rebase --abort
+          git merge -X theirs upstream/dev
+          git push origin dev --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
