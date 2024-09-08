@@ -1,7 +1,4 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production';
-
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: false,
   httpAgentOptions: {
@@ -47,10 +44,26 @@ const nextConfig = {
 
     HOST_URL: process.env.HOST_URL,
   },
-
-  assetPrefix: isProd ? process.env.HOST_URL : `http://localhost:3000`,
+  async redirects() {
+    return [
+      {
+        source: '/robots.txt',
+        destination: '/api/robots',
+        permanent: true,
+      },
+      {
+        source: '/admin',
+        destination: '/admin/index.html',
+        permanent: true,
+      },
+      {
+        source: '/admin.html',
+        destination: '/admin/index.html',
+        permanent: true,
+      },
+    ];
+  },
 };
 
-console.log("assetPrefix:", nextConfig.assetPrefix);
 
 export default nextConfig;
