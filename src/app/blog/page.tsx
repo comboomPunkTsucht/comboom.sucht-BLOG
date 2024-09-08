@@ -1,6 +1,6 @@
 // app/blog/page.tsx
 import Link from 'next/link';
-import { client } from '@/../tina/__generated__/client';
+import { client } from '@/../.tina/__generated__/client';
 import { NavBar } from '@/components/nav-bar';
 import Footer from '@/components/footer';
 import BlogPostCard from '@/components/BlogPostsCard';
