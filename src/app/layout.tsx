@@ -66,200 +66,203 @@ export const metadata: Metadata = {
 
 // Fonts
 
+// Konfiguration für CaskaydiaCoveNerdFontPropo
 const CaskaydiaCoveNerdFontPropo = localFont({
   src: [
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-Bold.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-Bold.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-BoldItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-BoldItalic.ttf',
       weight: '700',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-Italic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-Italic.ttf',
       weight: '400',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-SemiBold.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-SemiBold.ttf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-SemiBoldItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-SemiBoldItalic.ttf',
       weight: '600',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-SemiLight.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-SemiLight.ttf',
       weight: '200',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-SemiLightItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-SemiLightItalic.ttf',
       weight: '200',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-ExtraLight.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-ExtraLight.ttf',
       weight: '100',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-ExtraLightItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-ExtraLightItalic.ttf',
       weight: '100',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-Light.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-Light.ttf',
       weight: '300',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontPropo-LightItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontPropo-LightItalic.ttf',
       weight: '300',
       style: 'italic',
     },
   ],
-})
+});
 
+// Konfiguration für CaskaydiaCoveNerdFontMono
 const CaskaydiaCoveNerdFontMono = localFont({
   src: [
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-Bold.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-Bold.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-BoldItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-BoldItalic.ttf',
       weight: '700',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-Italic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-Italic.ttf',
       weight: '400',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-SemiBold.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-SemiBold.ttf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-SemiBoldItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-SemiBoldItalic.ttf',
       weight: '600',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-SemiLight.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-SemiLight.ttf',
       weight: '200',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-SemiLightItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-SemiLightItalic.ttf',
       weight: '200',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-ExtraLight.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-ExtraLight.ttf',
       weight: '100',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-ExtraLightItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-ExtraLightItalic.ttf',
       weight: '100',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-Light.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-Light.ttf',
       weight: '300',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFontMono-LightItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFontMono-LightItalic.ttf',
       weight: '300',
       style: 'italic',
     },
   ],
-})
+});
 
+// Konfiguration für CaskaydiaCoveNerdFont
 const CaskaydiaCoveNerdFont = localFont({
   src: [
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-Regular.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-Bold.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-Bold.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-BoldItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-BoldItalic.ttf',
       weight: '700',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-Italic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-Italic.ttf',
       weight: '400',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-SemiBold.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-SemiBold.ttf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-SemiBoldItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-SemiBoldItalic.ttf',
       weight: '600',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-SemiLight.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-SemiLight.ttf',
       weight: '200',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-SemiLightItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-SemiLightItalic.ttf',
       weight: '200',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-ExtraLight.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-ExtraLight.ttf',
       weight: '100',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-ExtraLightItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-ExtraLightItalic.ttf',
       weight: '100',
       style: 'italic',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-Light.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-Light.ttf',
       weight: '300',
       style: 'normal',
     },
     {
-      path: `/fonts/CaskaydiaCoveNerdFont-LightItalic.ttf`,
+      path: '/fonts/CaskaydiaCoveNerdFont-LightItalic.ttf',
       weight: '300',
       style: 'italic',
     },
   ],
-})
+});
 
 // No need to export metadata here as it's already imported
 
