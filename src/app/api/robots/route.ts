@@ -1,8 +1,6 @@
-// src/pages/api/robots.ts
+import { NextResponse } from 'next/server';
 
-import { NextApiRequest, NextApiResponse } from 'next';
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function GET() {
   const robotsTxt = `
     User-agent: *
     Allow: /
@@ -10,6 +8,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     Sitemap: ${process.env.HOST_URL || 'http://localhost:3000'}/sitemap
   `.trim();
 
-  res.setHeader('Content-Type', 'text/plain');
-  res.status(200).send(robotsTxt);
+  return NextResponse.json(robotsTxt, {
+    headers: {
+      'Content-Type': 'text/plain',
+    },
+  });
 }
