@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         // URL für die HTML-Version
         urls.push({
-          url: `https://comboompunksucht.app/blog/${postId.id}`,
+          url: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/posts/${postId.id}`,
           lastModified: postData && postData.date ? new Date(postData.date) : new Date(),
           changeFrequency: 'daily' as const,
           priority: 1,
@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         // URL für die Markdown-Version
         urls.push({
-          url: `https://comboompunksucht.app/blog/${postId.id}.md`,
+          url: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/posts/${postId.id}.md`,
           lastModified: postData && postData.date ? new Date(postData.date) : new Date(),
           changeFrequency: 'daily' as const,
           priority: 1,

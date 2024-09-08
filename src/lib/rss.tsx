@@ -19,8 +19,8 @@ async function generateRSSFeed() {
   posts.forEach((post) => {
     feed.addItem({
       title: post.title!,
-      id: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/${post.id}`,
-      link: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/${post.id}`,
+      id: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/posts/${post.id}`,
+      link: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/posts/${post.id}`,
       date: new Date(post.date!),
       description: post.description!,
       content: post.contentHtml!,
