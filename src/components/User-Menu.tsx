@@ -119,7 +119,7 @@ const IsLoggedInToggle: React.FC<IsLoggedInToggleProps> = ({
       </DropdownMenuTrigger>
       <DropdownMenuContent className="backdrop-blur-sm  bg-transparent" align="end">
         {admin && (
-          <Link href="/admin/index.html" legacyBehavior passHref>
+          <Link href="/admin" legacyBehavior passHref>
         <DropdownMenuItem>
           Admin Dashboard
             </DropdownMenuItem>

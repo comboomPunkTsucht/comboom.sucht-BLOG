@@ -44,6 +44,25 @@ const nextConfig = {
 
     HOST_URL: process.env.HOST_URL,
   },
+  async redirects() {
+    return [
+      {
+        source: '/robots.txt',
+        destination: '/api/robots',
+        permanent: true,
+      },
+      {
+        source: '/admin',
+        destination: '/admin/index.html',
+        permanent: true,
+      },
+      {
+        source: '/admin.html',
+        destination: '/admin/index.html',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 
