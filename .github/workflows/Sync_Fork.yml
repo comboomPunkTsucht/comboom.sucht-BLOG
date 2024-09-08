@@ -26,17 +26,6 @@ jobs:
           git remote add upstream 'https://github.com/comboomPunkTsucht/comboom.sucht-BLOG.git'
           git fetch upstream
 
-      # Sync for main branch
-      - name: Sync main branch
-        run: |
-          git checkout main
-          git fetch upstream
-          git rebase upstream/main || git rebase --abort
-          git merge -X theirs upstream/main
-          git push origin main --force
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # Sync for dev branch
       - name: Sync dev branch
         run: |
@@ -45,5 +34,16 @@ jobs:
           git rebase upstream/dev || git rebase --abort
           git merge -X theirs upstream/dev
           git push origin dev --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Sync for main branch
+      - name: Sync main branch
+        run: |
+          git checkout main
+          git fetch upstream
+          git rebase upstream/main || git rebase --abort
+          git merge -X theirs upstream/main
+          git push origin main --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
