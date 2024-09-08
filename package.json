@@ -94,7 +94,7 @@
     "remark-rehype": "^11.1.0",
     "sanity": "^3.57.1",
     "shiki": "^1.16.2",
-    "slate": "^0.109.0",
+    "slate": "^0.103.0",
     "slate-history": "^0.109.0",
     "slate-hyperscript": "^0.100.0",
     "slate-react": "^0.110.0",
