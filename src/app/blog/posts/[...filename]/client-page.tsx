@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTina } from "tinacms/dist/react";
-import { PostQuery } from "@/../.tina/__generated__/types";
+import { PostQuery } from "@/../tina/__generated__/types";
 import { notFound } from "next/navigation";
 import { NavBar } from "@/components/nav-bar";
 import Footer from "@/components/footer";
