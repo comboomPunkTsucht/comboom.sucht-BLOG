@@ -12,7 +12,7 @@ export default function Home() {
       </nav>
       <div className="flex h-screen w-screen flex-col items-center justify-center overflow-hidden">
         <div className="hidden h-px w-screen animate-fade-left animate-glow bg-gradient-to-r from-primary-foreground via-secondary-foreground to-primary-foreground md:block" />
-        <h1 className="z-9 animate-title cursor-default whitespace-nowrap bg-secondary-foreground bg-clip-text font-display text-4xl text-edge-outline text-transparent duration-3000 sm:text-6xl md:text-9xl ">
+        <h1 className="z-9 animate-title cursor-default whitespace-nowrap bg-secondary-foreground bg-clip-text font-display text-4xl text-edge-outline text-white duration-3000 sm:text-6xl md:text-9xl ">
           <Image
             src="/pictures/Logo-transparet.png"
             alt="comboom.sucht Logo"
@@ -26,7 +26,7 @@ export default function Home() {
         </h1>
         <div className="hidden h-px w-screen animate-fade-right animate-glow bg-gradient-to-r from-primary-foreground via-secondary-foreground to-primary-foreground md:block" />
         <div className="my-16 animate-fade-in text-center">
-          <h2 className="flex flex-warp flex-row gap-2 text-secondary-foreground text-xl">
+          <h2 className="flex flex-warp flex-row gap-2 text-white text-xl">
             <AuthorBadge
               name="mcpeaps_HD"
               githubUserName="mcpeapsUnterstrichHD"
