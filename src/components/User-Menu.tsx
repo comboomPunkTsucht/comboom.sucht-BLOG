@@ -1,17 +1,16 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { useUser } from '@auth0/nextjs-auth0/client';
-import * as React from "react";
-import Link from "next/link";
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+} from "@/components/ui/dropdown-menu";
 import UserAvatar, { ImageProps } from "@/components/userAvatar";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import Link from "next/link";
+import * as React from "react";
 
 export default function UserMenu() {
   const { user, isLoading, error } = useUser();
@@ -26,7 +25,7 @@ export default function UserMenu() {
     name = user.name!;
     githubUserName = user.nickname!;
     logedin = true;
-    admin = user.org_id! === 'org_wvyPNK9y4HUrFBzV';
+    admin = user.org_id! === "org_wvyPNK9y4HUrFBzV";
     image = {
       src: user.picture!,
       alt: name,
@@ -43,57 +42,58 @@ export default function UserMenu() {
   }
 
   if (isLoading) {
-    return (
-      <NotLoggedInToggle />
-    );
+    return <NotLoggedInToggle />;
   }
 
   if (error) {
     console.error(error.message);
-    return (
-      <NotLoggedInToggle />
-    );
+    return <NotLoggedInToggle />;
   }
 
   if (logedin) {
     return (
-    <IsLoggedInToggle
-      name = { name }
-  githubUserName = { githubUserName }
-  admin = { admin }
-  image = { image }
-    />
-  );
-  } else {
-    return (
-      <NotLoggedInToggle />
+      <IsLoggedInToggle
+        name={name}
+        githubUserName={githubUserName}
+        admin={admin}
+        image={image}
+      />
     );
+  } else {
+    return <NotLoggedInToggle />;
   }
 }
-
-
 
 function NotLoggedInToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="backdrop-blur-sm  bg-transparent rounded-full" variant="outline" size="icon">
-          <UserAvatar name={"Sign In"} githubUserName={"comboomPunkTsucht"} image={{
-      src: "https://github.com/comboomPunkTsucht.png",
-      alt: "comboom.sucht Logo",
-    }} />
+        <Button
+          className="rounded-full bg-transparent backdrop-blur-sm"
+          variant="outline"
+          size="icon"
+        >
+          <UserAvatar
+            name={"Sign In"}
+            githubUserName={"comboomPunkTsucht"}
+            image={{
+              src: "https://github.com/comboomPunkTsucht.png",
+              alt: "comboom.sucht Logo",
+            }}
+          />
           <span className="sr-only">Sign In</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="backdrop-blur-sm  bg-transparent" align="end">
+      <DropdownMenuContent
+        className="bg-transparent backdrop-blur-sm"
+        align="end"
+      >
         <Link href="/api/auth/login" legacyBehavior passHref>
-        <DropdownMenuItem>
-          Log in
-        </DropdownMenuItem>
+          <DropdownMenuItem>Log in</DropdownMenuItem>
         </Link>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
 
 interface IsLoggedInToggleProps {
@@ -112,25 +112,32 @@ const IsLoggedInToggle: React.FC<IsLoggedInToggleProps> = ({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="backdrop-blur-sm  bg-transparent rounded-full" variant="outline" size="icon">
-          <UserAvatar name={name} githubUserName={githubUserName} image={image} />
+        <Button
+          className="rounded-full bg-transparent backdrop-blur-sm"
+          variant="outline"
+          size="icon"
+        >
+          <UserAvatar
+            name={name}
+            githubUserName={githubUserName}
+            image={image}
+          />
           <span className="sr-only">{name}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="backdrop-blur-sm  bg-transparent" align="end">
+      <DropdownMenuContent
+        className="bg-transparent backdrop-blur-sm"
+        align="end"
+      >
         {admin && (
           <Link href="/admin" legacyBehavior passHref>
-        <DropdownMenuItem>
-          Admin Dashboard
-            </DropdownMenuItem>
-            </Link>
+            <DropdownMenuItem>Admin Dashboard</DropdownMenuItem>
+          </Link>
         )}
         <Link href="/api/auth/logout" legacyBehavior passHref>
-          <DropdownMenuItem>
-          Log out
-          </DropdownMenuItem>
-          </Link>
+          <DropdownMenuItem>Log out</DropdownMenuItem>
+        </Link>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
+  );
+};

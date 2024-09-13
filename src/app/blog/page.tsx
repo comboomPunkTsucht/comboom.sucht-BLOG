@@ -1,9 +1,9 @@
+import { client } from "@/../tina/__generated__/client";
+import BlogPostCard from "@/components/BlogPostsCard";
+import Footer from "@/components/footer";
+import { NavBar } from "@/components/nav-bar";
 // app/blog/page.tsx
-import Link from 'next/link';
-import { client } from '@/../tina/__generated__/client';
-import { NavBar } from '@/components/nav-bar';
-import Footer from '@/components/footer';
-import BlogPostCard from '@/components/BlogPostsCard';
+import Link from "next/link";
 
 const Home = async () => {
   const { data } = await client.queries.postConnection();
@@ -20,12 +20,14 @@ const Home = async () => {
 
   return (
     <div>
-      <nav className="z-10 sticky top-0">
+      <nav className="sticky top-0 z-10">
         <NavBar />
       </nav>
-      <div className="container items-center justify-between flex flex-col flex-wrap p-4">
-        <h1 className="text-4xl font-bold mb-6">Blog</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"> {/* Flexbox Grid Layout */}
+      <div className="container flex flex-col flex-wrap items-center justify-between p-4">
+        <h1 className="mb-6 font-bold text-4xl">Blog</h1>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {" "}
+          {/* Flexbox Grid Layout */}
           {data.postConnection.edges.map((postEdge) => {
             // Überprüfen, ob post und post.node vorhanden sind
             const post = postEdge?.node;
@@ -35,11 +37,14 @@ const Home = async () => {
 
             return (
               <div key={post.id} className="flex flex-col">
-                <Link href={`/blog/posts/${post._sys.filename}`} className="text-blue-500 hover:underline">
+                <Link
+                  href={`/blog/posts/${post._sys.filename}`}
+                  className="text-blue-500 hover:underline"
+                >
                   <BlogPostCard
-                    title={post.title || 'Untitled'}
-                    date={post.date || 'No date'}
-                    description={post.description || 'No description'}
+                    title={post.title || "Untitled"}
+                    date={post.date || "No date"}
+                    description={post.description || "No description"}
                   />
                 </Link>
               </div>

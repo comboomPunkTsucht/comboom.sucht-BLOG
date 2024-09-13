@@ -1,22 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useTina } from "tinacms/dist/react";
 import { PostQuery } from "@/../tina/__generated__/types";
-import { notFound } from "next/navigation";
-import { NavBar } from "@/components/nav-bar";
-import Footer from "@/components/footer";
 import AuthorBadge from "@/components/authorbadge";
+import Footer from "@/components/footer";
+import { NavBar } from "@/components/nav-bar";
+import { transformerCopyButton } from "@rehype-pretty/transformers";
+import { transformerNotationDiff } from "@shikijs/transformers";
 import axios from "axios";
-import { remark } from 'remark';
-import html from 'remark-html';
-import remarkGfm from 'remark-gfm';
-import remarkRehype from 'remark-rehype';
-import rehypePrettyCode from 'rehype-pretty-code';
-import remarkParse from 'remark-parse';
-import rehypeStringify from 'rehype-stringify';
-import { transformerNotationDiff } from '@shikijs/transformers';
-import { transformerCopyButton } from '@rehype-pretty/transformers';
+import { notFound } from "next/navigation";
+import { useEffect, useState } from "react";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeStringify from "rehype-stringify";
+import { remark } from "remark";
+import remarkGfm from "remark-gfm";
+import html from "remark-html";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import { useTina } from "tinacms/dist/react";
 
 interface ClientPageProps {
   query: string;
@@ -90,8 +90,8 @@ function renderTable(json: JSONNode): string {
     return "";
   }
 
-  const headers = json.props.tableRows[0].tableCells.map((cell: { value: JSONNode }) =>
-    jsonToMarkdown(cell.value).trim()
+  const headers = json.props.tableRows[0].tableCells.map(
+    (cell: { value: JSONNode }) => jsonToMarkdown(cell.value).trim(),
   );
 
   const align = json.props.align || [];
@@ -106,9 +106,13 @@ function renderTable(json: JSONNode): string {
     }
   });
 
-  const rows = json.props.tableRows.slice(1).map((row: { tableCells: { value: JSONNode }[] }) =>
-    row.tableCells.map((cell: { value: JSONNode }) => jsonToMarkdown(cell.value).trim()).join(" | ")
-  );
+  const rows = json.props.tableRows
+    .slice(1)
+    .map((row: { tableCells: { value: JSONNode }[] }) =>
+      row.tableCells
+        .map((cell: { value: JSONNode }) => jsonToMarkdown(cell.value).trim())
+        .join(" | "),
+    );
 
   return `
 | ${headers.join(" | ")} |
@@ -126,10 +130,10 @@ const renderMarkdownToHTML = async (markdown: string): Promise<string> => {
       transformers: [
         transformerNotationDiff(),
         transformerCopyButton({
-          visibility: 'always',
+          visibility: "always",
           feedbackDuration: 3_000,
         }),
-      ]
+      ],
     })
     .use(html, { allowDangerousHtml: true }) // Convert to HTML with dangerous HTML allowed
     .use(rehypeStringify, { allowDangerousHtml: true }) // Convert back to string with dangerous HTML allowed
@@ -150,7 +154,7 @@ export default function Post(props: ClientPageProps) {
     picture: "",
   });
   const [loading, setLoading] = useState(true);
-  const [contentHtml, setContentHtml] = useState('');
+  const [contentHtml, setContentHtml] = useState("");
 
   useEffect(() => {
     const fetchAuthorData = async () => {
@@ -160,7 +164,9 @@ export default function Post(props: ClientPageProps) {
         const yourMgmtApiAccessToken = process.env.AUTH0_MGMT_API_ACCESS_TOKEN;
 
         if (!authorUsername || !yourDomain || !yourMgmtApiAccessToken) {
-          console.error("Missing required environment variables or author data");
+          console.error(
+            "Missing required environment variables or author data",
+          );
           notFound();
           return;
         }
@@ -209,10 +215,10 @@ export default function Post(props: ClientPageProps) {
   if (loading) {
     return (
       <div>
-        <nav className="z-10 sticky top-0">
+        <nav className="sticky top-0 z-10">
           <NavBar />
         </nav>
-        <main className="flex-grow flex flex-col items-center justify-center p-4">
+        <main className="flex flex-grow flex-col items-center justify-center p-4">
           <div>Loading...</div>
         </main>
         <Footer />
@@ -228,13 +234,13 @@ export default function Post(props: ClientPageProps) {
 
   return (
     <div>
-      <nav className="z-10 sticky top-0">
+      <nav className="sticky top-0 z-10">
         <NavBar />
       </nav>
-      <main className="flex-grow flex flex-col items-start justify-start p-4">
+      <main className="flex flex-grow flex-col items-start justify-start p-4">
         <article className="prose mx-auto">
-          <h1 className="text-4xl font-bold text-start">{data.post.title}</h1>
-          <div className="text-base text-gray-500 text-start">
+          <h1 className="text-start font-bold text-4xl">{data.post.title}</h1>
+          <div className="text-start text-base text-gray-500">
             {day + "/" + month + "/" + year}
           </div>
           <div className="flex items-start justify-start">
@@ -251,7 +257,7 @@ export default function Post(props: ClientPageProps) {
           </div>
           <div
             dangerouslySetInnerHTML={{ __html: contentHtml }}
-            className="flex-grow flex flex-col p-4 items-start justify-start"
+            className="flex flex-grow flex-col items-start justify-start p-4"
           />
         </article>
       </main>
