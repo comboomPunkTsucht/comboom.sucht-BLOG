@@ -1,55 +1,51 @@
-'use client'
-import React from 'react';
-import Footer from '@/components/footer';
-import { NavBar } from '@/components/nav-bar';
-import Image from 'next/image';
-import AuthorBadge from '@/components/authorbadge';
-
-
+"use client";
+import AuthorBadge from "@/components/authorbadge";
+import Footer from "@/components/footer";
+import { NavBar } from "@/components/nav-bar";
+import Image from "next/image";
 
 export default function Home() {
-
   return (
     <div>
-      <nav className="z-10 sticky top-0 top">
+      <nav className="top sticky top-0 z-10">
         <NavBar />
       </nav>
-    <div className="overflow-hidden flex flex-col items-center justify-center w-screen h-screen">
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-primary-foreground via-secondary-foreground to-primary-foreground" />
-      <h1 className="z-9 text-4xl text-transparent duration-3000 bg-secondary-foreground cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
+      <div className="flex h-screen w-screen flex-col items-center justify-center overflow-hidden">
+        <div className="hidden h-px w-screen animate-fade-left animate-glow bg-gradient-to-r from-primary-foreground via-secondary-foreground to-primary-foreground md:block" />
+        <h1 className="z-9 animate-title cursor-default whitespace-nowrap bg-secondary-foreground bg-clip-text font-display text-4xl text-edge-outline text-transparent duration-3000 sm:text-6xl md:text-9xl ">
           <Image
-            src='/pictures/Logo-transparet.png'
-            alt='comboom.sucht Logo'
+            src="/pictures/Logo-transparet.png"
+            alt="comboom.sucht Logo"
             width={431}
             height={224}
-            layout='responsive'
-            objectPosition='center'
+            layout="responsive"
+            objectPosition="center"
             priority={true}
-            objectFit='fill'
+            objectFit="fill"
           />
-      </h1>
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-primary-foreground via-secondary-foreground to-primary-foreground" />
-      <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-xl text-secondary-foreground flex flex-row flex-warp gap-2">
+        </h1>
+        <div className="hidden h-px w-screen animate-fade-right animate-glow bg-gradient-to-r from-primary-foreground via-secondary-foreground to-primary-foreground md:block" />
+        <div className="my-16 animate-fade-in text-center">
+          <h2 className="flex flex-warp flex-row gap-2 text-secondary-foreground text-xl">
             <AuthorBadge
-              name='mcpeaps_HD'
-              githubUserName='mcpeapsUnterstrichHD'
-              email='mcpeaps_HD@outlook.com'
-              href='https://mahd.comboompunksucht.app/'
-              imageFallback='MAHD'
+              name="mcpeaps_HD"
+              githubUserName="mcpeapsUnterstrichHD"
+              email="mcpeaps_HD@outlook.com"
+              href="https://mahd.comboompunksucht.app/"
+              imageFallback="MAHD"
             />
             <AuthorBadge
-              name='BlackDragon'
-              githubUserName='BlackDragon-Bat'
-              email='knisch03@gmail.com'
-              imageFallback='BD'
+              name="BlackDragon"
+              githubUserName="BlackDragon-Bat"
+              email="knisch03@gmail.com"
+              imageFallback="BD"
             />
-        </h2>
+          </h2>
+        </div>
+        <div className="absolute inset-x-0 bottom-0">
+          <Footer />
+        </div>
       </div>
-      <div className='absolute inset-x-0 bottom-0'>
-        <Footer />
-      </div>
-      </div>
-      </div>
+    </div>
   );
 }

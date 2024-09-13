@@ -1,6 +1,6 @@
+import { generateRSSFeed } from "@/lib/rss";
 // src/app/api/rss/route.ts
-import { NextRequest, NextResponse } from 'next/server';
-import { generateRSSFeed } from '@/lib/rss';
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   try {

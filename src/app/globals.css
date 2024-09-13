@@ -2,54 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-    :root {
-      --background: 0 0% 100%;
-      --foreground: 240 10% 3.9%;
-      --muted: 240 4.8% 95.9%;
-      --muted-foreground: 240 3.8% 46.1%;
-      --popover: 0 0% 100%;
-      --popover-foreground: 240 10% 3.9%;
-      --card: 0 0% 100%;
-      --card-foreground: 240 10% 3.9%;
-      --border: 360 100% 28.08%;
-      --input: 122.26 33.53% 82.64%;
-      --primary: 142.1 76.2% 36.3%;
-      --primary-foreground: 131.32 0% 100%;
-      --secondary: 0 76.22% 36.27%;
-      --secondary-foreground: 240 0% 100%;
-      --accent: 120 100% 89.22%;
-      --accent-foreground: 240 0% 0%;
-      --destructive: 0 100% 50%;
-      --destructive-foreground: 0 0% 100%;
-      --ring: 142.1 76.2% 36.3%;
-      --radius: 0.5rem;
-    }
-
-    .dark {
-      --background: 20 14.3% 4.1%;
-      --foreground: 0 0% 95%;
-      --muted: 0 0% 15%;
-      --muted-foreground: 240 5% 64.9%;
-      --popover: 0 0% 9%;
-      --popover-foreground: 0 0% 95%;
-      --card: 24 9.8% 10%;
-      --card-foreground: 0 0% 95%;
-      --border: 0 98.26% 20.18%;
-      --input: 124.53 14% 27.67%;
-      --primary: 142.1 70.6% 45.3%;
-      --primary-foreground: 144.9 80.4% 10%;
-      --secondary: 0 70.56% 45.29%;
-      --secondary-foreground: 0 80.39% 10%;
-      --accent: 120 100% 7.84%;
-      --accent-foreground: 0 0% 100%;
-      --destructive: 0 70.56% 45.29%;
-      --destructive-foreground: 0 80.39% 10%;
-      --ring: 142.4 71.8% 29.2%;
-    }
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --border: 360 100% 28.08%;
+    --input: 122.26 33.53% 82.64%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 131.32 0% 100%;
+    --secondary: 0 76.22% 36.27%;
+    --secondary-foreground: 240 0% 100%;
+    --accent: 120 100% 89.22%;
+    --accent-foreground: 240 0% 0%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 142.1 76.2% 36.3%;
+    --radius: 0.5rem;
   }
 
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --border: 0 98.26% 20.18%;
+    --input: 124.53 14% 27.67%;
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+    --secondary: 0 70.56% 45.29%;
+    --secondary-foreground: 0 80.39% 10%;
+    --accent: 120 100% 7.84%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70.56% 45.29%;
+    --destructive-foreground: 0 80.39% 10%;
+    --ring: 142.4 71.8% 29.2%;
+  }
+}
 
 @font-face {
   src: url(/fonts/CaskaydiaCoveNerdFontPropo-Regular.ttf) format(truetype);
@@ -84,7 +82,8 @@
 }
 
 @font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiBoldItalic.ttf) format(truetype);
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiBoldItalic.ttf)
+    format(truetype);
   font-family: "CaskaydiaCoveNerdFontPropo";
   font-style: italic;
   font-weight: 600;
@@ -96,7 +95,8 @@
   font-weight: 200;
 }
 @font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiLightItalic.ttf) format(truetype);
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-SemiLightItalic.ttf)
+    format(truetype);
   font-family: "CaskaydiaCoveNerdFontPropo";
   font-style: italic;
   font-weight: 200;
@@ -108,7 +108,8 @@
   font-weight: 100;
 }
 @font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontPropo-ExtraLightItalic.ttf) format(truetype);
+  src: url(/fonts/CaskaydiaCoveNerdFontPropo-ExtraLightItalic.ttf)
+    format(truetype);
   font-family: "CaskaydiaCoveNerdFontPropo";
   font-style: italic;
   font-weight: 100;
@@ -169,7 +170,8 @@
   font-weight: 200;
 }
 @font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-SemiLightItalic.ttf) format(truetype);
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-SemiLightItalic.ttf)
+    format(truetype);
   font-family: "CaskaydiaCoveNerdFontMono";
   font-style: italic;
   font-weight: 200;
@@ -181,7 +183,8 @@
   font-weight: 100;
 }
 @font-face {
-  src: url(/fonts/CaskaydiaCoveNerdFontMono-ExtraLightItalic.ttf) format(truetype);
+  src: url(/fonts/CaskaydiaCoveNerdFontMono-ExtraLightItalic.ttf)
+    format(truetype);
   font-family: "CaskaydiaCoveNerdFontMono";
   font-style: italic;
   font-weight: 100;
@@ -290,19 +293,42 @@
     @apply text-base;
   }
 
-  h1, h2, h3, h4, h5, h6, a, p {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  p {
     @apply font-sans;
     @apply text-foreground;
   }
 
-  h1 { @apply text-4xl; }
-  h2 { @apply text-3xl; }
-  h3 { @apply text-2xl; }
-  h4 { @apply text-xl; }
-  h5 { @apply text-base; }
-  h6 { @apply text-sm; }
-  a { @apply text-base; }
-  p { @apply text-base; }
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-base;
+  }
+  h6 {
+    @apply text-sm;
+  }
+  a {
+    @apply text-base;
+  }
+  p {
+    @apply text-base;
+  }
 
   blockquote {
     @apply text-muted-foreground;
@@ -317,24 +343,24 @@
   }
 
   code > [data-line]::before {
-  counter-increment: line;
-  content: counter(line);
+    counter-increment: line;
+    content: counter(line);
 
-  /* Other styling */
-  display: inline-block;
-  width: 1rem;
-  margin-right: 2rem;
-  text-align: right;
-  color: gray;
-}
+    /* Other styling */
+    display: inline-block;
+    width: 1rem;
+    margin-right: 2rem;
+    text-align: right;
+    color: gray;
+  }
 
-code[data-line-numbers-max-digits="2"] > [data-line]::before {
-  width: 2rem;
-}
+  code[data-line-numbers-max-digits="2"] > [data-line]::before {
+    width: 2rem;
+  }
 
-code[data-line-numbers-max-digits="3"] > [data-line]::before {
-  width: 3rem;
-}
+  code[data-line-numbers-max-digits="3"] > [data-line]::before {
+    width: 3rem;
+  }
 
   pre {
     @apply p-[1em];
@@ -361,7 +387,8 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
     @apply w-full border-collapse border border-border;
   }
 
-  th, td {
+  th,
+  td {
     @apply border border-border;
     @apply px-4 py-2;
   }
@@ -386,7 +413,6 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
 
   /* Optional: Responsive Table */
 
-
   /* List Styles */
   ul {
     @apply list-disc pl-5;
@@ -396,7 +422,8 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
     @apply list-decimal pl-5;
   }
 
-  ul li, ol li {
+  ul li,
+  ol li {
     @apply mb-2; /* Spacing between list items */
     @apply text-base;
   }
@@ -406,7 +433,7 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
     @apply flex items-center list-none;
   }
 
-  .task-list-item input[type='checkbox'] {
+  .task-list-item input[type="checkbox"] {
     @apply mr-2;
   }
 
