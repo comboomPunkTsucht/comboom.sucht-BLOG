@@ -43,6 +43,8 @@ const nextConfig = {
     TINA_SEARCH_TOKEN: process.env.TINA_SEARCH_TOKEN,
 
     HOST_URL: process.env.HOST_URL,
+
+    FLAGS_SECRET: process.env.FLAGS_SECRET,
   },
   async redirects() {
     return [
