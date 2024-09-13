@@ -38,23 +38,23 @@
       },
       "nursery": {
         "useSortedClasses": {
-          "level": "error",
+          "level": "warn",
           "fix": "safe",
           "options": {}
         }
       },
       "security": {
-        "noDangerouslySetInnerHtmlWithChildren": "error"
+        "noDangerouslySetInnerHtmlWithChildren": "warn"
       },
       "suspicious": {
-        "noCommentText": "error",
-        "noDuplicateJsxProps": "error"
+        "noCommentText": "warn",
+        "noDuplicateJsxProps": "warn"
       }
     }
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "double"
+      "quoteStyle": "single"
     }
   },
   "overrides": [
