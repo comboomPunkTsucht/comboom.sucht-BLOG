@@ -30,12 +30,7 @@ const nextConfig = {
         '.mjs',
         '.json',
       ],
-      resolveAlias: {
-        fs: 'false',
-        crypto: {browser: 'crypto-browserify' },
-        stream: {browser: 'stream-browserify'},
-      },
-    }
+    },
   },
   images: {
     unoptimized: true,
@@ -61,17 +56,6 @@ const nextConfig = {
     HOST_URL: process.env.HOST_URL,
 
     FLAGS_SECRET: process.env.FLAGS_SECRET,
-  },
-  webpack: (config) => {
-    config.plugins.push(new NodePolyfillPlugin());
-
-    config.resolve.fallback = {
-      fs: false,
-      crypto: require.resolve('crypto-browserify'),
-      stream: require.resolve('stream-browserify'),
-    };
-
-    return config;
   },
   async redirects() {
     return [
