@@ -14,7 +14,7 @@ export default function Home() {
         <div className="hidden h-px w-screen animate-fade-left animate-glow bg-gradient-to-r from-primary-foreground via-secondary-foreground to-primary-foreground md:block" />
         <h1 className="z-9 animate-title cursor-default whitespace-nowrap bg-secondary-foreground bg-clip-text font-display text-4xl text-edge-outline text-white duration-3000 sm:text-6xl md:text-9xl ">
           <Image
-            src="/pictures/Logo-transparet.png"
+            src="/media/Logo-transparet.png"
             alt="comboom.sucht Logo"
             width={431}
             height={224}

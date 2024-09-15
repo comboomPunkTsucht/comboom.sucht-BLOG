@@ -1,3 +1,5 @@
+import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: false,
@@ -5,9 +7,7 @@ const nextConfig = {
     keepAlive: true,
   },
   onDemandEntries: {
-    // period (in ms) where the server will keep pages in the buffer
     maxInactiveAge: 24 * 60 * 60 * 1000,
-    // number of pages that should be kept simultaneously without being disposed
     pagesBufferLength: 16,
   },
   devIndicators: {
@@ -19,6 +19,23 @@ const nextConfig = {
     typedRoutes: false,
     ppr: true,
     reactCompiler: true,
+    turbo: {
+      moduleIdStrategy: 'deterministic',
+      resolveExtensions: [
+        '.md',
+        '.tsx',
+        '.ts',
+        '.jsx',
+        '.js',
+        '.mjs',
+        '.json',
+      ],
+      resolveAlias: {
+        fs: 'false',
+        crypto: {browser: 'crypto-browserify' },
+        stream: {browser: 'stream-browserify'},
+      },
+    }
   },
   images: {
     unoptimized: true,
@@ -29,7 +46,6 @@ const nextConfig = {
       'assets.tina.io',
     ],
   },
-
   env: {
     AUTH0_ISSUER_BASE_URL: process.env.AUTH0_ISSUER_BASE_URL,
     AUTH0_MGMT_API_ACCESS_TOKEN: process.env.AUTH0_MGMT_API_ACCESS_TOKEN,
@@ -45,6 +61,17 @@ const nextConfig = {
     HOST_URL: process.env.HOST_URL,
 
     FLAGS_SECRET: process.env.FLAGS_SECRET,
+  },
+  webpack: (config) => {
+    config.plugins.push(new NodePolyfillPlugin());
+
+    config.resolve.fallback = {
+      fs: false,
+      crypto: require.resolve('crypto-browserify'),
+      stream: require.resolve('stream-browserify'),
+    };
+
+    return config;
   },
   async redirects() {
     return [
@@ -66,6 +93,5 @@ const nextConfig = {
     ];
   },
 };
-
 
 export default nextConfig;

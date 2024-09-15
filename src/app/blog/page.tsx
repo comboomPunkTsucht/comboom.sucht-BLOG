@@ -1,9 +1,9 @@
-import { client } from "@/../tina/__generated__/client";
-import BlogPostCard from "@/components/BlogPostsCard";
-import Footer from "@/components/footer";
-import { NavBar } from "@/components/nav-bar";
+import { client } from '@/../tina/__generated__/client';
+import BlogPostCard from '@/components/BlogPostsCard';
+import Footer from '@/components/footer';
+import { NavBar } from '@/components/nav-bar';
 // app/blog/page.tsx
-import Link from "next/link";
+import Link from 'next/link';
 
 const Home = async () => {
   const { data } = await client.queries.postConnection();
@@ -26,7 +26,7 @@ const Home = async () => {
       <div className="container flex flex-col flex-wrap items-center justify-between p-4">
         <h1 className="mb-6 font-bold text-4xl">Blog</h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {" "}
+          {' '}
           {/* Flexbox Grid Layout */}
           {data.postConnection.edges.map((postEdge) => {
             // Überprüfen, ob post und post.node vorhanden sind
@@ -38,13 +38,13 @@ const Home = async () => {
             return (
               <div key={post.id} className="flex flex-col">
                 <Link
-                  href={`/blog/posts/${post._sys.filename}`}
+                  href={`/blog/writerside/posts/${post._sys.filename}`}
                   className="text-blue-500 hover:underline"
                 >
                   <BlogPostCard
-                    title={post.title || "Untitled"}
-                    date={post.date || "No date"}
-                    description={post.description || "No description"}
+                    title={post.title || 'Untitled'}
+                    date={post.date || 'No date'}
+                    description={post.description || 'No description'}
                   />
                 </Link>
               </div>

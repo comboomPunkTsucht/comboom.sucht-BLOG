@@ -1,7 +1,8 @@
 {
+	"identifier": "comboom.sucht",
 	"build": {
 		"devUrl": "http://localhost:3000",
-		"beforeDevCommand": "yarn dev",
+		"beforeDevCommand": "yarn tina-dev",
 		"frontendDist": "https://comboompunksucht.app/"
 	},
 	"bundle": {

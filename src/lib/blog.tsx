@@ -12,7 +12,7 @@ import html from "remark-html";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 
-const postsDirectory = path.join(process.cwd(), "public/blog/posts");
+const postsDirectory = path.join(process.cwd(), "public/blog/writerside/posts");
 
 export interface PostData {
   id: string;
@@ -25,7 +25,7 @@ export interface PostData {
 
 // Function to check if a directory should be ignored
 const shouldIgnoreDirectory = (dirName: string) => {
-  const ignoredDirectories = [".git", "pictures"];
+  const ignoredDirectories = [".git", "media"];
   return ignoredDirectories.includes(dirName);
 };
 
