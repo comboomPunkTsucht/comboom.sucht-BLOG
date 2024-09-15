@@ -21,7 +21,7 @@ test
 
 ---
 
-test ![Logo of comboom.sucht](/pictures/Logo-transparet-4x.png)
+test ![Logo of comboom.sucht](/media/Logo-transparet-4x.png)
 
 ---
 

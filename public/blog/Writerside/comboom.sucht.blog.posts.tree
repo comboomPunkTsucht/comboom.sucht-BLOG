@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="comboom.sucht.blog.posts"
+                 name="comboom.sucht Blog Posts" start-page="hello-world.md">
+
+    <toc-element topic="test.md"/>
+    <toc-element topic="test2.md"/>
+    <toc-element topic="hello-world.md"/>
+</instance-profile>

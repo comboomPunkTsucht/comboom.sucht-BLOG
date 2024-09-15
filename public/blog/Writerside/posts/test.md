@@ -23,7 +23,7 @@ test
 
 test
 
-![Logo of comboom.sucht](/pictures/Logo-transparet-4x.png)
+![Logo of comboom.sucht](/media/Logo-transparet-4x.png)
 
 ***
 
