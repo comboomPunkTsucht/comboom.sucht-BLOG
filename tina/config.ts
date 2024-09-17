@@ -33,7 +33,7 @@ export default defineConfig({
       {
         name: 'post',
         label: 'Posts',
-        path: 'public/blog/Writerside/posts',
+        path: 'public/blog/posts',
         match: {
           // Beispiel für das Einschließen von Markdown-Dateien mit Ausnahme der ausgeschlossenen
         },
@@ -72,8 +72,7 @@ export default defineConfig({
         ],
         ui: {
           // This is a DEMO router. You can remove this to fit your site
-          router: ({ document }) =>
-            `/blog/writerside/posts/${document._sys.filename}`,
+          router: ({ document }) => `/blog/posts/${document._sys.filename}`,
         },
       },
     ],

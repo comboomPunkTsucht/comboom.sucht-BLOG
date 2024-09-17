@@ -38,7 +38,7 @@ const Home = async () => {
             return (
               <div key={post.id} className="flex flex-col">
                 <Link
-                  href={`/blog/writerside/posts/${post._sys.filename}`}
+                  href={`/blog/posts/${post._sys.filename}`}
                   className="text-blue-500 hover:underline"
                 >
                   <BlogPostCard

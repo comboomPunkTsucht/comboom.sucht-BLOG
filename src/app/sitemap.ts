@@ -11,7 +11,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         process.cwd(),
         'public',
         'blog',
-        'writerside',
         'posts',
         `${postId.id}.md`,
       );
@@ -22,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
         // URL für die HTML-Version
         urls.push({
-          url: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/writerside/posts/${postId.id}`,
+          url: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/posts/${postId.id}`,
           lastModified:
             postData && postData.date ? new Date(postData.date) : new Date(),
           changeFrequency: 'daily' as const,
@@ -30,7 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         });
         // URL für die Markdown-Version
         urls.push({
-          url: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/writerside/posts/${postId.id}.md`,
+          url: `${process.env.HOST_URL || 'http://localhost:3000'}/blog/posts/${postId.id}.md`,
           lastModified:
             postData && postData.date ? new Date(postData.date) : new Date(),
           changeFrequency: 'daily' as const,
