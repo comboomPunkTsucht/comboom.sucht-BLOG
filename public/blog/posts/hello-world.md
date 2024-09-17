@@ -2,7 +2,7 @@
 title: 'Hello, World!'
 date: '2024-08-25'
 description: test
-author: mcpeapsUnterstrichHD
+author: mcpeaps_HD@outlook.com
 ---
 
 ## Hello World!

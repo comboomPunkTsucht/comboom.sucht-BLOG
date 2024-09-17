@@ -1,23 +1,20 @@
-"use client";
-
-import { PostQuery } from "@/../tina/__generated__/types";
-import AuthorBadge from "@/components/authorbadge";
-import Footer from "@/components/footer";
-import { NavBar } from "@/components/nav-bar";
-import { transformerCopyButton } from "@rehype-pretty/transformers";
-import { transformerNotationDiff } from "@shikijs/transformers";
-import axios from "axios";
-import { notFound } from "next/navigation";
-import { useEffect, useState } from "react";
-import rehypePrettyCode from "rehype-pretty-code";
-import rehypeStringify from "rehype-stringify";
-import { remark } from "remark";
-import remarkGfm from "remark-gfm";
-import html from "remark-html";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import { useTina } from "tinacms/dist/react";
-
+'use client';
+import { PostQuery } from '@/../tina/__generated__/types';
+import AuthorBadge from '@/components/authorbadge';
+import Footer from '@/components/footer';
+import { NavBar } from '@/components/nav-bar';
+import { transformerCopyButton } from '@rehype-pretty/transformers';
+import { transformerNotationDiff } from '@shikijs/transformers';
+import { notFound } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeStringify from 'rehype-stringify';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+import html from 'remark-html';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { useTina } from 'tinacms/dist/react';
 interface ClientPageProps {
   query: string;
   variables: {
@@ -25,7 +22,6 @@ interface ClientPageProps {
   };
   data: PostQuery;
 }
-
 interface JSONNode {
   type: string;
   children?: JSONNode[];
@@ -42,44 +38,44 @@ interface JSONNode {
 }
 
 function jsonToMarkdown(json: JSONNode): string {
-  if (json.type === "text") {
-    return json.text || "";
+  if (json.type === 'text') {
+    return json.text || '';
   }
 
-  const children = (json.children || []).map(jsonToMarkdown).join("");
+  const children = (json.children || []).map(jsonToMarkdown).join('');
   switch (json.type) {
-    case "h1":
+    case 'h1':
       return `# ${children}\n\n`;
-    case "h2":
+    case 'h2':
       return `## ${children}\n\n`;
-    case "h3":
+    case 'h3':
       return `### ${children}\n\n`;
-    case "h4":
+    case 'h4':
       return `#### ${children}\n\n`;
-    case "h5":
+    case 'h5':
       return `##### ${children}\n\n`;
-    case "h6":
+    case 'h6':
       return `###### ${children}\n\n`;
-    case "p":
+    case 'p':
       return `${children}\n\n`;
-    case "ul":
+    case 'ul':
       return `${children}`;
-    case "li":
+    case 'li':
       return `- ${children}\n`;
-    case "ol":
+    case 'ol':
       return `${children}`;
-    case "blockquote":
+    case 'blockquote':
       return `> ${children}\n\n`;
-    case "code_block":
-      return `\`\`\`${json.lang || ""}\n${json.value || ""}\n\`\`\`\n\n`;
-    case "img":
-      return `![${json.alt || ""}](${json.url || ""})\n\n`;
-    case "hr":
+    case 'code_block':
+      return `\`\`\`${json.lang || ''}\n${json.value || ''}\n\`\`\`\n\n`;
+    case 'img':
+      return `![${json.alt || ''}](${json.url || ''})\n\n`;
+    case 'hr':
       return `---\n\n`;
-    case "table":
+    case 'table':
       return renderTable(json);
-    case "html":
-      return `${json.value || ""}\n\n`; // Allows for custom HTML to pass through
+    case 'html':
+      return `${json.value || ''}\n\n`; // Allows for custom HTML to pass through
     default:
       return children;
   }
@@ -87,7 +83,7 @@ function jsonToMarkdown(json: JSONNode): string {
 
 function renderTable(json: JSONNode): string {
   if (!json.props || !json.props.tableRows) {
-    return "";
+    return '';
   }
 
   const headers = json.props.tableRows[0].tableCells.map(
@@ -97,12 +93,12 @@ function renderTable(json: JSONNode): string {
   const align = json.props.align || [];
   const alignmentRow = headers.map((_: string, index: number) => {
     switch (align[index]) {
-      case "center":
-        return ":---:";
-      case "right":
-        return "---:";
+      case 'center':
+        return ':---:';
+      case 'right':
+        return '---:';
       default:
-        return "---";
+        return '---';
     }
   });
 
@@ -111,13 +107,13 @@ function renderTable(json: JSONNode): string {
     .map((row: { tableCells: { value: JSONNode }[] }) =>
       row.tableCells
         .map((cell: { value: JSONNode }) => jsonToMarkdown(cell.value).trim())
-        .join(" | "),
+        .join(' | '),
     );
 
   return `
-| ${headers.join(" | ")} |
-| ${alignmentRow.join(" | ")} |
-| ${rows.join(" |\n| ")} |
+| ${headers.join(' | ')} |
+| ${alignmentRow.join(' | ')} |
+| ${rows.join(' |\n| ')} |
 \n\n`;
 }
 
@@ -130,7 +126,7 @@ const renderMarkdownToHTML = async (markdown: string): Promise<string> => {
       transformers: [
         transformerNotationDiff(),
         transformerCopyButton({
-          visibility: "always",
+          visibility: 'always',
           feedbackDuration: 3_000,
         }),
       ],
@@ -149,44 +145,59 @@ export default function Post(props: ClientPageProps) {
   });
 
   const [authorData, setAuthorData] = useState({
-    name: "",
-    email: "",
-    picture: "",
+    name: 'comboom.sucht',
+    email: 'comboom.sucht@comboompunksucht.app',
+    picture: '/media/1024.png',
+    username: 'comboomPunkTsucht',
   });
   const [loading, setLoading] = useState(true);
-  const [contentHtml, setContentHtml] = useState("");
+  const [contentHtml, setContentHtml] = useState('');
 
   useEffect(() => {
     const fetchAuthorData = async () => {
       try {
-        const authorUsername = data.post.author || "";
-        const yourDomain = process.env.AUTH0_ISSUER_BASE_URL;
-        const yourMgmtApiAccessToken = process.env.AUTH0_MGMT_API_ACCESS_TOKEN;
+        const authorEmail =
+          data.post.author || 'comboom.sucht@comboompunksucht.app';
+        console.log('Author Email:', authorEmail);
+        if (!authorEmail) {
+          console.error('Missing author username');
+          notFound();
+          return;
+        }
 
-        if (!authorUsername || !yourDomain || !yourMgmtApiAccessToken) {
+        const res = await fetch(`/api/auth/users/${authorEmail}`);
+        console.log(
+          `Response Status: ${res.status}, StatusText: ${res.statusText}`,
+        );
+
+        if (!res.ok) {
           console.error(
-            "Missing required environment variables or author data",
+            `Error fetching author data. Status: ${res.status}, StatusText: ${res.statusText}`,
           );
           notFound();
           return;
         }
 
-        const options = {
-          method: "GET",
-          url: `${yourDomain}/api/v2/users`,
-          params: { q: `nickname:"${authorUsername}"`, search_engine: "v3" },
-          headers: { authorization: `Bearer ${yourMgmtApiAccessToken}` },
-        };
+        const authorResponse = await res.json();
+        if (
+          !authorResponse.name &&
+          !authorResponse.email &&
+          !authorResponse.picture &&
+          !authorResponse.username
+        ) {
+          console.error('Author data is incomplete or missing');
+          notFound();
+          return;
+        }
 
-        const response = await axios.request(options);
-        const author_response_data = response.data[0];
         setAuthorData({
-          name: author_response_data.name || "",
-          email: author_response_data.email || "",
-          picture: author_response_data.picture || "",
+          name: authorResponse.name || 'comboom.sucht',
+          email: authorResponse.email || 'comboom.sucht@comboompunksucht.app',
+          picture: authorResponse.picture || '/media/1024.png',
+          username: authorResponse.username || 'comboomPunkTsucht',
         });
       } catch (error) {
-        console.error("Error fetching author data:", error);
+        console.error('Error fetching author data:', error);
         notFound();
       } finally {
         setLoading(false);
@@ -203,7 +214,7 @@ export default function Post(props: ClientPageProps) {
         const htmlContent = await renderMarkdownToHTML(markdownContent);
         setContentHtml(htmlContent);
       } catch (error) {
-        console.error("Error converting markdown to HTML:", error);
+        console.error('Error converting markdown to HTML:', error);
       }
     };
 
@@ -226,11 +237,12 @@ export default function Post(props: ClientPageProps) {
     );
   }
 
-  const dateStr = data.post.date || "";
+  const dateStr = data.post.date || '';
   const dateObj = new Date(dateStr);
-  const day = dateObj.getDate().toString().padStart(2, "0");
-  const month = (dateObj.getMonth() + 1).toString().padStart(2, "0");
+  const day = dateObj.getDate().toString().padStart(2, '0');
+  const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
   const year = dateObj.getFullYear().toString();
+  const fdateStr = `${day}/${month}/${year}`;
 
   return (
     <div>
@@ -240,15 +252,13 @@ export default function Post(props: ClientPageProps) {
       <main className="flex flex-grow flex-col items-start justify-start p-4">
         <article className="prose mx-auto">
           <h1 className="text-start font-bold text-4xl">{data.post.title}</h1>
-          <div className="text-start text-base text-gray-500">
-            {day + "/" + month + "/" + year}
-          </div>
+          <div className="text-start text-base text-gray-500">{fdateStr}</div>
           <div className="flex items-start justify-start">
             <AuthorBadge
               name={authorData.name}
-              githubUserName={data.post.author!}
+              githubUserName={authorData.username}
               email={authorData.email}
-              href={"https://github.com/" + data.post.author}
+              href={`https://github.com/${authorData.username}`}
               image={{
                 src: authorData.picture,
                 alt: authorData.name,
