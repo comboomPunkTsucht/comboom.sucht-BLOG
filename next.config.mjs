@@ -5,9 +5,7 @@ const nextConfig = {
     keepAlive: true,
   },
   onDemandEntries: {
-    // period (in ms) where the server will keep pages in the buffer
     maxInactiveAge: 24 * 60 * 60 * 1000,
-    // number of pages that should be kept simultaneously without being disposed
     pagesBufferLength: 16,
   },
   devIndicators: {
@@ -19,6 +17,18 @@ const nextConfig = {
     typedRoutes: false,
     ppr: true,
     reactCompiler: true,
+    turbo: {
+      moduleIdStrategy: 'deterministic',
+      resolveExtensions: [
+        '.md',
+        '.tsx',
+        '.ts',
+        '.jsx',
+        '.js',
+        '.mjs',
+        '.json',
+      ],
+    },
   },
   images: {
     unoptimized: true,
@@ -29,7 +39,6 @@ const nextConfig = {
       'assets.tina.io',
     ],
   },
-
   env: {
     AUTH0_ISSUER_BASE_URL: process.env.AUTH0_ISSUER_BASE_URL,
     AUTH0_MGMT_API_ACCESS_TOKEN: process.env.AUTH0_MGMT_API_ACCESS_TOKEN,
@@ -66,6 +75,5 @@ const nextConfig = {
     ];
   },
 };
-
 
 export default nextConfig;

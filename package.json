@@ -1,6 +1,8 @@
 {
   "name": "comboom.sucht",
   "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "dev": "tinacms dev -c \"next dev --turbo\"",
     "build": "tinacms build --skip-search-index && next build --no-lint",
@@ -50,6 +52,7 @@
     "@tauri-apps/api": "^2.0.0-rc.4",
     "@tauri-apps/plugin-shell": "^2.0.0-rc.1",
     "@tinacms/toolkit": "^1.7.13",
+    "@udecode/plate-serializer-md": "^37.0.0",
     "@vercel/analytics": "^1.3.1",
     "@vercel/flags": "^2.6.0",
     "@vercel/speed-insights": "^1.0.12",
@@ -62,6 +65,7 @@
     "cmdk": "1.0.0",
     "cookie": "^0.6.0",
     "crypto": "^1.0.1",
+    "crypto-browserify": "^3.12.0",
     "crypto-js": "^4.2.0",
     "date-fns": "^3.6.0",
     "entities": "^5.0.0",
@@ -75,6 +79,7 @@
     "next": "^15.0.0-rc.0",
     "next-sanity": "^9.4.7",
     "next-themes": "^0.3.0",
+    "node-polyfill-webpack-plugin": "^4.0.0",
     "novel": "^0.5.0",
     "parse5": "^7.1.2",
     "path": "^0.12.7",
@@ -106,12 +111,14 @@
     "slate-hyperscript": "^0.100.0",
     "slate-react": "^0.110.1",
     "sonner": "^1.5.0",
+    "stream-browserify": "^3.0.0",
     "styled-components": "^6.1.13",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "tinacms": "^2.2.3",
     "tree": "^0.1.3",
     "ts-node": "^10.9.2",
+    "unified": "^11.0.5",
     "use-debounce": "^10.0.3"
   },
   "devDependencies": {

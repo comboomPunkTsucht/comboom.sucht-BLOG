@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     creatorId: "1349452878545629186",
     images: [
       {
-        url: `${process.env.HOST_URL || "http://localhost:3000"}/pictures/1024.png`,
+        url: `${process.env.HOST_URL || "http://localhost:3000"}/media/1024.png`,
         alt: "Logo of comboom.sucht",
         width: 1024,
         height: 1024,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     url: `${process.env.HOST_URL || "http://localhost:3000"}`,
     images: [
       {
-        url: `${process.env.HOST_URL || "http://localhost:3000"}/pictures/1024.png`,
+        url: `${process.env.HOST_URL || "http://localhost:3000"}/media/1024.png`,
         alt: "Logo of comboom.sucht",
         width: 1024,
         height: 1024,

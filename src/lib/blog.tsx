@@ -1,18 +1,18 @@
 // lib/blog.ts
-import fs from "fs";
-import path from "path";
-import { transformerCopyButton } from "@rehype-pretty/transformers";
-import { transformerNotationDiff } from "@shikijs/transformers";
-import matter from "gray-matter";
-import rehypePrettyCode from "rehype-pretty-code";
-import rehypeStringify from "rehype-stringify";
-import { remark } from "remark";
-import remarkGfm from "remark-gfm";
-import html from "remark-html";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
+import fs from 'fs';
+import path from 'path';
+import { transformerCopyButton } from '@rehype-pretty/transformers';
+import { transformerNotationDiff } from '@shikijs/transformers';
+import matter from 'gray-matter';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeStringify from 'rehype-stringify';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+import html from 'remark-html';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
 
-const postsDirectory = path.join(process.cwd(), "public/blog/posts");
+const postsDirectory = path.join(process.cwd(), 'public/blog/posts');
 
 export interface PostData {
   id: string;
@@ -25,13 +25,13 @@ export interface PostData {
 
 // Function to check if a directory should be ignored
 const shouldIgnoreDirectory = (dirName: string) => {
-  const ignoredDirectories = [".git", "pictures"];
+  const ignoredDirectories = ['.git', 'media'];
   return ignoredDirectories.includes(dirName);
 };
 
 // Function to check if a file should be ignored
 const shouldIgnoreFile = (fileName: string) => {
-  const ignoredFiles = ["README.md", "LICENSE.md"];
+  const ignoredFiles = ['README.md', 'LICENSE.md', '.gitignore', '.gitkeep'];
   return ignoredFiles.includes(fileName);
 };
 
@@ -39,7 +39,7 @@ export function getSortedPostsData(): PostData[] {
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames
     .map((fileName) => {
-      const id = fileName.replace(/\.md$/, "");
+      const id = fileName.replace(/\.md$/, '');
       const fullPath = path.join(postsDirectory, fileName);
 
       // Überprüfen, ob der Pfad eine Datei oder ein Verzeichnis ist
@@ -57,7 +57,7 @@ export function getSortedPostsData(): PostData[] {
         return null;
       }
 
-      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
       const matterResult = matter(fileContents);
 
       return {
@@ -84,7 +84,7 @@ export function getAllPostIds(): PostData[] {
         return null;
       }
       return {
-        id: fileName.replace(/\.md$/, ""),
+        id: fileName.replace(/\.md$/, ''),
       };
     })
     .filter(Boolean) as PostData[]; // Filter out null values
@@ -92,7 +92,7 @@ export function getAllPostIds(): PostData[] {
 
 export async function getPostData(id: string): Promise<PostData> {
   const fullPath = path.join(postsDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
 
   const processedContent = await remark()
@@ -103,7 +103,7 @@ export async function getPostData(id: string): Promise<PostData> {
       transformers: [
         transformerNotationDiff(),
         transformerCopyButton({
-          visibility: "always",
+          visibility: 'always',
           feedbackDuration: 3_000,
         }),
       ],

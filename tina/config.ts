@@ -1,12 +1,12 @@
 // tina/config.ts
-import { defineConfig } from "tinacms";
+import { defineConfig } from 'tinacms';
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
-  "main";
+  'main';
 
 export default defineConfig({
   branch,
@@ -17,55 +17,55 @@ export default defineConfig({
   token: process.env.TINA_TOKEN,
 
   build: {
-    outputFolder: "admin",
-    publicFolder: "public",
+    outputFolder: 'admin',
+    publicFolder: 'public',
   },
   media: {
     tina: {
-      mediaRoot: "pictures",
-      publicFolder: "public",
-      static: false
+      mediaRoot: 'media',
+      publicFolder: 'public',
+      static: false,
     },
     accept: ['image/*', 'video/*'],
   },
   schema: {
     collections: [
       {
-        name: "post",
-        label: "Posts",
-        path: "public/blog/posts",
+        name: 'post',
+        label: 'Posts',
+        path: 'public/blog/posts',
         match: {
           // Beispiel für das Einschließen von Markdown-Dateien mit Ausnahme der ausgeschlossenen
         },
         fields: [
           {
-            type: "string",
-            name: "title",
-            label: "Title",
+            type: 'string',
+            name: 'title',
+            label: 'Title',
             required: true,
           },
           {
-            type: "string",
-            name: "date",
-            label: "Date",
+            type: 'string',
+            name: 'date',
+            label: 'Date',
             required: true,
           },
           {
-            type: "string",
-            name: "description",
-            label: "Description",
+            type: 'string',
+            name: 'description',
+            label: 'Description',
             required: true,
           },
           {
-            type: "string",
-            name: "author",
-            label: "Author",
+            type: 'string',
+            name: 'author',
+            label: 'Author',
             required: true,
           },
           {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
+            type: 'rich-text',
+            name: 'body',
+            label: 'Body',
             isBody: true,
             required: true,
           },
@@ -80,7 +80,7 @@ export default defineConfig({
   search: {
     tina: {
       indexerToken: process.env.TINA_SEARCH_TOKEN,
-      stopwordLanguages: ['deu','eng'],
+      stopwordLanguages: ['deu', 'eng'],
     },
     indexBatchSize: 100,
     maxSearchIndexFieldLength: 100,
