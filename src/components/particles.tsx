@@ -133,8 +133,8 @@ export default function Particles({
     const dy = (Math.random() - 0.5) * 0.2;
     const magnetism = 0.1 + Math.random() * 4;
     const color = getRandomColor(
-      `rgba(255,0,0,${alpha})`,
-      `rgba(0,255,0,${alpha})`,
+      `rgba(191,97,106,${alpha})`, // Nord red (nord11)
+      `rgba(163,190,140,${alpha})` // Nord green (nord14)
     );
     return {
       x,
