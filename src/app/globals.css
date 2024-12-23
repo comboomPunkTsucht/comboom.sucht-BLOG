@@ -4,48 +4,64 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --border: 360 100% 28.08%;
-    --input: 122.26 33.53% 82.64%;
-    --primary: 142.1 76.2% 36.3%;
-    --primary-foreground: 131.32 0% 100%;
-    --secondary: 0 76.22% 36.27%;
-    --secondary-foreground: 240 0% 100%;
-    --accent: 120 100% 89.22%;
-    --accent-foreground: 240 0% 0%;
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 142.1 76.2% 36.3%;
+    --background: 216 16% 16%; /* nord0 */
+    --foreground: 218 27% 94%; /* nord6 */
+    --muted: 220 16% 22%; /* nord1 */
+    --muted-foreground: 218 27% 80%; /* nord4 */
+    --popover: 222 16% 28%; /* nord2 */
+    --popover-foreground: 218 27% 94%; /* nord6 */
+    --card: 224 16% 32%; /* nord3 */
+    --card-foreground: 218 27% 94%; /* nord6 */
+    --border: 220 16% 22%; /* nord1 */
+    --input: 220 16% 22%; /* nord1 */
+    --primary: 193 43% 67%; /* nord8 */
+    --primary-foreground: 218 27% 94%; /* nord6 */
+    --secondary: 179 25% 65%; /* nord7 */
+    --secondary-foreground: 218 27% 94%; /* nord6 */
+    --accent: 210 34% 63%; /* nord9 */
+    --accent-foreground: 218 27% 94%; /* nord6 */
+    --destructive: 354 42% 56%; /* nord11 */
+    --destructive-foreground: 218 27% 94%; /* nord6 */
+    --ring: 193 43% 67%; /* nord8 */
     --radius: 0.5rem;
+    --sidebar-background: 220 16% 22%; /* nord1 */
+    --sidebar-foreground: 218 27% 80%; /* nord4 */
+    --sidebar-primary: 193 43% 67%; /* nord8 */
+    --sidebar-primary-foreground: 218 27% 94%; /* nord6 */
+    --sidebar-accent: 210 34% 63%; /* nord9 */
+    --sidebar-accent-foreground: 218 27% 94%; /* nord6 */
+    --sidebar-border: 224 16% 32%; /* nord3 */
+    --sidebar-ring: 193 43% 67%; /* nord8 */
   }
 
   .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 0 0% 95%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 240 5% 64.9%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 95%;
-    --card: 24 9.8% 10%;
-    --card-foreground: 0 0% 95%;
-    --border: 0 98.26% 20.18%;
-    --input: 124.53 14% 27.67%;
-    --primary: 142.1 70.6% 45.3%;
-    --primary-foreground: 144.9 80.4% 10%;
-    --secondary: 0 70.56% 45.29%;
-    --secondary-foreground: 0 80.39% 10%;
-    --accent: 120 100% 7.84%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 70.56% 45.29%;
-    --destructive-foreground: 0 80.39% 10%;
-    --ring: 142.4 71.8% 29.2%;
+    --background: 216 16% 16%; /* nord0 */
+    --foreground: 218 27% 94%; /* nord6 */
+    --muted: 220 16% 22%; /* nord1 */
+    --muted-foreground: 218 27% 80%; /* nord4 */
+    --popover: 222 16% 28%; /* nord2 */
+    --popover-foreground: 218 27% 94%; /* nord6 */
+    --card: 224 16% 32%; /* nord3 */
+    --card-foreground: 218 27% 94%; /* nord6 */
+    --border: 220 16% 22%; /* nord1 */
+    --input: 220 16% 22%; /* nord1 */
+    --primary: 193 43% 67%; /* nord8 */
+    --primary-foreground: 218 27% 94%; /* nord6 */
+    --secondary: 179 25% 65%; /* nord7 */
+    --secondary-foreground: 218 27% 94%; /* nord6 */
+    --accent: 210 34% 63%; /* nord9 */
+    --accent-foreground: 218 27% 94%; /* nord6 */
+    --destructive: 354 42% 56%; /* nord11 */
+    --destructive-foreground: 218 27% 94%; /* nord6 */
+    --ring: 193 43% 67%; /* nord8 */
+    --sidebar-background: 220 16% 22%; /* nord1 */
+    --sidebar-foreground: 218 27% 80%; /* nord4 */
+    --sidebar-primary: 193 43% 67%; /* nord8 */
+    --sidebar-primary-foreground: 218 27% 94%; /* nord6 */
+    --sidebar-accent: 210 34% 63%; /* nord9 */
+    --sidebar-accent-foreground: 218 27% 94%; /* nord6 */
+    --sidebar-border: 224 16% 32%; /* nord3 */
+    --sidebar-ring: 193 43% 67%; /* nord8 */
   }
 }
 
