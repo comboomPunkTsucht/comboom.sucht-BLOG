@@ -4,11 +4,10 @@ import Particles from "@/components/particles";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
-import { Analytics } from "@vercel/analytics/react";
-import { FlagValues } from "@vercel/flags/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import localFont from "next/font/local";
+
+export const runtime = "edge";
 
 export const metadata: Metadata = {
   title: "comboom.sucht | The Mgaming Group",
@@ -321,12 +320,9 @@ export default function RootLayout({
               <Particles quantity={400} refresh={true} />
               <div className="z-1 flex flex-1 flex-col">
                 {children}
-                <FlagValues values={values} />
               </div>
             </div>
           </ThemeProvider>
-          <SpeedInsights />
-          <Analytics />
         </UserProvider>
       </body>
     </html>
