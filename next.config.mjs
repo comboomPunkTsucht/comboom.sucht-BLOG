@@ -15,7 +15,6 @@ const nextConfig = {
   reactStrictMode: false,
   experimental: {
     typedRoutes: false,
-    ppr: true,
     reactCompiler: true,
     turbo: {
       moduleIdStrategy: 'deterministic',
@@ -34,8 +33,8 @@ const nextConfig = {
     unoptimized: true,
     domains: [
       'cdn.idx.dev',
-      'dev.comboompunksucht.app',
-      'comboompunksucht.app',
+      'dev.comboompunktsucht.app',
+      'comboompunktsucht.app',
       'assets.tina.io',
     ],
   },
