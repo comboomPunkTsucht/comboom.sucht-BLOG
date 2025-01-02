@@ -30,8 +30,8 @@ export default function manifest(): MyManifest {
       "minimal-ui",
       "window-controls-overlay",
     ],
-    background_color: "#000000",
-    theme_color: "#010101",
+    background_color: "#2E3440",
+    theme_color: "#2E3440",
     lang: "de-DE",
     prefer_related_applications: false,
     icons: [
