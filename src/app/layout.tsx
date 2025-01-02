@@ -273,20 +273,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const values = { exampleFlag: true, log_metadata: false };
-  if (values.log_metadata) {
-    console.log("metadata: " + metadata);
-  }
   return (
     <html lang="de" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#010101" />
+        <meta name="theme-color" content="#2E3440" />
         <meta
           name="start_url"
           content={`${process.env.HOST_URL || "http://localhost:3000"}`}
         />
-        <meta name="apple-mobile-web-app-status-bar-style" content="#010101" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#2E3440" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta
@@ -294,10 +290,10 @@ export default function RootLayout({
           content="comboom.sucht | The Mgaming Group"
         />
         <meta name="application-name" content="comboom.sucht" />
-        <meta name="msapplication-TileColor" content="#010101" />
+        <meta name="msapplication-TileColor" content="#2E3440" />
         <meta charSet="UTF-8" />
         <link rel="manifest" href="/manifest.webmanifest" />
-        <link rel="sitemap" href="/sitemap.xml" />
+        <link rel="sitemap" href="/sitemap" />
         <link rel="robots" href="/robots.txt" />
         <meta
           name="keywords"

@@ -56,17 +56,17 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/robots.txt',
-        destination: '/api/robots',
-        permanent: true,
-      },
-      {
         source: '/admin',
         destination: '/admin/index.html',
         permanent: true,
       },
       {
         source: '/admin.html',
+        destination: '/admin/index.html',
+        permanent: true,
+      },
+      {
+        source: '/admin/index',
         destination: '/admin/index.html',
         permanent: true,
       },
