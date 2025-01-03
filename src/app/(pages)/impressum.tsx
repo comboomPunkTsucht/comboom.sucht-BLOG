@@ -1,144 +1,70 @@
-import { StyleSheet, Image, Platform } from 'react-native';
-import { ThemedButton } from '@/components/ThemedButton';
-
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import { Colors } from '@/constants/Colors';
-import ThemedCodeSnipet from '@/components/code-sniped';
-import ThemedCodeBox from '@/components/code-box';
-import { ThemedTouchableOpacity } from '@/components/ThemedTouchableOpacity';
-import { useRouter } from 'expo-router';
+import { ThemedText } from '@/components/ThemedText';
+import { ExternalLink } from '@/components/ExternalLink';
 
-export default function More() {
-  const router = useRouter()
+export default function Impressum() {
+  const emailaddress = 'aps.fabian@outlook.com';
+  const phonenumber = '+4917645172171';
+  const maintainer = 'Aps, Fabian';
+
+  const Address = () => (
+    <>
+      <ThemedText>{maintainer}</ThemedText>
+      <ExternalLink href='https://maps.apple.com/?address=Ludwig-Renn-Stra%C3%9Fe%2033,%2012679%20Berlin,%20Deutschland&ll=52.551673,13.558337'>
+        <ThemedText>Ludwig-Renn-Straße 33</ThemedText>
+        <ThemedText>12679 Berlin, Deutschland</ThemedText>
+      </ExternalLink>
+    </>
+
+  );
+
+  const Email = () => (
+    <ExternalLink href={`mailto:${emailaddress}`}>
+      <ThemedText>{emailaddress}</ThemedText>
+    </ExternalLink>
+  );
+
+  const Phone = () => (
+    <ExternalLink href={`tel:${phonenumber}`}>
+      <ThemedText>{phonenumber}</ThemedText>
+    </ExternalLink>
+  );
+
+  const Contact = () => (
+    <>
+      <Phone />
+      <Email />
+    </>
+  );
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={Colors.blue}
-      headerImage={
-        <IconSymbol
-          size={225}
-          color={Colors.primary}
-          name="󱪗"
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="custom" style={{
-          fontWeight: 'light',
-          fontFamily: 'Sans-LightItalic',
-          fontStyle: 'italic',
-          fontSize: 69,
-          lineHeight: 69,
-          color: Colors.styles.text,
-        }}>More</ThemedText>
-      </ThemedView>
-      <ThemedCodeBox lang='java' >
-        {"public class Test {\n   public static void main(String argv[]) {\n      System.out.println(\"Hello world!\");\n   }\n}"}
-      </ThemedCodeBox>
-      <ThemedText >This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText  style={{lineHeight:24}}>
-          This app has two screens:{' '}
-          <ThemedCodeSnipet>app/(tabs)/index.tsx</ThemedCodeSnipet> and{' '}
-          <ThemedCodeSnipet>app/(tabs)/explore.tsx</ThemedCodeSnipet>
-        </ThemedText>
-        <ThemedText >
-          The layout file in <ThemedCodeSnipet>app/(tabs)/_layout.tsx</ThemedCodeSnipet>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText >
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="Sans-SemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText >
-          For static images, you can use the <ThemedText type="Sans-SemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="Sans-SemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image source={require('@public/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText >
-          Open <ThemedCodeSnipet>app/_layout.tsx</ThemedCodeSnipet> to see how to load{' '}
-          <ThemedText type='Serif-Regular'>
-            custom fonts such as this one.
-          </ThemedText>
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText >
-          This template has light and dark mode support. The{' '}
-          <ThemedCodeSnipet>useColorScheme()</ThemedCodeSnipet> hook lets you inspect
-          what the user's current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText >
-          This template includes an example of an animated component. The{' '}
-          <ThemedCodeSnipet>components/HelloWave.tsx</ThemedCodeSnipet> component uses
-          the powerful <ThemedCodeSnipet>react-native-reanimated</ThemedCodeSnipet>{' '}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText >
-              The <ThemedText type="Sans-SemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-      <ThemedTouchableOpacity onPress={() => router.push('/test-not-found')}>
-        <ThemedText
-          type={'Sans-SemiBold'}
-          style={{
-            color: Colors.gray,
-          }}
-        >
-          Test Not Found Page
-        </ThemedText>
-      </ThemedTouchableOpacity>
-      <ThemedTouchableOpacity onPress={() => router.push('/blog/post/hello-world')}>
-        <ThemedText
-          type={'Sans-SemiBold'}
-          style={{
-            color: Colors.gray,
-          }}
-        >
-          Test Blog Post
-        </ThemedText>
-      </ThemedTouchableOpacity>
-    </ParallaxScrollView>
+    <ThemedView style={styles.container}>
+      <ThemedText type='title' style={styles.title}>Impressum</ThemedText>
+      <ThemedText type='subtitle' style={styles.subtitle}>Angaben gemäß § 5 TMG:</ThemedText>
+      <Address />
+
+      <ThemedText type='subtitle' style={styles.subtitle}>Kontakt:</ThemedText>
+      <Contact />
+
+      <ThemedText type='subtitle' style={styles.subtitle}>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</ThemedText>
+      <Address />
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  headerImage: {
+  container: {
     flex: 1,
-    alignSelf: 'center',
+    padding: 20,
   },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  }
+  title: {
+    marginTop: 25,
+    marginBottom: 20,
+  },
+  subtitle: {
+    marginTop: 15,
+    marginBottom: 10,
+  },
 });
