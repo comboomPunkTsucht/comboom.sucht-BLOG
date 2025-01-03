@@ -2,8 +2,8 @@ import { ExpoConfig, ConfigContext } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: 'Fabian Aps',
-  slug: 'mahd',
+  name: 'comboom.sucht',
+  slug: 'cbps',
   version: '1.0.0',
   orientation: 'portrait',
   icon: './public/images/icon.png',
@@ -12,19 +12,24 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   newArchEnabled: true,
   ios: {
     supportsTablet: true,
-    bundleIdentifier: 'com.mcpeapsunterstrichhd.mahd',
+    bundleIdentifier: 'com.comboompunktsucht.cbps',
     splash: {
       image: './public/images/splash-icon.png',
       backgroundColor: '#2E3440'
     },
     usesBroadcastPushNotifications: true,
+    icon: {
+      light: './public/images/icon-ios-light/1024×1024.png',
+      dark: './public/images/icon-ios-dark/1024×1024.png',
+      tinted: './public/images/icon-ios-tinted/1024×1024.png'
+    }
   },
   android: {
     adaptiveIcon: {
       foregroundImage: './public/images/adaptive-icon.png',
       backgroundColor: '#2E3440'
     },
-    package: 'com.mcpeapsunterstrichhd.mahd',
+    package: 'com.comboompunktsucht.cbps',
     splash: {
       image: './public/images/splash-icon.png',
       backgroundColor: '#2E3440'
@@ -102,12 +107,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       origin: false
     },
     eas: {
-      projectId: '430ce8fe-2616-416e-8335-8a97f80974fc'
+      projectId: 'bdbe313c-515a-4222-81bf-86b57552069a'
     }
   },
-  owner: 'mcpeaps_hd',
-  githubUrl: 'https://github.com/mcpeapsUnterstrichHD/mcpeapsUnterstrichHD',
+  owner: 'comboompunktsucht',
+  githubUrl: 'https://github.com/comboomPunkTsucht/comboom.sucht-BLOG',
   platforms: ['android', 'ios', 'web'],
-  description: 'Fabian Aps | Portfolio',
+  description: 'the MGaming Group',
   primaryColor: '#2E3440',
 });

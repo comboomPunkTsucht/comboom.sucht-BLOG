@@ -9,10 +9,13 @@
     "ios:go": "expo start --ios --https --go",
     "web:go": "expo start --web --https --go",
     "start:dev": "expo start --https --dev-client",
-    "android:dev": "expo start --android --dev-client",
-    "ios:dev": "expo start --ios --dev-client",
-    "ios:dev2": "expo run:ios",
+    "android:dev:go": "expo start --android --dev-client",
+    "ios:dev:go": "expo start --ios --dev-client",
     "web:dev": "expo start --web --dev-client",
+    "ios:dev:build:local:sim": "expo run:ios",
+    "android:dev:build:local:sim": "expo run:android",
+    "ios:dev:build:local:device": "expo run:ios --device",
+    "android:dev:build:local:device": "expo run:android --device",
     "start:prod": "expo start --https --no-dev",
     "android:prod": "expo start --android --https --no-dev",
     "ios:prod": "expo start --ios --https --no-dev",
@@ -30,7 +33,9 @@
     "build:prod": "expo export --profile production",
     "build:dev": "expo export --profile development",
     "reset-project": "node ./scripts/reset-project.js",
-    "doctor": "expo-doctor"
+    "doctor": "expo-doctor",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "jest": {
     "preset": "jest-expo"

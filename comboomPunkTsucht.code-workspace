@@ -8,11 +8,13 @@
 		"ColorfulMonorepo.workspaces.collection": [
 			{
 				"path": ".",
-				"packageName": "mcpeapsunterstrichhd",
-				"label": "🌱  mcpeapsunterstrichhd",
+				"packageName": "comboomPunkTsucht",
+				"label": "🌱  comboomPunkTsucht",
 				"foreground": "#000000",
 				"background": "#759c83"
 			}
-		]
+		],
+		"expoFontLoader.appJsonPath": "app.config.ts",
+		"expoFontLoader.appTsxPath": "index.ts"
 	}
 }
