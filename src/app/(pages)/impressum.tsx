@@ -108,7 +108,7 @@ export default function More() {
           ),
         })}
       </Collapsible>
-      <ThemedTouchableOpacity onPress={() => router.replace('/test-not-found')}>
+      <ThemedTouchableOpacity onPress={() => router.push('/test-not-found')}>
         <ThemedText
           type={'Sans-SemiBold'}
           style={{
@@ -116,6 +116,16 @@ export default function More() {
           }}
         >
           Test Not Found Page
+        </ThemedText>
+      </ThemedTouchableOpacity>
+      <ThemedTouchableOpacity onPress={() => router.push('/blog/post/hello-world')}>
+        <ThemedText
+          type={'Sans-SemiBold'}
+          style={{
+            color: Colors.gray,
+          }}
+        >
+          Test Blog Post
         </ThemedText>
       </ThemedTouchableOpacity>
     </ParallaxScrollView>

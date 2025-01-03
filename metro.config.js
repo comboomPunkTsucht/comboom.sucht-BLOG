@@ -11,7 +11,7 @@ const config = getDefaultConfig(__dirname, {
     server: {
         port: 3000,
     },
-    assetExts: ['png', 'jpg', 'jpeg', 'gif','svg'],
+    assetExts: ['png', 'jpg', 'jpeg', 'gif','svg','md'],
     platforms: ['web'],
 
 });

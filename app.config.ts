@@ -81,6 +81,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     androidMode: 'collapse',
     androidCollapsedTitle: '#{unread_notifications} new Notifications from mcpeaps_HD',
   },
+  assetBundlePatterns: [
+    '**/*'
+  ],
   plugins: [
     'expo-router',
     'react-native-v8',
@@ -93,9 +96,15 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     ], [
       'expo-asset',
       {
-        assets: [
-          './public'
-        ]
+        images: [
+          './public/images/**/*',
+        ],
+        posts: [
+          './public/blog/posts/*.md',
+        ],
+        fonts: [
+          './public/fonts/**/*',
+        ],
       }
     ]
   ],

@@ -66,33 +66,33 @@ export default function TabLayout() {
           }}
         />
         <Drawer.Screen
-          name="aboutme"
+          name="blog/index"
           options={{
-            title: 'About Me',
-            headerTitle: 'About Me',
-            drawerIcon: ({ size, color}) => (<IconSymbol size={32} name="" color={color} style={{
+            title: 'Blog',
+            headerTitle: 'Blog',
+            drawerIcon: ({ size, color }) => (<IconSymbol size={32} name="󱪙" color={color} style={{
               fontSize: size,
               lineHeight: size,
             }} />),
           }}
         />
         <Drawer.Screen
-          name="projects"
+          name="blog/post/[id]"
           options={{
-            title: 'Projekte',
-            headerTitle: 'Projekte',
+            title: 'Blog Post',
+            headerTitle: 'Blog',
+            drawerIcon: ({ size, color }) => (<IconSymbol size={32} name="󱪙" color={color} style={{
+              fontSize: size,
+              lineHeight: size,
+            }} />),
+          }}
+        />
+        <Drawer.Screen
+          name="rss"
+          options={{
+            title: 'RSS',
+            headerTitle: 'RSS',
             drawerIcon: ({ size, color}) => (<IconSymbol size={32} name="" color={color} style={{
-              fontSize: size,
-              lineHeight: size,
-            }} />),
-          }}
-        />
-        <Drawer.Screen
-          name="lebenslauf"
-          options={{
-            title: 'Lebenslauf',
-            headerTitle: 'Lebenslauf',
-            drawerIcon: ({ size, color}) => (<IconSymbol size={32} name="󱪙" color={color} style={{
               fontSize: size,
               lineHeight: size,
             }} />),

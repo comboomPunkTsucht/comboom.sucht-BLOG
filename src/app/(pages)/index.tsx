@@ -18,10 +18,10 @@ export default function HomeScreen() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText  type="title">Fabian Aps</ThemedText>
+        <ThemedText  type="title">comboom.sucht</ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">ITler/DJ/Producer aus Leidenschaft</ThemedText>
+        <ThemedText type="subtitle">The MGaming Group</ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );

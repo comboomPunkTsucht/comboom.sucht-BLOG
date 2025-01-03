@@ -1,5 +1,5 @@
 import type { PropsWithChildren, ReactElement } from 'react';
-import { StyleSheet } from 'react-native';
+import { ScrollViewProps, StyleSheet } from 'react-native';
 import Animated, {
   interpolate,
   useAnimatedRef,
@@ -7,12 +7,12 @@ import Animated, {
   useScrollViewOffset,
 } from 'react-native-reanimated';
 
-import { ThemedView } from '../ThemedView';
+import { ThemedView, ThemedViewProps } from '../ThemedView';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 var HEADER_HEIGHT = 390;
 
-type Props = PropsWithChildren<{
+type Props = ThemedViewProps & ScrollViewProps & PropsWithChildren<{
   headerImage: ReactElement;
   headerBackgroundColor: string;
 }>;
@@ -21,6 +21,7 @@ export default function ParallaxScrollView({
   children,
   headerImage,
   headerBackgroundColor,
+  contentInsetAdjustmentBehavior,
 }: Props) {
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollViewOffset(scrollRef);
@@ -48,7 +49,8 @@ export default function ParallaxScrollView({
         ref={scrollRef}
         scrollEventThrottle={16}
         scrollIndicatorInsets={{ bottom }}
-        contentContainerStyle={{ paddingBottom: bottom }}>
+        contentContainerStyle={{ paddingBottom: bottom }}
+        contentInsetAdjustmentBehavior={contentInsetAdjustmentBehavior}>
         <Animated.View
           style={[
             styles.header,
