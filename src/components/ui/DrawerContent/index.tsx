@@ -21,8 +21,8 @@ export default function MyDrawerContent(props: any) {
             <ThemedTouchableOpacity onPress={() => router.replace('/')}>
                 <ThemedView>
                     <Image source={require('@public/images/icon.png')}style={styles.reactLogo}/>
-                    <ThemedText type={'title'} style={{alignSelf: 'center',}}>Fabian Aps</ThemedText>
-                    <ThemedText type='subtitle' style={{alignSelf: 'center',}}>ITler/DJ/Producer</ThemedText>
+                    <ThemedText type='title' style={{alignSelf: 'center',}}>comboom.sucht</ThemedText>
+                    <ThemedText type='subtitle' style={{alignSelf: 'center',}}>The MGaming Group</ThemedText>
                 </ThemedView>
             </ThemedTouchableOpacity>
             <DrawerContentScrollView {...props}
@@ -49,7 +49,7 @@ export default function MyDrawerContent(props: any) {
                     <ThemedText type={'Sans-SemiBold'} style={{
                         color: Colors.gray,
                     }}>
-                        &copy; {today.getFullYear()} Fabian Aps
+                        &copy; {today.getFullYear()} comboom.sucht
                     </ThemedText>
                 </ThemedTouchableOpacity>
                 <ThemedView style={{
@@ -57,12 +57,8 @@ export default function MyDrawerContent(props: any) {
                     padding: 2,
                     gap:2,
                 }}>
-                    <ExternalLink href='https://link.me/mcpeaps_hd'>
-                        <ThemedText type={'link'} style={{color: Colors.styles.text,}}>Linkhub</ThemedText>
-                    </ExternalLink>
-                    <ThemedText type={'Sans-Regular'} style={{ color: Colors.styles.text, }}>|</ThemedText>
                     <ThemedTouchableOpacity onPress={() => router.replace('/')}>
-                        <ThemedText type={'link'} style={{ color: Colors.styles.text, }}>Fabian Aps</ThemedText>
+                        <ThemedText type={'link'} style={{ color: Colors.styles.text, }}>comboom.sucht</ThemedText>
                     </ThemedTouchableOpacity>
                     <ThemedText type={'Sans-Regular'} style={{ color: Colors.styles.text, }}>|</ThemedText>
                     <ThemedTouchableOpacity onPress={() => router.replace('/impressum')}>

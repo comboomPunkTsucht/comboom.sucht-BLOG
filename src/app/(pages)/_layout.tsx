@@ -66,39 +66,6 @@ export default function TabLayout() {
           }}
         />
         <Drawer.Screen
-          name="blog/index"
-          options={{
-            title: 'Blog',
-            headerTitle: 'Blog',
-            drawerIcon: ({ size, color }) => (<IconSymbol size={32} name="󱪙" color={color} style={{
-              fontSize: size,
-              lineHeight: size,
-            }} />),
-          }}
-        />
-        <Drawer.Screen
-          name="blog/post/[id]"
-          options={{
-            title: 'Blog Post',
-            headerTitle: 'Blog',
-            drawerIcon: ({ size, color }) => (<IconSymbol size={32} name="󱪙" color={color} style={{
-              fontSize: size,
-              lineHeight: size,
-            }} />),
-          }}
-        />
-        <Drawer.Screen
-          name="rss"
-          options={{
-            title: 'RSS',
-            headerTitle: 'RSS',
-            drawerIcon: ({ size, color}) => (<IconSymbol size={32} name="" color={color} style={{
-              fontSize: size,
-              lineHeight: size,
-            }} />),
-          }}
-        />
-        <Drawer.Screen
           name="impressum"
           options={{
             title: 'Impressum',

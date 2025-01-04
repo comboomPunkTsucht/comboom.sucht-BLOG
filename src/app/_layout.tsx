@@ -8,13 +8,13 @@ import 'expo-dev-client';
 import { Colors } from '@/constants/Colors';
 import { ThemedTouchableOpacity } from '@/components/ThemedTouchableOpacity';
 import { ThemedText } from '@/components/ThemedText';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 SplashScreen.setOptions({
   fade: true,
 });
+
 
 export default function App() {
   const router = useRouter()
@@ -66,7 +66,6 @@ export default function App() {
   if (!loaded) {
     return null;
   }
-
 
   return (
     <>
