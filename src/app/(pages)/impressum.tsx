@@ -10,33 +10,36 @@ export default function Impressum() {
   const maintainer = 'Aps, Fabian';
 
   const Address = () => (
-    <>
+    <ThemedView>
       <ThemedText>{maintainer}</ThemedText>
-      <ExternalLink href='https://maps.apple.com/?address=Ludwig-Renn-Stra%C3%9Fe%2033,%2012679%20Berlin,%20Deutschland&ll=52.551673,13.558337'>
-        <ThemedText>Ludwig-Renn-Straße 33</ThemedText>
-        <ThemedText>12679 Berlin, Deutschland</ThemedText>
+      <ExternalLink
+        href='https://maps.apple.com/?address=Ludwig-Renn-Stra%C3%9Fe%2033,%2012679%20Berlin,%20Deutschland&ll=52.551673,13.558337'
+      >
+        <ThemedView style={{ flexDirection: 'column' }}>
+          <ThemedText>Ludwig-Renn-Straße 33</ThemedText>
+          <ThemedText>12679 Berlin</ThemedText>
+          <ThemedText>Deutschland</ThemedText>
+        </ThemedView>
       </ExternalLink>
-    </>
+    </ThemedView>
 
-  );
-
-  const Email = () => (
-    <ExternalLink href={`mailto:${emailaddress}`}>
-      <ThemedText>{emailaddress}</ThemedText>
-    </ExternalLink>
-  );
-
-  const Phone = () => (
-    <ExternalLink href={`tel:${phonenumber}`}>
-      <ThemedText>{phonenumber}</ThemedText>
-    </ExternalLink>
   );
 
   const Contact = () => (
-    <>
-      <Phone />
-      <Email />
-    </>
+    <ThemedView style={{ flexDirection: 'column' }}>
+      <ThemedView style={{ flexDirection: 'row' }}>
+        <ThemedText>Telefon: </ThemedText>
+        <ExternalLink href={`tel:${phonenumber}`}>
+          <ThemedText>{phonenumber}</ThemedText>
+        </ExternalLink>
+      </ThemedView>
+      <ThemedView style={{ flexDirection: 'row' }}>
+        <ThemedText>E-Mail: </ThemedText>
+        <ExternalLink href={`mailto:${emailaddress}`}>
+          <ThemedText>{emailaddress}</ThemedText>
+        </ExternalLink>
+      </ThemedView>
+    </ThemedView>
   );
 
   return (
