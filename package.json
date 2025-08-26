@@ -40,6 +40,12 @@
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.0.6",
     "tailwindcss-animate": "^1.0.7",
+    "unplugin-auto-import": "^20.0.0",
+    "vite-plugin-live-reload": "^3.0.5",
+    "vite-plugin-pwa": "^1.0.3",
+    "vite-plugin-qrcode": "^0.3.0",
+    "vite-plugin-react-rich-svg": "^1.2.1",
+    "vite-plugin-restart": "^1.0.0",
     "vite-tsconfig-paths": "^5.1.4",
     "zod": "^3.24.2"
   },

@@ -3,6 +3,14 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
+import { cloudflare } from "@cloudflare/vite-plugin";
+import richSvg from "vite-plugin-react-rich-svg";
+import liveReload from 'vite-plugin-live-reload'
+import { qrcode } from 'vite-plugin-qrcode';
+import AutoImport from 'unplugin-auto-import/vite'
+import ViteRestart from 'vite-plugin-restart'
+//import biomePlugin from 'vite-plugin-biome'
+import { VitePWA } from 'vite-plugin-pwa'
 
 import { wrapVinxiConfigWithSentry } from '@sentry/tanstackstart-react'
 
@@ -17,6 +25,21 @@ const config = defineConfig({
       customViteReactPlugin: true,
     }),
     viteReact(),
+    cloudflare(
+      { viteEnvironment:{name: "ssr"}, persistState: true, },
+    ),
+    richSvg(),
+    qrcode(),
+    liveReload("@/{routs,components,lib,app,data,hooks}/**/*.{js,ts,jsx,tsx}"),
+    AutoImport({}),
+    ViteRestart({
+      restart: ['@/assets/**/*', './assets/**/*' ],
+    }),
+    //biomePlugin({
+    //  mode: 'check',
+    //  applyFixes: true
+    //}),
+    VitePWA()
   ],
 })
 
